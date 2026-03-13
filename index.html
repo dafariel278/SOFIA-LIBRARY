@@ -82,7 +82,6 @@ nav.scrolled{box-shadow:var(--sh)}
 .hstats{display:flex;gap:30px;margin-top:40px}
 .hs-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--p)}
 .hs-lbl{font-size:12px;color:var(--tx3);font-weight:500;margin-top:3px}
-/* Floating books */
 .bvis{position:relative;height:460px}
 .bfloat{position:absolute;cursor:pointer;transition:transform .4s}
 .bfloat:hover{transform:scale(1.1) !important;z-index:10}
@@ -117,7 +116,6 @@ section{padding:80px 5%}
 .bsearch button{padding:13px 20px;border-radius:12px;background:var(--p);color:white;border:none;font-weight:600;cursor:pointer;transition:background .2s}
 .bsearch button:hover{background:var(--p2)}
 .bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(162px,1fr));gap:20px}
-/* Book card — hardcover 3D */
 .bc{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--bdr);cursor:pointer;transition:all .3s;position:relative}
 .bc:hover{transform:translateY(-10px) scale(1.025);box-shadow:var(--sh2);border-color:transparent}
 .bc-cw{position:relative;aspect-ratio:2/3;overflow:hidden}
@@ -131,18 +129,14 @@ section{padding:80px 5%}
 .bc-title{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;line-height:1.4;margin-bottom:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .bc-author{font-size:11px;color:var(--tx3);margin-bottom:6px}
 .bc-badge{font-size:10px;color:var(--teal);font-weight:700;background:rgba(46,158,138,.1);padding:2px 8px;border-radius:10px;display:inline-block}
-/* Cover fallback */
 .bc-fallback{width:100%;aspect-ratio:2/3;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;font-family:'Playfair Display',serif}
 .bc-fallback-title{font-size:14px;font-weight:800;line-height:1.3;color:white;margin-bottom:8px}
 .bc-fallback-author{font-size:11px;color:rgba(255,255,255,.75)}
-/* Skeleton */
 .bskel{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--bdr);animation:shim 1.5s infinite}
 .sk-c{width:100%;aspect-ratio:2/3;background:var(--bg2)}
 .sk-i{padding:12px}
 .sk-l{height:10px;background:var(--bg2);border-radius:5px;margin-bottom:7px}
 @keyframes shim{0%,100%{opacity:1}50%{opacity:.55}}
-
-/* NO RESULTS */
 .no-results{text-align:center;padding:60px 20px;grid-column:1/-1}
 .no-results i{font-size:48px;color:var(--tx3);margin-bottom:16px;display:block}
 .no-results p{font-size:15px;color:var(--tx2)}
@@ -152,7 +146,6 @@ section{padding:80px 5%}
 .ro.open{background:rgba(0,0,0,.9);visibility:visible}
 .rm{background:#FEFAF4;border-radius:22px;width:96%;max-width:1050px;height:91vh;display:flex;flex-direction:column;transform:scale(.92) translateY(30px);opacity:0;transition:all .4s;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.6)}
 .ro.open .rm{transform:scale(1) translateY(0);opacity:1}
-/* Night mode */
 .rm.night{background:#1E1A2E}
 .rm.night .rc{background:#1E1A2E}
 .rm.night .rp{color:#D4C8E4}
@@ -161,7 +154,6 @@ section{padding:80px 5%}
 .rm.night .rbt{background:#17142A;border-top-color:#2E2A3E}
 .rm.night .ch-item{color:#A89CC0}
 .rm.night .ch-item:hover,.rm.night .ch-item.on{color:white;background:rgba(255,255,255,.08)}
-/* Top bar */
 .rtop{display:flex;align-items:center;gap:12px;padding:13px 20px;background:var(--p);color:white;flex-shrink:0}
 .r-cov{width:32px;height:46px;border-radius:5px;object-fit:cover;flex-shrink:0}
 .r-ttl{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -171,34 +163,34 @@ section{padding:80px 5%}
 .rb.cls:hover{background:var(--acc)}
 .rb-pdf{padding:0 12px;width:auto;font-size:11px;font-weight:700;gap:5px;white-space:nowrap;background:rgba(46,158,138,.7)}
 .rb-pdf:hover{background:var(--teal) !important}
-/* Progress */
 .rpbar{height:3px;background:rgba(255,255,255,.15);flex-shrink:0}
 .rpfill{height:100%;background:#3CBFA5;transition:width .4s}
-/* Body */
 .rbody{flex:1;display:flex;overflow:hidden}
-/* Sidebar */
 .rs{width:220px;flex-shrink:0;background:#F0EAE0;border-right:1px solid var(--bdr);overflow-y:auto;padding-bottom:20px}
 .rs h4{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--tx);padding:16px 16px 12px;border-bottom:1px solid var(--bdr);position:sticky;top:0;background:#F0EAE0;z-index:1}
 .ch-item{padding:10px 16px;cursor:pointer;font-size:12px;color:var(--tx2);transition:all .2s;border-left:3px solid transparent;line-height:1.45}
 .ch-item:hover,.ch-item.on{background:rgba(27,58,107,.08);color:var(--p);border-left-color:var(--p);font-weight:600}
-/* Content */
 .rc{flex:1;overflow-y:auto;padding:48px 56px;background:#FEFAF4}
 .rp{font-family:'Lora',serif;font-size:18px;line-height:1.95;color:#2A2520;max-width:700px;margin:0 auto;transition:opacity .25s}
 .rp h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--p);margin-bottom:28px;line-height:1.3;border-bottom:2px solid var(--bdr);padding-bottom:14px}
 .rp p{margin-bottom:1.4em;text-indent:1.8em}
 .rp p:first-of-type,.rp p.nodent{text-indent:0}
 .drop-cap p:first-of-type::first-letter{float:left;font-family:'Playfair Display',serif;font-size:66px;font-weight:800;line-height:.72;color:var(--p);margin-right:8px;margin-top:6px}
-/* Loading */
 .rload{display:flex;align-items:center;justify-content:center;height:100%;flex-direction:column;gap:16px;color:var(--tx2)}
 .rspin{width:42px;height:42px;border:3px solid var(--bdr);border-top-color:var(--p);border-radius:50%;animation:spin .8s linear infinite}
 .rload p{font-size:14px;color:var(--tx3)}
 @keyframes spin{to{transform:rotate(360deg)}}
-/* Bottom bar */
 .rbt{display:flex;align-items:center;justify-content:space-between;padding:11px 20px;background:var(--card);border-top:1px solid var(--bdr);flex-shrink:0;gap:12px}
 .rnav{padding:8px 18px;border-radius:10px;border:none;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
 .rprev{background:var(--bg2);color:var(--tx2)}.rprev:hover{background:var(--bdr)}
 .rnext{background:var(--p);color:white}.rnext:hover{background:var(--p2)}
 .rpi{font-size:12px;color:var(--tx3);font-weight:500;text-align:center}
+/* Fallback reader card */
+.fallback-card{background:linear-gradient(135deg,var(--bg) 0%,var(--card) 100%);border:1.5px solid var(--bdr);border-radius:16px;padding:28px;margin-top:20px}
+.fallback-card h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--p);margin-bottom:12px}
+.fallback-card p{font-size:14px;color:var(--tx2);line-height:1.75;margin-bottom:10px}
+.gut-link{display:inline-flex;align-items:center;gap:8px;background:var(--p);color:white;padding:10px 20px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:600;margin-top:10px;transition:background .2s}
+.gut-link:hover{background:var(--p2)}
 
 /* ENGLISH */
 #english{background:var(--bg)}
@@ -391,9 +383,9 @@ footer{background:#131126;color:white;padding:56px 5% 26px}
   <div class="horb o1"></div><div class="horb o2"></div><div class="horb o3"></div>
   <div class="hi">
     <div class="hl">
-      <div class="hbadge" id="h-badge">100% Free Digital Library</div>
-      <h1 class="hh1"><span id="h-t1">Read Great Books.</span><br/><em id="h-t2">All Free. Right Here.</em></h1>
-      <p class="hp" id="h-sub">Sofia Library — every book is 100% free, public domain, and readable in full directly inside this website. No links, no paywall, no account needed.</p>
+      <div class="hbadge" id="h-badge">Public Domain Digital Library</div>
+      <h1 class="hh1"><span id="h-t1">World's Greatest Books.</span><br/><em id="h-t2">Free. In Full. Right Here.</em></h1>
+      <p class="hp" id="h-sub">Sofia Library is a curated digital reading platform offering 50+ timeless classics — from Jane Austen to Sherlock Holmes — fully readable in-browser at no cost. No account, no paywall, no redirects. Just great literature, instantly accessible to everyone.</p>
       <div class="hbtns">
         <a href="#books" class="bpri"><i class="fas fa-book-open"></i> <span id="h-b1">Start Reading</span></a>
         <a href="#cats" class="bout"><i class="fas fa-th"></i> <span id="h-b2">Browse Categories</span></a>
@@ -401,7 +393,7 @@ footer{background:#131126;color:white;padding:56px 5% 26px}
       <div class="hstats">
         <div><div class="hs-num">50+</div><div class="hs-lbl" id="hs1">Curated Books</div></div>
         <div><div class="hs-num">8</div><div class="hs-lbl" id="hs2">Categories</div></div>
-        <div><div class="hs-num">100%</div><div class="hs-lbl" id="hs3">Free & Full Text</div></div>
+        <div><div class="hs-num">100%</div><div class="hs-lbl" id="hs3">Free & In-Browser</div></div>
       </div>
     </div>
     <div class="hr"><div class="bvis" id="heroBooks"></div></div>
@@ -473,7 +465,7 @@ footer{background:#131126;color:white;padding:56px 5% 26px}
       <div class="qq" id="qQ"></div>
       <div class="qopts" id="qOpts"></div>
       <div class="qfb" id="qFb"></div>
-      <button class="qnxt" id="qNxt" onclick="nextQ()" id="q-nxt">Next Question →</button>
+      <button class="qnxt" id="qNxt" onclick="nextQ()">Next Question →</button>
     </div>
   </div>
 </div></section>
@@ -499,7 +491,7 @@ footer{background:#131126;color:white;padding:56px 5% 26px}
         <img class="nlogo-img" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/7QCEUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAGgcAigAYkZCTUQwYTAwMGFlMzAxMDAwMGJhMDMwMDAwY2YwNTAwMDA1NTA2MDAwMGU4MDYwMDAwZDcwYTAwMDAwNDEwMDAwMDVlMTAwMDAwMGQxMTAwMDA5NTExMDAwMGQxMTYwMDAwAP/bAIQABQYGCwgLCwsLCw0LCwsNDg4NDQ4ODw0ODg4NDxAQEBEREBAQEA8TEhMPEBETFBQTERMWFhYTFhUVFhkWGRYWEgEFBQUKBwoICQkICwgKCAsKCgkJCgoMCQoJCgkMDQsKCwsKCw0MCwsICwsMDAwNDQwMDQoLCg0MDQ0MExQTExOc/8IAEQgAlgCWAwEiAAIRAQMRAf/EAK4AAAEFAQEBAAAAAAAAAAAAAAACAwQFBgcBCBAAAQMCBAMFBQgDAAAAAAAAAgABAwQREBIgIQUTMRQiQWGhMDNRcZEjJDKBsdHh8GKCwREAAQICBQgJAgQHAAAAAAAAAQACESEDEjFBUSJhcYGRocHRECAwMkJSseHwcpITgqLSIzNiY7LC8RIAAQIEBQQDAQEAAAAAAAAAAQARITFBUWFxgZGhECCx8MHR4TDx/9oADAMBAAIAAwAAAAHpoEGUAABUe+W1Jn5DiLD2vPS/tMOJ93BW2SFAHnoABzLpvMjzpoB6ABU4KTlHm5GjQw27oSlunmTz1PvjOnzKE+70BhwAPTmXTeZB00ACku8wpOF3Gf00eUvz0jyIdVe1zzPkb2DYV8x6DJ9L/QYnbMOACVHMum8yDpoAGA3/ACdaI67rKNu9FMk+w/WSdNz19i6n18xaW7Kju32W+j8p6s0sAbWcy6bzIOlKPQMPuMipLrEKRDmtNzJwSKtr0AlNHuXsIEqzra3r/KuqNqAGlnMum8yPemgAUd4n3zDXWL2EWXEczcZEncFFe+IKi3yzjS6mZAsq616Zi9m0vzzzxpa+Z9L5p6dNSpIeKAMI0zk3E9Oap7uBPeKTPrRZwork6DEtI6Fo32g5V1Zl3xC0IUc16VzXz3poVqk2OJwVQ4jYryO/cRmUamnCMuykhBfsPT2FJdrgY0PLdE2rspyToza7XmXTeZee9N4j0rizraxC3ECVAai/51beGyd5nYe+7eJk6bw0NCr33yXo4DUZ2jkxFyWvoHnlhXx3mMN0Aea549vRXmCN6Hucr9meGC0F6Bhm96e+YI3oFbQ7AjO4FPQCS1kNeHnv/9oACAEBAAEFAtb10a7cu3KOrjP209S0aIXk0ELEgc4lBUDL7Opn5bSztCu1yKCpaTSQqnn5rexmqFFCUrjw8UfDlFKTPiD3Tnyi9hWlaOdudLHGwNhJE0jC7i7rOm2N+vDzvHrrH79C2zPfFyZlJklaMrqXZ2K5F+KhK02viczAQBGbdnhUbEzS3ytBE67PCswCpnYghT+8pn+8666mYZYuYYyVBRmzzCQMcshjIahqZTepEpo44OUqR7kO8kD/AG2vio2UTZROnAyh7xzdyRidkNOAlL3iqelIPeiKwxbDr4q14ogLLyiJQIhYm5ZissroI2BVHuw2iqNgf3WuvHNDRFeNPDuMVtFY/wBmzXKQ8xEP2et2uoX5EhDmUnMB+YajiMsZpcxyFyhiC7wDzJfYcUjYVTTohugjYcaiqQNymvmd35A0Rx5fYVpZ5RezRVjLOKKtjZSzlImdgXKclzLII3J94pNdbxIBGn2MqdMzsmgEllNllNBDInhFkwOeEsDM3D6xi01NQMA1NWc+ASOCjkaZjDOnDfmGK7QyaS6ewrclPVDEjMpHggZmDiJQlTVQTthX1POPEXcHjrxJMTEwiney7zopY4lLXESsoQzFUHlFRSlEUUjSDxKflRPpEMxcR9+0pio6iUyrHdpGHGkFVb74cGluPGJLyJtFCOaaYs0i4cN5zLMWNM3cqX7+EFS9OX//2gAIAQMAAT8BxzK6za9yezLs5eX1TtbBn0uoAs1/F8JQYvmnwbQScma129P5XM8n+H9dETD4en7qQfG23x+flgOgui627t/ost29fW6t/h+idti88A0wlcfNtk0f9thMVmfz2wHSMmV7/VCbP0dHMw+aM3LrgL6HLUKvgT622bBk+sujY//aAAgBAgABPwHFgWRk4a2sLXddpHzTPfAmvpHqpzu9vBv1wikcfkmwLroDqmZ38fX+Fy/G7fH+shZy8fX9lGXh44HoHqul+9b6rNZ/T/i/3/VC+4+WEmmYbF5PuvzwhHMTeW+BvpKPMNvoiFx2dkEBF5fNBGwNtgbW0MGqQrNurYA2su8bN8MHayHprj/GX54WX//aAAgBAQEGPwLryJf9Arb7N6/lP2tHFTo6QbHehUA6eByTsPbQArPPh4nAKNIa2bwDVz6kCI6VkGI8jpjUbRvCwcLWm0fMezgJvd3RxOYKAy6QzJPqeAVo0QULHYcuqCDVcLD8uzLBzZOGB5G7snU17pMGa79xXq7OpxOvkskkb/dVKTvXOud79TOJIUmEn52e1vYkXvIZ91u6KFG2xu7HdAKA6YFVHW3HzDnj0RzwKOcA7JclDEFVTbRks2WbodhRD6nbBDinUp8bjsUp9MyAoVxG4giIKIdJzbeegojzBUZxa7gUz83oqZuNV3A9gJz/AA37SRBNrGkdAAANa6A3LJpHUbs8vUBCsYnHFGBDTiblN76U/wBLSd6/l02wqLKSJb4HyMMJw1IPF09V6oxh+Im/S4+gWmLf0g8OwcQTltraDEx9FQtbIFk3Gd1kFSNJDg0wgW97ZLavw6OEIB2V4Qbtqq00IMFaAsdGyKNWDWNjMzjDAc00BwrOcABDG+SBeyq8PDY4xMEaImIcDDTetAO+qnZgBtnyTXf3T+3sGuxrM2iI3jem5mj0VctBdiqR+MGjQ20/cmPuOSeHEdFcNAdimNz1zobZvQd5CDwO4ql+qCc/GLtV24IHAsP6h2A+obwQmltIYFok4VrtqyqSWDRV3zKJujVAwDJc1AzBWS+WDxHeIFd5g0NPErEm0m0p/wBJUb6QmH5zyQaL4N1X7k/5Z2D82V9pioeWXLd0EiUbcOqRe7JH5kBdRjeeQ9UTcyXNBt7qo+49iWmyNQ6u4dYUCu9HBW7yv4jjDy2bemU6khnpD+0KAm47yUG63fM5Wain+c2bBPsRSebIcMcDqVR1vhOI5jo/50lrDpdhmGJUTbCQ8o+WqsbT3R8+BY0jvmwKqx0SJujJ0TeR2JHkAH3TPBNidBwKhSZLsfCfmC7w2hSNc4NnvsUDIeVv+zlnuzaBxVZ+SM/FZH3ngF/k4+iYb6w1hxgewLaN8X4icMZ2I31hGNqLdY+ZioQstbhoUWiejgrAdoXc3+y8LN52lRe4u0ryN/UVVZ7BVnGOcosc8EjukmZHGHVrO1DErKMvKLPfo9MyiLRuKwdj8tCnI3HkVOemR2+y7p9VY7Yo371OQwULXYc1Fx9lMTKgMtguJ/xKi06QbR0k+Fsm89fUi0wKg8QzizmrQ8bVknVarIrBTM9pUGZIxv8AboA17FnMugPbaN+YprxY4RRha7JGu3d1gMSBtKpIXQGwLvFNbW7xAsF6cwOcQ2Uz1HHUmjX0vo/KYjQ73TW3NbHW7/nQNHUovq9JqkOL3evRR5onYE44uJ39QZ4p2rprDCC//9oACAEBAgE/Ie4kAOYATJgAhYGcUPBRKmslA84B5k8ImxGP4U7f2aGmcAWYXf0NAiEXpLkV5uPYAZDYHVGWqeR9wIAWe1nxEWCB/mxBDkEkGnzFywqnzcKGqOCQsEBl3dnguouz1c1fPaUmjPpgblX5J9cPvLBcES+f5QCRi635xQbNeNF6mFTwEEJjExwwIVTERFr6waFCUP1NsNepDwTKMwlmK6hjqmhlCXDHU4NboF/4GAlgjV8KFgQDamdowQONgA3U8DPfA5ihU+M9s+FGowBxY0UgkZjZ4eWUD+9J3CNIFECHRvgogyOSZTt/8D1GOIDzQQdAJgJLQktO6DMGQg+OvMgQPKKUou0hIiP+yRWKSGmAYERssCH3k+hYr0uN5gj1viVowHmAPIP4QKMEA8YC1QyEQxWNxeZUUWI0x+maEQBwIQwHNpqg4hKxIq9SERwPlEAiLH6n8IFAuCERqeGYDIyqiguCD8UPLhFHC9iB8qMNt0VNng2v4Y78RFSAYeFQ8EDdCi6YwWImYctNQwrmEBYyMvgxRXLKHk53ISCLJqbSE4JiCrMYIJDSAJEEQMgNRyZ5BDJyEbqBJ4XQuAgc8xxZ4zNwivA9I6AGhfQrOjTn+ZUR+/caZoFoQe06B6MLTU8mBGnJjsCDYc5iJEiROYTZ6Mx4QkRohP8Apm783zGUhKnd6ASebCQ0CyPlXORhsigas0V/IJsuXoST5CcWvTfQQkzMzmTH5R7G65Y9ixTPYiwa4SMN5KMMYlMF+BcxkQmEDADgVURG7tUQBADEGRCEOM0OIwe3HVRnYfFwU+M8QU5MT4AYCi9PZGShPszA2i0TaygyfRyhYuHw/hBMSIDQ8AUyXTpEeUdAOJmhUbte90Anck5ltn7IDo5xN4coASm0mCVtIhnMvAR7t1Qv87dHTp+wAEGIIY5GaNeY48EgGoQAYhtKxEQUM2CokgtmIcKLCLM4ZRkjQHRFsHzQDS6WAMjtG2mGjlROutWdTsFVMCNcAv60dMhpOyWDVOodCEyA6On6EjENEKInkA4F6IxYziIlKh9iI3QBYyUk8fADq/kQ4+lEJZoEPEKhNL4mZVknMBMCrH5PBQS8YRwdp+fMox4lATTDLm0KdXT9G6vNIKMQd2IZBMQwBa+PHCh0KhDC4higyBuWiaDwb/ooQaw8pG63c6J2IYBhmmkwNMCHKJ/wpoAYsfNxsJIA5rkzD9BI2GaMmJOYJPqQgAgw5BhqIDIg7jqybqS0aBPoAgMsF4rjSmmxBgBEkTIxM4MnmoR0yfNCoKeIkhfkoaA7onABMMLZn+KQaYeFiECQBjYgEi5MgecUVwKk+w+gFQPU084VUQGQGg/o59KNHCpWOhpgAn1BE4VIzFWZDdpTlAnSA9gETkUwhzuxKZHRYF8T6NRsn6tufUeRwOaHL1sTCMAA2ws+zsdkIODg4EEFYOTeBfhDl4PmCdOyV0Jv0A5n4QFmANPh5UcawpkFPKeIiGRDsLZ3UcMEajEcgCxcGjKbkLLOHyIdWcM/JrqcN2O6At8ioQiKZ2azlQ9UWYtR6UATQNAaGI3VwLAJrY4RKl7y9vxQ05n48kNysZNl+mTu1hrM7OpI1jUbK4BUtkB9aGCiM33xo5BA5K2PZfrbAJhlQcGEj5Uu8iH86JUZI9kpkxAjJhPoN04kNInyE/Yg7oDwVM4Dz09IIfhyifZgfSX9p2hpYTsPwWMI5dI2q3UpwZ70XY1jC5/FpgDj9QDIGKJJ5I9SD8L/2gAMAwECAgIDAgAAEPvvfUmvfvq/ujDAVVd/qvrYUIo6V/qvv/5UQkOfqjP/AILUDyX+r6Xabjx63MAQyyDj/vhWD2xEOuxSTKrVFmeSIEW2JPEBJKEGEGD/2gAIAQMCAT8Q6EsjYnoXIF+6QHNE3dhN9cohEEMRMHo12mwK1o6U6DZgDI3wOHhA0DAifSXslU5Eou/SiAAjT0flw6JNF6uTkEACzBF3ZikdKDO4f5otS7Dj4PhEDEuORcun3qDpCHcId0zZoZJwc1ciCIYt8rF0DX6627IG0XQF9B23CqzrCO5kPKKvoFB0c0Q6EsnZdwkmCASr0pdj9Yk1P+dCcBTnsHXxvHR1/9oACAECAgE/EOgDwCunoWUQ3dQi6/UgA4Lg170Dh1ojMiTn9+zRPEReXQO4aCw0WtvWXewyApSmZ5nuvQwJEoNHDKTVdwFiDZOyTH/SIAq/j3RYIiaffWJKCKCiRCzjaeRVAZeDiZTQ6kVFAOmonbuEo9gWgfY9K23fgD/XR4QpHYa9fQx6v//aAAgBAQIBPxDuOiAByABckwAzRkgWYRIqePWDkLJbEUAEuUNAA27+xWTAhm/nkmpfgmPF/wDHIBgAIASAgBkJdGWHxQPL8Jky4TYziyAVhCHcyMImpN54fzOSi+kSccApcMc9g0RUejHm7/JUEsacNrSYSW7CW9uo6RmOL5j19A6ChQmjl4DgnKAQMB/iSACSQAIkmQAmTgArGCiPNUOrmZDiPR/CtWF4hE3ewRAkZMxI4ASVQpRipNV1EBKRDHIoxRub+UIGtcHpRligABBBBDgiRBkRgR/B8kAqBE6KWarWCzMwIagcHvrzPV6qKpARIIiCRBEGSfewDICstvlp0OQA3FjRBxUliHweydHYdcXORhbLLiLyp0A3qS838JeAMnAZS7mBo7jqN+tMR6x8b7rgmc8sgZhah0ZgKA93vBOYKwA3onuyzb2qgx/HL5gh2W/bhQzDJM2gkyKux/lY2UwW4kWKgoW4v1gRnkHbFkf3HJb9Ya/HoBA3qF8IEaeNeuYRC654bMcCvYQA+f4ugw3mktnCzE6S5A9+EX1CLL/loumBt7T2gUAM3zh9Jsp6JzUxDKMkH3grbgiEQDYkbmZZI+vYcmmIAARkEKGoQCgoH8GDyr/UOcTueRbk50A5sUERGBuVoIKAaMJQbA9dBO6JeO0ADVbZC0CfYRywxjCmxRceaE6c8+bgQtX7APcVOjppFvQSqAJA4Y6ZqIXgYnM9jOr+Z/eGIqGgBO4RS0lZ8yI5gqjMIWRKBg2BR3owI40gZyKFQ4OYi2Go18VJDL6LTBBkbDK4MJAYCAAEiEF//AyocKg6UjQ3lps93L5J3jfvMwMMzlAD2518f16N2RJkT4cYmGaKd12BjIRFCfYT41g47RSy8HtPKouepPwkYA992AVGZaVEQCag7sEG7AuBg1BRnticwaUHrgmqSBJwWABkQQQUYA1f9uBFYEDuYL2ACCO/T804kdCAAAAAAAAQAAkALN0lnOD5vfEUy1lqiPUZX6sQD2YmM077tC645MdCrugZViyAC6GPYMFSBNURz1p/PhEXjNyAjrmUkpyjFchTMAid4ofOm4fajhYVdWqDkLJtgpIV5ic+sLUQBhMOh7eB0PEX+5rEBU1L4bmKrNsPatbgEXiDIt4E++hiMq5xj24FyBhcdG+BtAXs+BSxFmJVreoyg05x0wZv9EgnJt+AULBRDdD2YAJEADkksALkmAGaFZ4bUsvxFLEztqYucQr8aohuKGgPsFHN8RoR19G0WHp0w024yQrjIuvkdz+Em+UL6SCn4k+Uc8iCQged4x71Jrjt8cUNjghreyQH1sZmqFXaTEmNev6yZOE4ls9jD5T8EBECGom9OfsnYrg1IMch7/I9IozyeFFxbE/AYr10M1wikLGr20v1SsjJ8KJ/sSQ7sRsC97/JoyHmJ9VkTWw1QDOowm5UdCMAXs5FYqyE5Rai0V5RHP2QFIKyobZyeA0ISv1O/TSoQO+Db1FBNcllpGAUEZuHMHhQoe/oN9hgQSBbstFymZKiwhA3MFc+pvIJwy0HZOZHsjIH0KPiTcTEokmMb4nFOUHHyjasIxJMV+x8R5FhsAnw29IxRSc1FxvAHmWLhYhEiRu1DSxk6mTAhIE2yJfOHAfsCD5F9goQMY50xFIwLm3m5QAGTowRM2qppjED8oghBkum8aJ5thY6dmfiQPEerdCkC5EPO4mX50uVHQQU2ob5HbsOwBWXpi6EMT6BCpWyVyizsjWdj1uOpjwhiS18/KtALJ0rKOAGMOD81//Z" alt="Sofia Library"/>
         <div class="nlogo-text">Sofia <span>Library</span></div>
       </div>
-      <p>Sofia Library — 100% free curated digital library. All books are public domain and readable in full on this website.</p>
+      <p>A curated digital library of 50+ public domain classics — free to read in full, in-browser, on any device. No account required.</p>
       <div class="fsoc">
         <a class="sb2" href="https://github.com/dafariel278/SOFIA-LIBRARY" target="_blank"><i class="fab fa-github"></i></a>
         <a class="sb2" href="https://www.instagram.com/sofiasusilo278" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -518,7 +510,6 @@ footer{background:#131126;color:white;padding:56px 5% 26px}
 // DATA — 50 VERIFIED FREE GUTENBERG BOOKS
 // ===================================================
 const BOOKS = [
-  // Classic Literature
   {id:1342,title:"Pride and Prejudice",author:"Jane Austen",year:1813,cat:"classic",color:"#8B5E3C",desc:"Elizabeth Bennet navigates love, class, and family in Regency-era England. A timeless story of wit, pride, and finding your true equal."},
   {id:1260,title:"Jane Eyre",author:"Charlotte Brontë",year:1847,cat:"classic",color:"#5C3D8B",desc:"An orphaned governess discovers love and independence at the mysterious Thornfield Hall, where dark secrets hide behind elegant walls."},
   {id:768,title:"Wuthering Heights",author:"Emily Brontë",year:1847,cat:"classic",color:"#2C4A6B",desc:"A dark, passionate tale of love and revenge set on the Yorkshire moors. Heathcliff and Catherine's bond transcends death itself."},
@@ -527,46 +518,39 @@ const BOOKS = [
   {id:158,title:"Emma",author:"Jane Austen",year:1815,cat:"classic",color:"#8B3A6B",desc:"The irresistible Emma Woodhouse fancies herself a matchmaker — but her meddling leads to comic chaos before she discovers her own heart."},
   {id:161,title:"Sense and Sensibility",author:"Jane Austen",year:1811,cat:"classic",color:"#6B5C3A",desc:"Two sisters — one ruled by reason, one by passion — must navigate love and heartbreak in a society where a woman's future depends on marriage."},
   {id:514,title:"Little Women",author:"Louisa May Alcott",year:1868,cat:"classic",color:"#3A6B5C",desc:"The beloved story of the four March sisters — Meg, Jo, Beth, and Amy — growing up during the Civil War. A celebration of family, ambition, and love."},
-  // Adventure
   {id:120,title:"Treasure Island",author:"Robert Louis Stevenson",year:1883,cat:"adventure",color:"#6B4A1A",desc:"Young Jim Hawkins discovers a treasure map and sets sail on a dangerous voyage, encountering the charismatic and treacherous Long John Silver."},
   {id:1184,title:"The Count of Monte Cristo",author:"Alexandre Dumas",year:1844,cat:"adventure",color:"#1A3A6B",desc:"Edmond Dantès is wrongfully imprisoned, escapes, and returns as the mysterious Count of Monte Cristo — an epic saga of betrayal and calculated revenge."},
   {id:103,title:"Around the World in 80 Days",author:"Jules Verne",year:1872,cat:"adventure",color:"#3A6B3A",desc:"The unflappable Phileas Fogg bets his fortune that he can circle the globe in 80 days, with his loyal valet Passepartout by his side."},
   {id:164,title:"Twenty Thousand Leagues Under the Sea",author:"Jules Verne",year:1870,cat:"adventure",color:"#1A5C6B",desc:"Professor Aronnax is captured aboard the Nautilus by the brilliant, mysterious Captain Nemo and taken on an astonishing voyage beneath the ocean."},
-  {id:76,title:"Adventures of Huckleberry Finn",author:"Mark Twain",year:1884,cat:"adventure",color:"#6B5A1A",desc:"Huck Finn and the escaped slave Jim raft down the Mississippi River in one of America's greatest novels — a journey of freedom, friendship, and conscience."},
+  {id:76,title:"Adventures of Huckleberry Finn",author:"Mark Twain",year:1884,cat:"adventure",color:"#6B5A1A",desc:"Huck Finn and the escaped slave Jim raft down the Mississippi River — a journey of freedom, friendship, and conscience."},
   {id:74,title:"The Adventures of Tom Sawyer",author:"Mark Twain",year:1876,cat:"adventure",color:"#6B3A1A",desc:"Mischievous Tom Sawyer explores life, first love, and adventure along the Mississippi, famously tricking his friends into whitewashing a fence."},
-  {id:18857,title:"Journey to the Center of the Earth",author:"Jules Verne",year:1864,cat:"adventure",color:"#4A2C6B",desc:"Professor Lidenbrock leads his nephew Axel on a harrowing descent into the Earth through an Icelandic volcano, discovering a prehistoric world underground."},
-  // Mystery & Horror
+  {id:18857,title:"Journey to the Center of the Earth",author:"Jules Verne",year:1864,cat:"adventure",color:"#4A2C6B",desc:"Professor Lidenbrock leads his nephew on a harrowing descent into the Earth through an Icelandic volcano, discovering a prehistoric world underground."},
   {id:345,title:"Dracula",author:"Bram Stoker",year:1897,cat:"mystery",color:"#3A1A1A",desc:"Jonathan Harker travels to Transylvania and discovers his client is a vampire. Told through journals and letters, the hunt for Count Dracula begins."},
   {id:84,title:"Frankenstein",author:"Mary Shelley",year:1818,cat:"mystery",color:"#2A2A4A",desc:"The original science fiction novel. Victor Frankenstein creates life but is horrified by his creation — a tale of ambition, responsibility, and loneliness."},
-  {id:174,title:"The Picture of Dorian Gray",author:"Oscar Wilde",year:1890,cat:"mystery",color:"#3A2A5A",desc:"Dorian Gray sells his soul for eternal youth as a portrait ages in his stead. A brilliant, decadent exploration of beauty, morality, and corruption."},
+  {id:174,title:"The Picture of Dorian Gray",author:"Oscar Wilde",year:1890,cat:"mystery",color:"#3A2A5A",desc:"Dorian Gray sells his soul for eternal youth as a portrait ages in his stead. A brilliant exploration of beauty, morality, and corruption."},
   {id:43,title:"Strange Case of Dr Jekyll and Mr Hyde",author:"Robert Louis Stevenson",year:1886,cat:"mystery",color:"#1A3A1A",desc:"The respectable Dr Jekyll brews a potion that unleashes his dark alter ego Mr Hyde. The original exploration of good and evil within a single person."},
-  {id:1661,title:"The Adventures of Sherlock Holmes",author:"Arthur Conan Doyle",year:1892,cat:"mystery",color:"#3A3A1A",desc:"Twelve classic cases featuring the world's greatest detective — including A Scandal in Bohemia, The Red-Headed League, and The Speckled Band."},
-  {id:2852,title:"The Hound of the Baskervilles",author:"Arthur Conan Doyle",year:1902,cat:"mystery",color:"#2A3A1A",desc:"Holmes investigates the legend of a spectral hound haunting the Baskerville family on the forbidding Dartmoor moors. The finest Sherlock Holmes novel."},
-  // Science Fiction
+  {id:1661,title:"The Adventures of Sherlock Holmes",author:"Arthur Conan Doyle",year:1892,cat:"mystery",color:"#3A3A1A",desc:"Twelve classic cases featuring the world's greatest detective — including A Scandal in Bohemia and The Speckled Band."},
+  {id:2852,title:"The Hound of the Baskervilles",author:"Arthur Conan Doyle",year:1902,cat:"mystery",color:"#2A3A1A",desc:"Holmes investigates the legend of a spectral hound haunting the Baskerville family on the forbidding Dartmoor moors."},
   {id:35,title:"The Time Machine",author:"H.G. Wells",year:1895,cat:"scifi",color:"#1A4A6B",desc:"A Victorian inventor travels 800,000 years into the future, discovering the Eloi and the Morlocks — a haunting vision of humanity's evolutionary split."},
   {id:36,title:"The War of the Worlds",author:"H.G. Wells",year:1898,cat:"scifi",color:"#3A1A1A",desc:"Martians invade Victorian England with devastating tripod war machines. The original alien invasion story that terrified a generation."},
   {id:5230,title:"The Invisible Man",author:"H.G. Wells",year:1897,cat:"scifi",color:"#2A4A2A",desc:"A scientist discovers the secret of invisibility but finds himself trapped and descending into madness — a brilliant allegory about isolation and power."},
-  {id:159,title:"The Island of Doctor Moreau",author:"H.G. Wells",year:1896,cat:"scifi",color:"#4A2A1A",desc:"A shipwrecked man discovers an island where a brilliant scientist performs vivisection experiments, creating terrifying human-animal hybrids."},
-  {id:768,title:"The First Men in the Moon",author:"H.G. Wells",year:1901,cat:"scifi",color:"#2A2A5A"},
-  // Philosophy & Wisdom
+  {id:159,title:"The Island of Doctor Moreau",author:"H.G. Wells",year:1896,cat:"scifi",color:"#4A2A1A",desc:"A shipwrecked man discovers an island where a brilliant scientist performs experiments creating terrifying human-animal hybrids."},
+  {id:7906,title:"The First Men in the Moon",author:"H.G. Wells",year:1901,cat:"scifi",color:"#2A2A5A",desc:"Two men travel to the moon in a sphere coated with anti-gravity material, discovering a vast underground civilization of insect-like Selenites."},
   {id:2680,title:"Meditations",author:"Marcus Aurelius",year:180,cat:"philosophy",color:"#4A3A1A",desc:"The private thoughts of a Roman Emperor — 12 books of Stoic philosophy written as a personal diary. Timeless wisdom on duty, reason, and living well."},
   {id:132,title:"The Art of War",author:"Sun Tzu",year:-500,cat:"philosophy",color:"#3A1A1A",desc:"The ancient Chinese military treatise on strategy, leadership, and intelligence. Still studied by generals, executives, and athletes 2,500 years later."},
   {id:1232,title:"The Prince",author:"Niccolò Machiavelli",year:1532,cat:"philosophy",color:"#5A2A1A",desc:"The controversial guide to political power — Machiavelli's brutally honest advice to rulers on how to gain and hold power."},
   {id:1497,title:"The Republic",author:"Plato",year:-380,cat:"philosophy",color:"#2A4A5A",desc:"Plato's masterwork: a dialogue exploring justice, the ideal state, the philosopher king, and the famous allegory of the cave."},
   {id:1998,title:"Thus Spoke Zarathustra",author:"Friedrich Nietzsche",year:1883,cat:"philosophy",color:"#3A2A5A",desc:"Nietzsche's most famous work — the prophet Zarathustra descends from his mountain to teach humanity about the will to power and the Übermensch."},
   {id:216,title:"Tao Te Ching",author:"Lao Tzu",year:-600,cat:"philosophy",color:"#2A5A3A",desc:"81 short verses of Taoist wisdom — one of the most translated books in history. The philosophy of living in harmony with the natural order."},
-  // Science & Nature
   {id:1228,title:"On the Origin of Species",author:"Charles Darwin",year:1859,cat:"science",color:"#3A5A2A",desc:"The book that changed everything. Darwin's theory of evolution by natural selection — arguably the most important scientific work ever written."},
   {id:944,title:"The Voyage of the Beagle",author:"Charles Darwin",year:1839,cat:"science",color:"#2A5A4A",desc:"Darwin's journal of his five-year voyage aboard HMS Beagle — the observations that would eventually lead to his theory of evolution."},
   {id:2300,title:"The Descent of Man",author:"Charles Darwin",year:1871,cat:"science",color:"#4A5A2A",desc:"Darwin's sequel to Origin of Species, applying evolutionary theory to human beings and the development of the moral sense."},
-  // Children's Classics
   {id:11,title:"Alice's Adventures in Wonderland",author:"Lewis Carroll",year:1865,cat:"children",color:"#5A1A5A",desc:"Alice falls down a rabbit hole into a world of impossible logic, mad hatters, and the terrifying Queen of Hearts. The greatest children's classic."},
   {id:12,title:"Through the Looking-Glass",author:"Lewis Carroll",year:1871,cat:"children",color:"#3A1A5A",desc:"Alice steps through a mirror into a reversed world where chess pieces come alive, words mean backwards things, and the Red Queen runs very fast."},
   {id:55,title:"The Wonderful Wizard of Oz",author:"L. Frank Baum",year:1900,cat:"children",color:"#1A5A1A",desc:"Dorothy is swept to the magical land of Oz and must follow the yellow brick road to the Emerald City to find her way home."},
   {id:16,title:"Peter Pan",author:"J.M. Barrie",year:1911,cat:"children",color:"#1A3A5A",desc:"The boy who never grew up takes Wendy and her brothers to Neverland — a world of pirates, mermaids, and eternal childhood."},
   {id:35997,title:"The Jungle Book",author:"Rudyard Kipling",year:1894,cat:"children",color:"#2A4A1A",desc:"Mowgli, raised by wolves in the Indian jungle, learns the laws of the wild from Baloo the bear, Bagheera the panther, and wise old Kaa."},
-  {id:161,title:"The Swiss Family Robinson",author:"Johann Wyss",year:1812,cat:"children",color:"#4A6A2A"},
-  // Epics & Poetry
+  {id:6598,title:"The Swiss Family Robinson",author:"Johann Wyss",year:1812,cat:"children",color:"#4A6A2A",desc:"A family shipwrecked on a tropical island builds an extraordinary life — crafting treehouses, taming animals, and exploring their paradise."},
   {id:1727,title:"The Odyssey",author:"Homer",year:-800,cat:"epics",color:"#5A4A1A",desc:"Odysseus's epic ten-year voyage home from the Trojan War — past the Sirens, the Cyclops, and the wrath of Poseidon. The original adventure story."},
   {id:6130,title:"The Iliad",author:"Homer",year:-850,cat:"epics",color:"#5A3A1A",desc:"The rage of Achilles during the Trojan War. The first great work of Western literature — war, glory, fate, and the gods of Olympus."},
   {id:1513,title:"Romeo and Juliet",author:"William Shakespeare",year:1597,cat:"epics",color:"#5A1A3A",desc:"The most famous love story ever told. Two young lovers from feuding families defy fate — a poetic tragedy that has never lost its power."},
@@ -574,11 +558,6 @@ const BOOKS = [
   {id:8800,title:"The Divine Comedy",author:"Dante Alighieri",year:1320,cat:"epics",color:"#3A1A4A",desc:"Dante journeys through Hell, Purgatory, and Paradise guided by Virgil and then Beatrice. The supreme work of Italian literature."},
   {id:16328,title:"Beowulf",author:"Anonymous",year:1000,cat:"epics",color:"#2A3A4A",desc:"The oldest surviving English epic poem. The hero Beowulf battles the monster Grendel, Grendel's mother, and a deadly dragon to protect his people."},
 ];
-
-// Fix duplicate id for children (Swiss Family Robinson)
-BOOKS[39] = {id:6598,title:"The Swiss Family Robinson",author:"Johann Wyss",year:1812,cat:"children",color:"#4A6A2A",desc:"A family shipwrecked on a tropical island builds an extraordinary life — crafting treehouses, taming animals, and exploring their paradise."};
-// Fix H.G. Wells First Men (duplicate id with Wuthering Heights)
-BOOKS[24] = {id:7906,title:"The First Men in the Moon",author:"H.G. Wells",year:1901,cat:"scifi",color:"#2A2A5A",desc:"Two men travel to the moon in a sphere coated with anti-gravity material, discovering a vast underground civilization of insect-like Selenites."};
 
 const CATS_DATA = [
   {key:"classic",icon:"📚",name:"Classic Literature",nameId:"Sastra Klasik",color:"#8B5E3C"},
@@ -596,10 +575,12 @@ const CATS_DATA = [
 // ===================================================
 const LANG = {
   en:{
-    "h-badge":"100% Free Digital Library","h-t1":"Read Great Books.","h-t2":"All Free. Right Here.",
-    "h-sub":"Sofia Library — every book is 100% free, public domain, and readable in full directly inside this website. No links, no paywall, no account needed.",
+    "h-badge":"Public Domain Digital Library",
+    "h-t1":"World's Greatest Books.",
+    "h-t2":"Free. In Full. Right Here.",
+    "h-sub":"Sofia Library is a curated digital reading platform offering 50+ timeless classics — from Jane Austen to Sherlock Holmes — fully readable in-browser at no cost. No account, no paywall, no redirects. Just great literature, instantly accessible to everyone.",
     "h-b1":"Start Reading","h-b2":"Browse Categories",
-    "hs1":"Curated Books","hs2":"Categories","hs3":"Free & Full Text",
+    "hs1":"Curated Books","hs2":"Categories","hs3":"Free & In-Browser",
     "c-badge":"Browse","c-title":"Explore by Category","c-sub":"All books are public domain classics — free to read in full",
     "b-badge":"Free Library","b-title":"Read Full Books Here","b-sub":"Click any book to read it in full — or download as PDF. All 100% free.",
     "e-title":"English Learning Center","e-sub":"Word of the day, dictionary, flashcards, and vocabulary quiz",
@@ -610,10 +591,12 @@ const LANG = {
     "q-nxt":"Next Question →",
   },
   id:{
-    "h-badge":"Perpustakaan Digital 100% Gratis","h-t1":"Baca Buku Hebat.","h-t2":"Semua Gratis. Di Sini.",
-    "h-sub":"Sofia Library — setiap buku 100% gratis, domain publik, dan bisa dibaca penuh langsung di sini. Tanpa link, tanpa biaya, tanpa akun.",
+    "h-badge":"Perpustakaan Digital Domain Publik",
+    "h-t1":"Buku-Buku Terbaik Dunia.",
+    "h-t2":"Gratis. Lengkap. Di Sini.",
+    "h-sub":"Sofia Library adalah platform baca digital yang menawarkan 50+ karya klasik abadi — dari Jane Austen hingga Sherlock Holmes — dapat dibaca penuh di browser tanpa biaya. Tanpa akun, tanpa pembayaran, tanpa pengalihan. Sastra hebat, langsung bisa diakses semua orang.",
     "h-b1":"Mulai Membaca","h-b2":"Jelajahi Kategori",
-    "hs1":"Buku Pilihan","hs2":"Kategori","hs3":"Gratis & Teks Penuh",
+    "hs1":"Buku Pilihan","hs2":"Kategori","hs3":"Gratis & Di Browser",
     "c-badge":"Jelajahi","c-title":"Kategori Buku","c-sub":"Semua buku domain publik — gratis dibaca penuh",
     "b-badge":"Perpustakaan Gratis","b-title":"Baca Buku Penuh Di Sini","b-sub":"Klik buku mana saja untuk membaca penuh — atau unduh sebagai PDF. 100% gratis.",
     "e-title":"Pusat Belajar Bahasa Inggris","e-sub":"Kata hari ini, kamus, kartu belajar, dan kuis kosakata",
@@ -630,9 +613,7 @@ function setLang(l){
   document.getElementById('btnEN').classList.toggle('on',l==='en');
   document.getElementById('btnID').classList.toggle('on',l==='id');
   Object.keys(LANG[l]).forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=LANG[l][id]});
-  // Update cat names
   document.querySelectorAll('.cn').forEach((el,i)=>{if(CATS_DATA[i])el.textContent=l==='id'?CATS_DATA[i].nameId:CATS_DATA[i].name});
-  // Tips
   document.querySelectorAll('.tt').forEach(el=>el.textContent=el.getAttribute('data-'+l)||el.textContent);
   document.querySelectorAll('.tx2').forEach(el=>el.textContent=el.getAttribute('data-'+l)||el.textContent);
 }
@@ -745,86 +726,119 @@ function filterBooks(){
 }
 
 // ===================================================
-// READER
+// ★ FIXED READER — with HTML detection & better fallback
 // ===================================================
 let rChaps=[];let rIdx=0;let rFontSize=18;let rNight=false;
 let currentBookTitle='';let currentBookAuthor='';
 
-async function openReader(gutId,title,author,cover,fallbg){
-  currentBookTitle=title;currentBookAuthor=author;
-  document.getElementById('rTitle').textContent=title;
-  document.getElementById('rCover').src=cover;
-  document.getElementById('rCover').onerror=()=>{document.getElementById('rCover').style.display='none'};
-  document.getElementById('rPage').innerHTML=`<div class="rload"><div class="rspin"></div><p>Loading "${title}"</p><p>Fetching full text from Project Gutenberg…</p></div>`;
-  document.getElementById('chapList').innerHTML='';
-  document.getElementById('rProg').style.width='0%';
+// Validate that fetched content is actual book text, not an HTML error page
+function isValidBookText(text){
+  if(!text || text.length < 3000) return false;
+  const head = text.trim().slice(0,300).toLowerCase();
+  if(head.startsWith('<!doctype')) return false;
+  if(head.startsWith('<html')) return false;
+  if(head.startsWith('<head')) return false;
+  if(head.startsWith('<?xml')) return false;
+  if(head.includes('<title>403') || head.includes('<title>404') || head.includes('forbidden')) return false;
+  return true;
+}
+
+async function fetchBookText(textUrl) {
+  const proxies = [
+    `https://corsproxy.io/?${encodeURIComponent(textUrl)}`,
+    `https://api.allorigins.win/raw?url=${encodeURIComponent(textUrl)}`,
+    `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(textUrl)}`,
+  ];
+  for(const proxy of proxies){
+    try{
+      const controller = new AbortController();
+      const timer = setTimeout(()=>controller.abort(), 9000);
+      const res = await fetch(proxy, {signal: controller.signal});
+      clearTimeout(timer);
+      if(!res.ok) continue;
+      const text = await res.text();
+      if(isValidBookText(text)) return text;
+    }catch(e){ /* try next */ }
+  }
+  return null;
+}
+
+async function openReader(gutId, title, author, cover, fallbg){
+  currentBookTitle = title;
+  currentBookAuthor = author;
+  document.getElementById('rTitle').textContent = title;
+  const coverEl = document.getElementById('rCover');
+  coverEl.src = cover;
+  coverEl.onerror = ()=>{ coverEl.style.display='none'; };
+  document.getElementById('rPage').innerHTML = `<div class="rload"><div class="rspin"></div><p>Opening "${title}"…</p><p style="font-size:12px;margin-top:4px">Fetching from Project Gutenberg</p></div>`;
+  document.getElementById('chapList').innerHTML = '';
+  document.getElementById('rProg').style.width = '0%';
   document.getElementById('readerOverlay').classList.add('open');
 
-  // Find book desc
-  const bk=BOOKS.find(b=>b.id===gutId)||{};
+  const bk = BOOKS.find(b=>b.id===gutId) || {};
 
-  try{
-    // Get text URL from Gutendex API
-    const meta=await fetch(`https://gutendex.com/books/${gutId}`).then(r=>r.json());
-    const textUrl=meta.formats?.['text/plain; charset=utf-8']
-      ||meta.formats?.['text/plain; charset=us-ascii']
-      ||meta.formats?.['text/plain'];
+  try {
+    // Get metadata from Gutendex
+    const meta = await fetch(`https://gutendex.com/books/${gutId}`).then(r=>r.json());
 
-    if(!textUrl)throw new Error('no text');
+    // Find best plain text URL
+    const formats = meta.formats || {};
+    const textUrl = formats['text/plain; charset=utf-8']
+      || formats['text/plain; charset=us-ascii']
+      || formats['text/plain']
+      || Object.entries(formats).find(([k])=>k.startsWith('text/plain'))?.[1];
 
-    // Fetch via CORS proxy
-    let rawText='';
-    const proxies=[
-      `https://corsproxy.io/?${encodeURIComponent(textUrl)}`,
-      `https://api.allorigins.win/raw?url=${encodeURIComponent(textUrl)}`,
-    ];
-    for(const proxy of proxies){
-      try{
-        const res=await fetch(proxy);
-        if(res.ok){rawText=await res.text();break}
-      }catch{}
-    }
-    if(!rawText)throw new Error('proxy failed');
-    parseBook(rawText,title,author,cover,bk.desc||'');
-  }catch(e){
-    // Build rich summary reader
-    buildSummaryReader(gutId,title,author,cover,fallbg,bk);
+    if(!textUrl) throw new Error('no text url available');
+
+    const rawText = await fetchBookText(textUrl);
+    if(!rawText) throw new Error('all proxies failed or returned invalid content');
+
+    parseBook(rawText, title, author, cover, bk.desc||'');
+  } catch(e) {
+    buildSummaryReader(gutId, title, author, cover, fallbg, bk);
   }
 }
 
-function parseBook(raw,title,author,cover,desc){
-  let text=raw;
+function parseBook(raw, title, author, cover, desc){
+  let text = raw;
   // Strip Gutenberg header
-  const starts=['*** START OF THE PROJECT','*** START OF THIS PROJECT','*END*THE SMALL PRINT'];
-  for(const s of starts){const i=text.indexOf(s);if(i>-1){const nl=text.indexOf('\n',i);text=text.slice(nl+1);break}}
-  const ends=['*** END OF THE PROJECT','*** END OF THIS PROJECT','End of the Project Gutenberg','End of Project Gutenberg'];
-  for(const e of ends){const i=text.indexOf(e);if(i>-1){text=text.slice(0,i);break}}
+  const startMarkers = ['*** START OF THE PROJECT','*** START OF THIS PROJECT'];
+  for(const s of startMarkers){
+    const i = text.indexOf(s);
+    if(i > -1){ text = text.slice(text.indexOf('\n', i)+1); break; }
+  }
+  const endMarkers = ['*** END OF THE PROJECT','*** END OF THIS PROJECT','End of the Project Gutenberg','End of Project Gutenberg'];
+  for(const e of endMarkers){
+    const i = text.indexOf(e);
+    if(i > -1){ text = text.slice(0, i); break; }
+  }
 
-  // Split into chapters
-  const lines=text.split('\n');
-  const chapRx=/^(CHAPTER|Chapter|PART|Part|BOOK|Book|SECTION|Section|ACT|Act|SCENE|Scene|PROLOGUE|Prologue|EPILOGUE|Epilogue)\s+([IVXLCDM]+|\d+|[A-Z][A-Z]+)?\.?/;
-  let chaps=[];let cur={title:'— Begin Reading —',lines:[]};
+  const lines = text.split('\n');
+  const chapRx = /^(CHAPTER|Chapter|PART|Part|BOOK|Book|SECTION|Section|ACT|Act|SCENE|Scene|PROLOGUE|Prologue|EPILOGUE|Epilogue)\s+([IVXLCDM]+|\d+|[A-Z][A-Z]+)?\.?/;
+  let chaps = [];
+  let cur = {title:'— Begin Reading —', lines:[]};
   lines.forEach(line=>{
-    const tr=line.trim();
-    if(chapRx.test(tr)&&tr.length>3&&tr.length<80){
-      if(cur.lines.filter(l=>l.trim()).length>20){chaps.push({...cur})}
-      cur={title:tr,lines:[]};
-    }else{cur.lines.push(line)}
+    const tr = line.trim();
+    if(chapRx.test(tr) && tr.length > 3 && tr.length < 80){
+      if(cur.lines.filter(l=>l.trim()).length > 20) chaps.push({...cur});
+      cur = {title:tr, lines:[]};
+    } else {
+      cur.lines.push(line);
+    }
   });
-  if(cur.lines.filter(l=>l.trim()).length>10)chaps.push(cur);
+  if(cur.lines.filter(l=>l.trim()).length > 10) chaps.push(cur);
 
-  if(chaps.length<3){
-    // Fallback: split by ~1500 words
-    const allWords=text;const wSize=4500;
-    chaps=[];
-    for(let i=0,p=1;i<allWords.length;i+=wSize,p++){
-      const chunk=allWords.slice(i,i+wSize);
-      if(chunk.trim())chaps.push({title:`Part ${p}`,lines:chunk.split('\n')});
-      if(p>=15)break;
+  if(chaps.length < 3){
+    chaps = [];
+    const wSize = 4500;
+    for(let i=0,p=1; i<text.length; i+=wSize,p++){
+      const chunk = text.slice(i, i+wSize);
+      if(chunk.trim()) chaps.push({title:`Part ${p}`, lines:chunk.split('\n')});
+      if(p >= 15) break;
     }
   }
 
-  rChaps=[{title:'📖 About This Book',html:`<h2>${title}</h2>
+  rChaps = [{title:'📖 About This Book', html:`<h2>${title}</h2>
     <p class="nodent" style="font-style:italic;color:var(--tx2);margin-bottom:16px">by ${author}</p>
     <div style="display:flex;gap:22px;align-items:flex-start;margin-bottom:24px;flex-wrap:wrap">
       <img src="${cover}" style="width:120px;border-radius:10px;box-shadow:var(--sh2);flex-shrink:0" onerror="this.style.display='none'"/>
@@ -835,121 +849,133 @@ function parseBook(raw,title,author,cover,desc){
     </div>`}];
 
   chaps.slice(0,25).forEach(c=>{
-    const body=c.lines.filter(l=>l.trim()).slice(0,120)
+    const body = c.lines.filter(l=>l.trim()).slice(0,120)
       .map(l=>`<p>${l.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</p>`).join('');
-    rChaps.push({title:c.title,html:`<h2>${c.title}</h2><div class="drop-cap">${body}</div>`,text:c.lines.join('\n')});
+    rChaps.push({title:c.title, html:`<h2>${c.title}</h2><div class="drop-cap">${body}</div>`, text:c.lines.join('\n')});
   });
 
-  buildSidebar();showChap(0);
+  buildSidebar();
+  showChap(0);
 }
 
-function buildSummaryReader(gutId,title,author,cover,fallbg,bk){
-  // Build a rich in-app experience using curated content
-  rChaps=[{
-    title:'📖 About This Book',
-    html:`<h2>${title}</h2>
-    <p class="nodent" style="font-style:italic;color:var(--tx2);margin-bottom:16px">by ${author}</p>
-    <div style="display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap">
-      <div style="width:120px;height:175px;border-radius:10px;flex-shrink:0;background:${fallbg||'#2C3E7A'};display:flex;align-items:center;justify-content:center;box-shadow:var(--sh2)">
-        <img src="${cover}" style="width:100%;height:100%;object-fit:cover;border-radius:10px" onerror="this.style.display='none'"/>
-      </div>
-      <div><p>${bk.desc||'A timeless classic from Project Gutenberg.'}</p>
-      <p style="margin-top:14px;font-size:13px;color:var(--tx2);background:rgba(27,58,107,.07);padding:12px;border-radius:10px">
-        <i class="fas fa-info-circle" style="color:var(--p)"></i> Full text is loading. Navigate chapters below.
-      </p></div>
-    </div>`
-  }];
-  // Auto-retry fetching text
-  fetch(`https://www.gutenberg.org/cache/epub/${gutId}/pg${gutId}.txt`)
-    .then(r=>r.text())
-    .then(text=>parseBook(text,title,author,cover,bk.desc||''))
-    .catch(()=>{});
-  buildSidebar();showChap(0);
+// Improved fallback: rich description + direct link to Gutenberg
+function buildSummaryReader(gutId, title, author, cover, fallbg, bk){
+  const gutUrl = `https://www.gutenberg.org/ebooks/${gutId}`;
+  const desc = bk.desc || 'A timeless classic from Project Gutenberg.';
+
+  rChaps = [
+    {
+      title: '📖 About This Book',
+      html: `<h2>${title}</h2>
+        <p class="nodent" style="font-style:italic;color:var(--tx2);margin-bottom:20px">by ${author}</p>
+        <div style="display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap;margin-bottom:28px">
+          <div style="width:120px;height:175px;border-radius:10px;flex-shrink:0;background:${fallbg||'#2C3E7A'};overflow:hidden;box-shadow:var(--sh2)">
+            <img src="${cover}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'"/>
+          </div>
+          <div style="flex:1;min-width:200px">
+            <p style="font-size:16px;line-height:1.8;margin-bottom:16px">${desc}</p>
+            <div style="padding:14px 16px;background:rgba(192,84,58,.07);border:1.5px solid rgba(192,84,58,.2);border-radius:12px;font-size:13px;color:var(--tx2);margin-bottom:16px">
+              <i class="fas fa-info-circle" style="color:var(--acc);margin-right:6px"></i>
+              The full text couldn't be loaded automatically due to browser security restrictions on external requests. You can read the full book for free on Project Gutenberg.
+            </div>
+            <a class="gut-link" href="${gutUrl}" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i> Read Full Book on Project Gutenberg
+            </a>
+          </div>
+        </div>
+        <div class="fallback-card">
+          <h3><i class="fas fa-book" style="color:var(--teal);margin-right:8px"></i>About This Book</h3>
+          <p>${desc}</p>
+          <p style="font-size:13px;color:var(--tx3);margin-top:8px">Source: Project Gutenberg · Public Domain · Free to read</p>
+        </div>`
+    }
+  ];
+
+  buildSidebar();
+  showChap(0);
 }
 
 function buildSidebar(){
-  document.getElementById('chapList').innerHTML=rChaps.map((c,i)=>`<div class="ch-item${i===0?' on':''}" onclick="gotoChap(${i},this)">${c.title.length>34?c.title.slice(0,32)+'…':c.title}</div>`).join('');
+  document.getElementById('chapList').innerHTML = rChaps.map((c,i)=>`<div class="ch-item${i===0?' on':''}" onclick="gotoChap(${i},this)">${c.title.length>34?c.title.slice(0,32)+'…':c.title}</div>`).join('');
 }
 function gotoChap(idx,el){
   document.querySelectorAll('.ch-item').forEach(c=>c.classList.remove('on'));
-  el.classList.add('on');showChap(idx);
+  el.classList.add('on');
+  showChap(idx);
 }
 function showChap(idx){
-  if(!rChaps[idx])return;
-  rIdx=idx;
-  const pg=document.getElementById('rPage');
-  pg.style.opacity='0';
+  if(!rChaps[idx]) return;
+  rIdx = idx;
+  const pg = document.getElementById('rPage');
+  pg.style.opacity = '0';
   setTimeout(()=>{
-    pg.innerHTML=rChaps[idx].html||`<h2>${rChaps[idx].title}</h2><p>${rChaps[idx].text||''}</p>`;
-    pg.style.fontSize=rFontSize+'px';
-    pg.style.opacity='1';
-    pg.style.transition='opacity .2s';
-    document.getElementById('rContent').scrollTop=0;
-    document.getElementById('rInfo').textContent=`${idx+1} / ${rChaps.length}  ·  ${rChaps[idx].title}`;
-    document.getElementById('rProg').style.width=`${((idx+1)/rChaps.length)*100}%`;
-    document.querySelectorAll('.ch-item').forEach((c,i)=>c.classList.toggle('on',i===idx));
-  },180);
+    pg.innerHTML = rChaps[idx].html || `<h2>${rChaps[idx].title}</h2><p>${rChaps[idx].text||''}</p>`;
+    pg.style.fontSize = rFontSize+'px';
+    pg.style.opacity = '1';
+    pg.style.transition = 'opacity .2s';
+    document.getElementById('rContent').scrollTop = 0;
+    document.getElementById('rInfo').textContent = `${idx+1} / ${rChaps.length}  ·  ${rChaps[idx].title}`;
+    document.getElementById('rProg').style.width = `${((idx+1)/rChaps.length)*100}%`;
+    document.querySelectorAll('.ch-item').forEach((c,i)=>c.classList.toggle('on', i===idx));
+  }, 180);
 }
-function prevChap(){if(rIdx>0)showChap(rIdx-1)}
-function nextChap(){if(rIdx<rChaps.length-1)showChap(rIdx+1)}
-function closeReader(){document.getElementById('readerOverlay').classList.remove('open');rChaps=[];rIdx=0}
-function changeFontSize(d){rFontSize=Math.max(13,Math.min(28,rFontSize+d));document.getElementById('rPage').style.fontSize=rFontSize+'px'}
-function toggleNight(){rNight=!rNight;document.getElementById('readerModal').classList.toggle('night',rNight);document.getElementById('nightBtn').innerHTML=rNight?'<i class="fas fa-sun"></i>':'<i class="fas fa-moon"></i>'}
-function updateProg(){const el=document.getElementById('rContent');if(!rChaps.length)return;const pct=el.scrollTop/(el.scrollHeight-el.clientHeight)*100||0;const base=(rIdx/rChaps.length)*100;document.getElementById('rProg').style.width=`${Math.min(100,base+pct/rChaps.length)}%`}
-document.getElementById('readerOverlay').addEventListener('click',e=>{if(e.target.id==='readerOverlay')closeReader()});
+function prevChap(){ if(rIdx>0) showChap(rIdx-1); }
+function nextChap(){ if(rIdx<rChaps.length-1) showChap(rIdx+1); }
+function closeReader(){ document.getElementById('readerOverlay').classList.remove('open'); rChaps=[]; rIdx=0; }
+function changeFontSize(d){ rFontSize=Math.max(13,Math.min(28,rFontSize+d)); document.getElementById('rPage').style.fontSize=rFontSize+'px'; }
+function toggleNight(){ rNight=!rNight; document.getElementById('readerModal').classList.toggle('night',rNight); document.getElementById('nightBtn').innerHTML=rNight?'<i class="fas fa-sun"></i>':'<i class="fas fa-moon"></i>'; }
+function updateProg(){ const el=document.getElementById('rContent'); if(!rChaps.length) return; const pct=el.scrollTop/(el.scrollHeight-el.clientHeight)*100||0; const base=(rIdx/rChaps.length)*100; document.getElementById('rProg').style.width=`${Math.min(100,base+pct/rChaps.length)}%`; }
+document.getElementById('readerOverlay').addEventListener('click',e=>{ if(e.target.id==='readerOverlay') closeReader(); });
 
 // ===================================================
 // PDF DOWNLOAD
 // ===================================================
 async function downloadPDF(){
-  if(typeof jspdf==='undefined'&&typeof window.jspdf==='undefined'){showToast('PDF library loading, try again…');return}
+  if(typeof window.jspdf === 'undefined'){ showToast('PDF library loading, try again…'); return; }
   showToast('⏳ Generating PDF…');
-  const {jsPDF}=window.jspdf;
-  const doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
-  const pw=190;let y=20;
+  const {jsPDF} = window.jspdf;
+  const doc = new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  const pw = 190; let y = 20;
 
-  // Title page
-  doc.setFillColor(27,58,107);doc.rect(0,0,210,297,'F');
+  doc.setFillColor(27,58,107); doc.rect(0,0,210,297,'F');
   doc.setTextColor(255,255,255);
-  doc.setFont('times','bold');doc.setFontSize(28);
-  const titleLines=doc.splitTextToSize(currentBookTitle,170);
-  doc.text(titleLines,105,100,{align:'center'});
-  doc.setFont('times','normal');doc.setFontSize(16);
-  doc.text('by '+currentBookAuthor,105,120,{align:'center'});
-  doc.setFontSize(12);doc.setTextColor(150,190,220);
-  doc.text('Sofia Library  ·  100% Free',105,140,{align:'center'});
-  doc.text('sofia-library-five.vercel.app',105,150,{align:'center'});
+  doc.setFont('times','bold'); doc.setFontSize(28);
+  const titleLines = doc.splitTextToSize(currentBookTitle, 170);
+  doc.text(titleLines, 105, 100, {align:'center'});
+  doc.setFont('times','normal'); doc.setFontSize(16);
+  doc.text('by '+currentBookAuthor, 105, 120, {align:'center'});
+  doc.setFontSize(12); doc.setTextColor(150,190,220);
+  doc.text('Sofia Library  ·  100% Free', 105, 140, {align:'center'});
+  doc.text('sofia-library-five.vercel.app', 105, 150, {align:'center'});
 
-  // Chapters
-  const chapsToPrint=rChaps.filter(c=>c.text||c.html);
+  const chapsToPrint = rChaps.filter(c=>c.text||c.html);
   chapsToPrint.forEach((chap,ci)=>{
     doc.addPage();
-    doc.setFillColor(250,246,238);doc.rect(0,0,210,297,'F');
-    doc.setTextColor(27,58,107);doc.setFont('times','bold');doc.setFontSize(16);
-    const cTitle=chap.title.replace(/^📖\s*/,'');
+    doc.setFillColor(250,246,238); doc.rect(0,0,210,297,'F');
+    doc.setTextColor(27,58,107); doc.setFont('times','bold'); doc.setFontSize(16);
+    const cTitle = chap.title.replace(/^📖\s*/,'');
     doc.text(doc.splitTextToSize(cTitle,170),20,22);
-    doc.setDrawColor(27,58,107);doc.setLineWidth(0.4);doc.line(20,27,190,27);
+    doc.setDrawColor(27,58,107); doc.setLineWidth(0.4); doc.line(20,27,190,27);
 
-    let rawText='';
-    if(chap.text){rawText=chap.text}
-    else if(chap.html){rawText=chap.html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim()}
+    let rawText = '';
+    if(chap.text){ rawText = chap.text; }
+    else if(chap.html){ rawText = chap.html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim(); }
 
-    doc.setFont('times','normal');doc.setFontSize(11);doc.setTextColor(40,32,20);
-    y=34;
-    const paragraphs=rawText.split(/\n+/).filter(p=>p.trim());
+    doc.setFont('times','normal'); doc.setFontSize(11); doc.setTextColor(40,32,20);
+    y = 34;
+    const paragraphs = rawText.split(/\n+/).filter(p=>p.trim());
     for(const para of paragraphs){
-      if(!para.trim())continue;
-      const lines=doc.splitTextToSize(para.trim(),pw);
-      if(y+lines.length*5.5>285){doc.addPage();doc.setFillColor(250,246,238);doc.rect(0,0,210,297,'F');doc.setFont('times','normal');doc.setFontSize(11);doc.setTextColor(40,32,20);y=20}
+      if(!para.trim()) continue;
+      const lines = doc.splitTextToSize(para.trim(), pw);
+      if(y+lines.length*5.5 > 285){ doc.addPage(); doc.setFillColor(250,246,238); doc.rect(0,0,210,297,'F'); doc.setFont('times','normal'); doc.setFontSize(11); doc.setTextColor(40,32,20); y=20; }
       doc.text(lines,20,y);
-      y+=lines.length*5.5+2;
+      y += lines.length*5.5+2;
     }
-    // Page number
-    doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(150,140,130);
-    doc.text(`${currentBookTitle}  ·  Page ${ci+1}`,105,292,{align:'center'});
+    doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(150,140,130);
+    doc.text(`${currentBookTitle}  ·  Page ${ci+1}`, 105, 292, {align:'center'});
   });
 
-  const fn=currentBookTitle.replace(/[^a-z0-9]/gi,'_').slice(0,40)+'_SofiaLibrary.pdf';
+  const fn = currentBookTitle.replace(/[^a-z0-9]/gi,'_').slice(0,40)+'_SofiaLibrary.pdf';
   doc.save(fn);
   showToast('✅ PDF downloaded!');
 }
@@ -969,96 +995,103 @@ const WODS=[
   {w:'Sagacious',p:'/səˈɡeɪ.ʃəs/',d:'Having good judgment; wise.',e:'The sagacious detective solved the case instantly.'},
   {w:'Ineffable',p:'/ɪnˈɛf.ə.bəl/',d:'Too great to be expressed in words.',e:'The view from the summit was ineffable.'},
 ];
-let wodIdx=Math.floor(Math.random()*WODS.length);let wodAudio=null;
-function initWod(){showWod()}
+let wodIdx=Math.floor(Math.random()*WODS.length); let wodAudio=null;
+function initWod(){ showWod(); }
 async function showWod(){
-  const w=WODS[wodIdx];
-  document.getElementById('wWord').textContent='…';
+  const w = WODS[wodIdx];
+  document.getElementById('wWord').textContent = '…';
   try{
-    const d=await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${w.w}`).then(r=>r.json());
-    const e=d[0];
-    document.getElementById('wWord').textContent=e.word;
-    document.getElementById('wPhon').textContent=e.phonetics?.find(p=>p.text)?.text||w.p;
-    const m=e.meanings?.[0];
-    document.getElementById('wDef').textContent=m?.definitions?.[0]?.definition||w.d;
-    document.getElementById('wEx').textContent='"'+(m?.definitions?.[0]?.example||w.e)+'"';
-    wodAudio=e.phonetics?.find(p=>p.audio)?.audio;
+    const d = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${w.w}`).then(r=>r.json());
+    const e = d[0];
+    document.getElementById('wWord').textContent = e.word;
+    document.getElementById('wPhon').textContent = e.phonetics?.find(p=>p.text)?.text || w.p;
+    const m = e.meanings?.[0];
+    document.getElementById('wDef').textContent = m?.definitions?.[0]?.definition || w.d;
+    document.getElementById('wEx').textContent = '"'+(m?.definitions?.[0]?.example||w.e)+'"';
+    wodAudio = e.phonetics?.find(p=>p.audio)?.audio;
   }catch{
-    document.getElementById('wWord').textContent=w.w;
-    document.getElementById('wPhon').textContent=w.p;
-    document.getElementById('wDef').textContent=w.d;
-    document.getElementById('wEx').textContent=`"${w.e}"`;
+    document.getElementById('wWord').textContent = w.w;
+    document.getElementById('wPhon').textContent = w.p;
+    document.getElementById('wDef').textContent = w.d;
+    document.getElementById('wEx').textContent = `"${w.e}"`;
   }
 }
-function nextWod(){wodIdx=(wodIdx+1)%WODS.length;showWod()}
+function nextWod(){ wodIdx=(wodIdx+1)%WODS.length; showWod(); }
 function speakWod(){
-  if(wodAudio){new Audio(wodAudio).play().catch(()=>{})}
-  else if(speechSynthesis){const u=new SpeechSynthesisUtterance(document.getElementById('wWord').textContent);u.lang='en-US';u.rate=.8;speechSynthesis.speak(u)}
+  if(wodAudio){ new Audio(wodAudio).play().catch(()=>{}); }
+  else if(speechSynthesis){ const u=new SpeechSynthesisUtterance(document.getElementById('wWord').textContent); u.lang='en-US'; u.rate=.8; speechSynthesis.speak(u); }
 }
 
 // ===================================================
 // DICTIONARY
 // ===================================================
 async function lookupWord(){
-  const w=document.getElementById('dictIn').value.trim();if(!w)return;
-  const res=document.getElementById('dictRes');res.className='dr show';
-  res.innerHTML='<p style="color:var(--tx3);padding:8px 0">Looking up…</p>';
+  const w = document.getElementById('dictIn').value.trim();
+  if(!w) return;
+  const res = document.getElementById('dictRes');
+  res.className = 'dr show';
+  res.innerHTML = '<p style="color:var(--tx3);padding:8px 0">Looking up…</p>';
   try{
-    const d=await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(w)}`).then(r=>r.json());
-    if(!Array.isArray(d)){res.innerHTML='<p style="color:var(--acc)">Word not found.</p>';return}
-    const e=d[0];const au=e.phonetics?.find(p=>p.audio)?.audio;
-    let h=`<div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:6px">
+    const d = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(w)}`).then(r=>r.json());
+    if(!Array.isArray(d)){ res.innerHTML='<p style="color:var(--acc)">Word not found.</p>'; return; }
+    const e = d[0];
+    const au = e.phonetics?.find(p=>p.audio)?.audio;
+    let h = `<div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:6px">
       <span class="dword">${e.word}</span>
       <span class="dphon">${e.phonetics?.find(p=>p.text)?.text||''}</span>
       <button class="dplay" onclick="${au?`new Audio('${au}').play()`:`(()=>{const u=new SpeechSynthesisUtterance('${e.word}');u.lang='en-US';speechSynthesis.speak(u)})()`}"><i class="fas fa-volume-up"></i></button>
     </div>`;
     e.meanings?.slice(0,3).forEach(m=>{
-      h+=`<div class="dpart">${m.partOfSpeech}</div>`;
-      m.definitions?.slice(0,3).forEach(df=>{h+=`<div class="ddef">${df.definition}${df.example?`<div class="dex">"${df.example}"</div>`:''}</div>`});
+      h += `<div class="dpart">${m.partOfSpeech}</div>`;
+      m.definitions?.slice(0,3).forEach(df=>{
+        h += `<div class="ddef">${df.definition}${df.example?`<div class="dex">"${df.example}"</div>`:''}</div>`;
+      });
     });
-    res.innerHTML=h;
-  }catch{res.innerHTML='<p style="color:var(--acc)">Error. Please try again.</p>'}
+    res.innerHTML = h;
+  }catch{
+    res.innerHTML = '<p style="color:var(--acc)">Error. Please try again.</p>';
+  }
 }
 
 // ===================================================
 // FLASHCARDS
 // ===================================================
 const FCS=[{w:'Abundant',m:'Present in large quantities.'},{w:'Benevolent',m:'Kind and generous.'},{w:'Candid',m:'Truthful and frank.'},{w:'Diligent',m:'Hardworking and careful.'},{w:'Eloquent',m:'Fluent and persuasive.'},{w:'Fortitude',m:'Courage in adversity.'},{w:'Gratitude',m:'The quality of being thankful.'},{w:'Harmony',m:'A pleasing combination of elements.'},{w:'Integrity',m:'Honesty and strong moral principles.'},{w:'Jubilant',m:'Feeling great happiness and joy.'},{w:'Luminous',m:'Bright; full of light.'},{w:'Meticulous',m:'Showing great attention to detail.'},{w:'Noble',m:'Having fine personal qualities.'},{w:'Optimistic',m:'Hopeful and confident about the future.'},{w:'Persevere',m:'Continue despite difficulty or opposition.'},{w:'Radiant',m:'Sending out light; shining brightly.'},{w:'Serene',m:'Calm, peaceful, and untroubled.'},{w:'Tenacious',m:'Persistent; not giving up easily.'},{w:'Virtuous',m:'Having high moral standards.'},{w:'Zealous',m:'Having great energy for a cause.'}];
-let fcIdx=0;
-function initFlashcards(){showFC()}
-function showFC(){const c=FCS[fcIdx];document.getElementById('fW').textContent=c.w;document.getElementById('fWB').textContent=c.w;document.getElementById('fM').textContent=c.m;document.getElementById('fCard').classList.remove('flip');document.getElementById('fProg').textContent=`${fcIdx+1} / ${FCS.length}`;document.getElementById('fFill').style.width=`${((fcIdx+1)/FCS.length)*100}%`}
-function flipCard(){document.getElementById('fCard').classList.toggle('flip')}
-function nextCard(){fcIdx=(fcIdx+1)%FCS.length;showFC()}
-function prevCard(){fcIdx=(fcIdx-1+FCS.length)%FCS.length;showFC()}
+let fcIdx = 0;
+function initFlashcards(){ showFC(); }
+function showFC(){ const c=FCS[fcIdx]; document.getElementById('fW').textContent=c.w; document.getElementById('fWB').textContent=c.w; document.getElementById('fM').textContent=c.m; document.getElementById('fCard').classList.remove('flip'); document.getElementById('fProg').textContent=`${fcIdx+1} / ${FCS.length}`; document.getElementById('fFill').style.width=`${((fcIdx+1)/FCS.length)*100}%`; }
+function flipCard(){ document.getElementById('fCard').classList.toggle('flip'); }
+function nextCard(){ fcIdx=(fcIdx+1)%FCS.length; showFC(); }
+function prevCard(){ fcIdx=(fcIdx-1+FCS.length)%FCS.length; showFC(); }
 
 // ===================================================
 // QUIZ
 // ===================================================
 const QS=[{q:'What does "Ephemeral" mean?',opts:['Lasting a short time','Very large','Extremely loud','Deeply sad'],a:0},{q:'Choose the correct meaning of "Diligent":',opts:['Lazy and careless','Hard-working and careful','Angry and rude','Silent and shy'],a:1},{q:'"Mellifluous" describes a sound that is:',opts:['Harsh and grating','Sweet and pleasant','Very loud','Completely silent'],a:1},{q:'What is the meaning of "Resilient"?',opts:['Easily broken','Unable to change','Able to recover quickly','Extremely fragile'],a:2},{q:'"Wanderlust" refers to:',opts:['Fear of the dark','Love of reading','A strong desire to travel','Deep sadness'],a:2},{q:'Which word means "truthful and frank"?',opts:['Candid','Timid','Ardent','Jovial'],a:0},{q:'What does "Benevolent" mean?',opts:['Cruel and harsh','Kind and generous','Loud and boisterous','Silent and cold'],a:1},{q:'"Luminous" means something that is:',opts:['Heavy','Dark','Bright and glowing','Soft'],a:2},{q:'What does "Fortitude" mean?',opts:['Weakness','Courage in difficulty','Happiness','Intelligence'],a:1},{q:'Which uses "Meticulous" correctly?',opts:['She was meticulous about every detail','He was meticulous and very lazy','The dog was meticulous in sleep','They meticulous ran fast'],a:0}];
 let qIdx=0,qSc=0,qAns=false;
-function initQuiz(){showQ()}
-function showQ(){const q=QS[qIdx];document.getElementById('qQ').textContent=`Q${qIdx+1}: ${q.q}`;document.getElementById('qOpts').innerHTML=q.opts.map((o,i)=>`<button class="qo" onclick="ansQ(${i})">${o}</button>`).join('');document.getElementById('qFb').style.display='none';document.getElementById('qNxt').style.display='none';document.getElementById('qSc').style.display='none';qAns=false}
-function ansQ(i){if(qAns)return;qAns=true;const q=QS[qIdx];const opts=document.querySelectorAll('.qo');opts.forEach(o=>o.disabled=true);const fb=document.getElementById('qFb');if(i===q.a){opts[i].classList.add('ok');qSc++;fb.textContent='✓ Correct!';fb.className='qfb ok'}else{opts[i].classList.add('bad');opts[q.a].classList.add('ok');fb.textContent=`✗ The answer is: "${q.opts[q.a]}"`;fb.className='qfb bad'}fb.style.display='block';document.getElementById('qNxt').style.display='block'}
-function nextQ(){qIdx++;if(qIdx>=QS.length){document.getElementById('qQ').textContent='Quiz Complete! 🎉';document.getElementById('qOpts').innerHTML='';document.getElementById('qFb').style.display='none';document.getElementById('qNxt').style.display='none';const sc=document.getElementById('qSc');sc.textContent=`Score: ${qSc}/${QS.length} — ${Math.round(qSc/QS.length*100)}%`;sc.style.display='block';setTimeout(()=>{qIdx=0;qSc=0;showQ()},4000)}else showQ()}
-function showETab(id,btn){document.querySelectorAll('.ep').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.etab').forEach(t=>t.classList.remove('on'));document.getElementById('ep-'+id).classList.add('on');if(btn)btn.classList.add('on')}
+function initQuiz(){ showQ(); }
+function showQ(){ const q=QS[qIdx]; document.getElementById('qQ').textContent=`Q${qIdx+1}: ${q.q}`; document.getElementById('qOpts').innerHTML=q.opts.map((o,i)=>`<button class="qo" onclick="ansQ(${i})">${o}</button>`).join(''); document.getElementById('qFb').style.display='none'; document.getElementById('qNxt').style.display='none'; document.getElementById('qSc').style.display='none'; qAns=false; }
+function ansQ(i){ if(qAns)return; qAns=true; const q=QS[qIdx]; const opts=document.querySelectorAll('.qo'); opts.forEach(o=>o.disabled=true); const fb=document.getElementById('qFb'); if(i===q.a){ opts[i].classList.add('ok'); qSc++; fb.textContent='✓ Correct!'; fb.className='qfb ok'; }else{ opts[i].classList.add('bad'); opts[q.a].classList.add('ok'); fb.textContent=`✗ The answer is: "${q.opts[q.a]}"`; fb.className='qfb bad'; } fb.style.display='block'; document.getElementById('qNxt').style.display='block'; }
+function nextQ(){ qIdx++; if(qIdx>=QS.length){ document.getElementById('qQ').textContent='Quiz Complete! 🎉'; document.getElementById('qOpts').innerHTML=''; document.getElementById('qFb').style.display='none'; document.getElementById('qNxt').style.display='none'; const sc=document.getElementById('qSc'); sc.textContent=`Score: ${qSc}/${QS.length} — ${Math.round(qSc/QS.length*100)}%`; sc.style.display='block'; setTimeout(()=>{qIdx=0;qSc=0;showQ();},4000); }else showQ(); }
+function showETab(id,btn){ document.querySelectorAll('.ep').forEach(p=>p.classList.remove('on')); document.querySelectorAll('.etab').forEach(t=>t.classList.remove('on')); document.getElementById('ep-'+id).classList.add('on'); if(btn)btn.classList.add('on'); }
 
 // ===================================================
 // TIPS
 // ===================================================
 const TIPS=[{n:'01',en:'Create a Daily Reading Habit',id:'Bangun Kebiasaan Membaca',te:'Set aside 20–30 minutes each day. Even 20 pages a day means 12 books a year.',ti:'Sisihkan 20–30 menit setiap hari. Bahkan 20 halaman sehari berarti 12 buku setahun.'},{n:'02',en:'Take Notes While Reading',id:'Catat Saat Membaca',te:'Write down key ideas and passages. Active note-taking boosts retention dramatically.',ti:'Catat ide utama dan kutipan. Mencatat secara aktif meningkatkan daya ingat secara dramatis.'},{n:'03',en:'Use the SQ3R Method',id:'Gunakan Metode SQ3R',te:'Survey, Question, Read, Recite, Review — transforms passive reading into active learning.',ti:'Survei, Pertanyaan, Baca, Ucapkan, Tinjau — mengubah membaca pasif menjadi aktif.'},{n:'04',en:'Read Diverse Genres',id:'Baca Berbagai Genre',te:'Classics, science, philosophy, fiction — each genre trains a different kind of thinking.',ti:'Klasik, sains, filsafat, fiksi — setiap genre melatih jenis pemikiran yang berbeda.'},{n:'05',en:'Build Vocabulary Daily',id:'Kembangkan Kosakata',te:'Look up every unfamiliar word. A richer vocabulary makes reading faster and more enjoyable.',ti:'Cari setiap kata yang tidak familiar. Kosakata yang kaya membuat membaca lebih cepat dan menyenangkan.'},{n:'06',en:'Join a Reading Challenge',id:'Ikuti Tantangan Membaca',te:'Challenge yourself: 52 books in 52 weeks. Goals turn reading from a habit into an adventure.',ti:'Tantang diri: 52 buku dalam 52 minggu. Tujuan mengubah membaca dari kebiasaan menjadi petualangan.'}];
-function initTips(){document.getElementById('tipsGrid').innerHTML=TIPS.map(t=>`<div class="tc rv"><div class="tn">${t.n}</div><div class="tt" data-en="${t.en}" data-id="${t.id}">${t.en}</div><div class="tx2" data-en="${t.te}" data-id="${t.ti}">${t.te}</div></div>`).join('')}
+function initTips(){ document.getElementById('tipsGrid').innerHTML=TIPS.map(t=>`<div class="tc rv"><div class="tn">${t.n}</div><div class="tt" data-en="${t.en}" data-id="${t.id}">${t.en}</div><div class="tx2" data-en="${t.te}" data-id="${t.ti}">${t.te}</div></div>`).join(''); }
 
 // ===================================================
 // NEWSLETTER
 // ===================================================
-function subscribeNL(){const e=document.getElementById('nlEmail').value.trim();if(!e||!e.includes('@')){showToast('Please enter a valid email!');return}showToast('🎉 Subscribed! Welcome to Sofia Library!');document.getElementById('nlEmail').value=''}
+function subscribeNL(){ const e=document.getElementById('nlEmail').value.trim(); if(!e||!e.includes('@')){ showToast('Please enter a valid email!'); return; } showToast('🎉 Subscribed! Welcome to Sofia Library!'); document.getElementById('nlEmail').value=''; }
 
 // ===================================================
 // TOAST & REVEAL
 // ===================================================
-function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3200)}
-function initReveal(){const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.07});document.querySelectorAll('.rv:not(.vis)').forEach(el=>obs.observe(el))}
-document.addEventListener('DOMContentLoaded',initReveal);
+function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3200); }
+function initReveal(){ const obs=new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('vis'); }); },{threshold:.07}); document.querySelectorAll('.rv:not(.vis)').forEach(el=>obs.observe(el)); }
+document.addEventListener('DOMContentLoaded', initReveal);
 </script>
 </body>
 </html>
