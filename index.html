@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sofia Library — Gateway to Knowledge</title>
+  <meta name="description" content="Sofia Library — Explore thousands of books in science, knowledge, and stories. Your premium digital library experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #F7F3EE;
+      --bg2: #EDE8E0;
+      --card: #FFFFFF;
+      --card2: #F0EBE3;
+      --primary: #2C3E7A;
+      --primary-light: #3D54A8;
+      --accent: #C75B7A;
+      --teal: #3CBFA5;
+      --amber: #E8965A;
+      --text: #1E1B2E;
+      --text2: #5A5570;
+      --text3: #9490A5;
+      --border: #DDD8D0;
+      --shadow: 0 8px 32px rgba(44,62,122,0.10);
+      --shadow2: 0 20px 60px rgba(44,62,122,0.16);
+      --nav-h: 72px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg2); }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: var(--nav-h);
+      background: rgba(247,243,238,0.88);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 5%;
+      justify-content: space-between;
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: var(--shadow); }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid var(--primary);
+      flex-shrink: 0;
+    }
+    .nav-logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 800; color: var(--primary); }
+    .nav-logo-text span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--text2);
+      padding: 8px 14px; border-radius: 8px;
+      text-decoration: none; transition: all .2s;
+    }
+    .nav-links a:hover { color: var(--primary); background: var(--bg2); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .lang-toggle {
+      display: flex; border: 1.5px solid var(--border); border-radius: 20px; overflow: hidden;
+    }
+    .lang-btn {
+      padding: 5px 12px; font-size: 12px; font-weight: 600; cursor: pointer;
+      border: none; background: transparent; color: var(--text2); transition: all .2s;
+    }
+    .lang-btn.active { background: var(--primary); color: white; }
+    .nav-search-btn {
+      width: 38px; height: 38px; border-radius: 50%; border: none;
+      background: var(--bg2); color: var(--text2); cursor: pointer; font-size: 15px;
+      transition: all .2s;
+    }
+    .nav-search-btn:hover { background: var(--primary); color: white; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+    .hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s; }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      padding-top: var(--nav-h);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(135deg, #F7F3EE 0%, #EDE4F5 40%, #DDE8F7 100%);
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%; filter: blur(60px); opacity: .35;
+      animation: float 6s ease-in-out infinite;
+    }
+    .hero-orb-1 { width: 500px; height: 500px; background: var(--primary); top: -100px; right: -100px; animation-delay: 0s; }
+    .hero-orb-2 { width: 350px; height: 350px; background: var(--accent); bottom: -80px; left: -80px; animation-delay: 2s; }
+    .hero-orb-3 { width: 250px; height: 250px; background: var(--teal); top: 30%; left: 30%; animation-delay: 4s; }
+    @keyframes float {
+      0%,100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-20px) scale(1.04); }
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 60px;
+      width: 90%; max-width: 1200px; margin: 0 auto;
+      padding: 80px 0;
+    }
+    .hero-left { animation: slideInLeft .8s ease both; }
+    .hero-right { animation: slideInRight .8s ease .2s both; }
+    @keyframes slideInLeft { from { opacity:0; transform:translateX(-40px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes slideInRight { from { opacity:0; transform:translateX(40px); } to { opacity:1; transform:translateX(0); } }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(44,62,122,.1); color: var(--primary);
+      border: 1px solid rgba(44,62,122,.2);
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; letter-spacing: .5px;
+      margin-bottom: 20px;
+      animation: fadeInDown .6s ease both;
+    }
+    .hero-badge::before { content: '✦'; }
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 800; line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .hero-h1 em { color: var(--accent); font-style: italic; }
+    .hero-p {
+      font-size: 17px; color: var(--text2); line-height: 1.75;
+      margin-bottom: 36px; max-width: 460px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 14px 28px; border-radius: 12px;
+      background: var(--primary); color: white;
+      font-size: 15px; font-weight: 600; border: none; cursor: pointer;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: all .25s; box-shadow: 0 4px 16px rgba(44,62,122,.3);
+    }
+    .btn-primary:hover { background: var(--primary-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44,62,122,.35); }
+    .btn-outline {
+      padding: 14px 28px; border-radius: 12px;
+      background: transparent; color: var(--primary);
+      font-size: 15px; font-weight: 600; border: 2px solid var(--primary);
+      cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: all .25s;
+    }
+    .btn-outline:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+    .hero-stats { display: flex; gap: 30px; margin-top: 44px; }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 800; color: var(--primary); }
+    .hero-stat-label { font-size: 12px; color: var(--text3); font-weight: 500; margin-top: 4px; }
+
+    /* Floating Books */
+    .books-visual {
+      position: relative; height: 480px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .book-float {
+      position: absolute;
+      border-radius: 8px;
+      box-shadow: var(--shadow2);
+      overflow: hidden;
+      transition: transform .3s;
+    }
+    .book-float:hover { transform: scale(1.05) !important; z-index: 10; }
+    .book-float img { width: 100%; height: 100%; object-fit: cover; }
+    .bf-1 { width: 130px; height: 190px; top: 10%; left: 10%; animation: bookFloat1 5s ease-in-out infinite; }
+    .bf-2 { width: 160px; height: 230px; top: 15%; left: 35%; animation: bookFloat2 6s ease-in-out infinite; }
+    .bf-3 { width: 120px; height: 175px; top: 40%; left: 65%; animation: bookFloat1 7s ease-in-out infinite .5s; }
+    .bf-4 { width: 145px; height: 210px; top: 55%; left: 18%; animation: bookFloat2 5.5s ease-in-out infinite 1s; }
+    .bf-5 { width: 110px; height: 160px; top: 62%; left: 55%; animation: bookFloat1 6.5s ease-in-out infinite 1.5s; }
+    @keyframes bookFloat1 {
+      0%,100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-15px) rotate(1deg); }
+    }
+    @keyframes bookFloat2 {
+      0%,100% { transform: translateY(0) rotate(3deg); }
+      50% { transform: translateY(-20px) rotate(-1deg); }
+    }
+
+    /* ===== SECTIONS COMMON ===== */
+    section { padding: 80px 5%; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-badge {
+      display: inline-block;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 44px); font-weight: 800;
+      color: var(--text); margin-bottom: 14px; line-height: 1.25;
+    }
+    .section-sub { font-size: 16px; color: var(--text2); max-width: 560px; margin: 0 auto; line-height: 1.75; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ===== CATEGORIES ===== */
+    #categories { background: var(--bg); }
+    .cats-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .cat-card {
+      background: var(--card); border-radius: 20px;
+      padding: 32px 24px; text-align: center;
+      border: 1px solid var(--border);
+      cursor: pointer; transition: all .3s;
+      position: relative; overflow: hidden;
+    }
+    .cat-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--cat-color, var(--primary));
+      opacity: 0; transition: opacity .3s;
+    }
+    .cat-card:hover::before { opacity: .06; }
+    .cat-card:hover { transform: translateY(-6px); box-shadow: var(--shadow2); border-color: transparent; }
+    .cat-icon {
+      width: 64px; height: 64px; border-radius: 18px;
+      background: var(--cat-color, var(--primary));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; margin: 0 auto 18px; color: white;
+      transition: transform .3s;
+    }
+    .cat-card:hover .cat-icon { transform: scale(1.12) rotate(-4deg); }
+    .cat-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .cat-count { font-size: 13px; color: var(--text3); }
+    .cat-card.active { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(44,62,122,.15); }
+
+    /* ===== BOOKS GRID ===== */
+    #books { background: var(--bg2); }
+    .books-search {
+      display: flex; gap: 12px; max-width: 560px; margin: 0 auto 40px;
+    }
+    .books-search input {
+      flex: 1; padding: 14px 20px; border-radius: 12px;
+      border: 1.5px solid var(--border); background: var(--card);
+      font-size: 15px; color: var(--text); outline: none;
+      transition: border-color .2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .books-search input:focus { border-color: var(--primary); }
+    .books-search button {
+      padding: 14px 24px; border-radius: 12px;
+      background: var(--primary); color: white; border: none;
+      font-size: 15px; font-weight: 600; cursor: pointer;
+      transition: all .2s;
+    }
+    .books-search button:hover { background: var(--primary-light); }
+    .books-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 24px;
+    }
+    .book-card {
+      background: var(--card); border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all .3s; cursor: pointer;
+      animation: fadeUp .5s ease both;
+    }
+    .book-card:hover { transform: translateY(-8px); box-shadow: var(--shadow2); border-color: transparent; }
+    .book-cover {
+      width: 100%; aspect-ratio: 2/3; object-fit: cover;
+      background: linear-gradient(135deg, var(--bg2), var(--primary-light));
+      display: block; transition: transform .3s;
+    }
+    .book-card:hover .book-cover { transform: scale(1.04); }
+    .book-info { padding: 16px; }
+    .book-title {
+      font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700;
+      line-height: 1.4; margin-bottom: 6px;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .book-author { font-size: 12px; color: var(--text3); margin-bottom: 10px; }
+    .book-year { font-size: 11px; color: var(--teal); font-weight: 600; }
+    .book-skeleton {
+      background: var(--card); border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
+      animation: shimmer 1.5s infinite;
+    }
+    .skel-cover { width: 100%; aspect-ratio: 2/3; background: var(--bg2); }
+    .skel-info { padding: 16px; }
+    .skel-line { height: 12px; background: var(--bg2); border-radius: 6px; margin-bottom: 8px; }
+    .skel-line:last-child { width: 60%; }
+    @keyframes shimmer {
+      0%,100% { opacity: 1; } 50% { opacity: .6; }
+    }
+    .books-load-more {
+      text-align: center; margin-top: 40px;
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); }
+    }
+
+    /* ===== FEATURED ===== */
+    #featured { background: var(--primary); color: white; }
+    #featured .section-title { color: white; }
+    #featured .section-sub { color: rgba(255,255,255,.7); }
+    #featured .section-badge { color: var(--teal); }
+    .featured-grid {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 24px;
+    }
+    .feat-main {
+      background: rgba(255,255,255,.08); border-radius: 20px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1);
+      position: relative; min-height: 360px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      transition: transform .3s;
+    }
+    .feat-main:hover { transform: scale(1.02); }
+    .feat-main-img { position: absolute; inset: 0; object-fit: cover; width: 100%; height: 100%; opacity: .55; }
+    .feat-main-info { position: relative; z-index: 1; padding: 28px; background: linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 100%); }
+    .feat-tag { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: var(--accent); color: white; margin-bottom: 10px; }
+    .feat-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 800; line-height: 1.3; margin-bottom: 6px; }
+    .feat-sub-grid { display: flex; flex-direction: column; gap: 16px; }
+    .feat-side {
+      background: rgba(255,255,255,.08); border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1);
+      display: flex; gap: 14px; padding: 16px;
+      align-items: flex-start; transition: all .3s; cursor: pointer;
+    }
+    .feat-side:hover { background: rgba(255,255,255,.15); transform: translateX(4px); }
+    .feat-side img { width: 60px; height: 88px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+    .feat-side-title { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; line-height: 1.35; }
+    .feat-side-author { font-size: 12px; opacity: .7; }
+
+    /* ===== ENGLISH LEARNING ===== */
+    #english { background: var(--bg); }
+    .english-tabs {
+      display: flex; gap: 8px; justify-content: center; margin-bottom: 40px;
+    }
+    .etab {
+      padding: 10px 22px; border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: var(--card); color: var(--text2);
+      font-size: 14px; font-weight: 600; cursor: pointer;
+      transition: all .2s;
+    }
+    .etab.active { background: var(--primary); color: white; border-color: var(--primary); }
+    .etab:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+    .english-panel { display: none; animation: fadeUp .4s ease both; }
+    .english-panel.active { display: block; }
+
+    /* Dictionary */
+    .dict-box {
+      max-width: 700px; margin: 0 auto;
+      background: var(--card); border-radius: 24px; padding: 36px;
+      box-shadow: var(--shadow);
+    }
+    .dict-search { display: flex; gap: 12px; margin-bottom: 28px; }
+    .dict-search input {
+      flex: 1; padding: 14px 20px; border-radius: 12px;
+      border: 1.5px solid var(--border); background: var(--bg);
+      font-size: 16px; color: var(--text); outline: none; font-family: 'DM Sans', sans-serif;
+    }
+    .dict-search input:focus { border-color: var(--primary); }
+    .dict-search button {
+      padding: 14px 24px; border-radius: 12px;
+      background: var(--primary); color: white; border: none;
+      font-weight: 600; cursor: pointer; transition: background .2s;
+    }
+    .dict-search button:hover { background: var(--primary-light); }
+    .dict-result { display: none; }
+    .dict-result.show { display: block; animation: fadeUp .3s ease; }
+    .dict-word { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 800; color: var(--primary); }
+    .dict-phonetic { font-size: 16px; color: var(--text3); margin: 4px 0 16px; font-style: italic; }
+    .dict-play-btn {
+      background: var(--teal); color: white; border: none; border-radius: 8px;
+      padding: 8px 16px; cursor: pointer; font-size: 13px; font-weight: 600; margin-left: 10px;
+      transition: background .2s;
+    }
+    .dict-play-btn:hover { background: #2aa990; }
+    .dict-part { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin: 18px 0 8px; }
+    .dict-def { font-size: 15px; color: var(--text); padding: 12px 16px; background: var(--bg); border-radius: 10px; margin-bottom: 8px; line-height: 1.65; border-left: 3px solid var(--primary); }
+    .dict-example { font-size: 14px; color: var(--text2); font-style: italic; margin-top: 6px; padding-left: 12px; border-left: 2px solid var(--border); }
+
+    /* Word of Day */
+    .wod-box {
+      max-width: 800px; margin: 0 auto;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      border-radius: 24px; padding: 40px; color: white;
+      position: relative; overflow: hidden;
+    }
+    .wod-box::after {
+      content: '📖'; position: absolute; right: 30px; bottom: 20px;
+      font-size: 120px; opacity: .12;
+    }
+    .wod-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    .wod-word { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 800; margin-bottom: 8px; }
+    .wod-phonetic { font-size: 18px; opacity: .7; margin-bottom: 20px; font-style: italic; }
+    .wod-def { font-size: 16px; line-height: 1.75; opacity: .9; max-width: 520px; margin-bottom: 24px; }
+    .wod-example { font-size: 15px; font-style: italic; opacity: .75; border-left: 3px solid var(--teal); padding-left: 16px; }
+    .wod-actions { display: flex; gap: 12px; margin-top: 28px; }
+    .wod-btn {
+      padding: 10px 20px; border-radius: 10px; font-size: 14px; font-weight: 600;
+      cursor: pointer; border: none; transition: all .2s;
+    }
+    .wod-btn-primary { background: var(--teal); color: white; }
+    .wod-btn-primary:hover { background: #2aa990; }
+    .wod-btn-outline { background: rgba(255,255,255,.15); color: white; }
+    .wod-btn-outline:hover { background: rgba(255,255,255,.25); }
+
+    /* Flashcards */
+    .flashcard-wrap {
+      max-width: 700px; margin: 0 auto;
+    }
+    .flashcard {
+      background: var(--card); border-radius: 24px;
+      padding: 56px; text-align: center;
+      box-shadow: var(--shadow2);
+      min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      cursor: pointer;
+      perspective: 1000px;
+      position: relative;
+      transition: all .3s;
+      border: 1px solid var(--border);
+    }
+    .flashcard:hover { transform: translateY(-4px); }
+    .fc-front, .fc-back {
+      position: absolute; inset: 0; padding: 40px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      border-radius: 24px;
+      backface-visibility: hidden;
+      transition: transform .6s;
+    }
+    .fc-front { background: var(--card); }
+    .fc-back { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; transform: rotateY(180deg); }
+    .flashcard.flipped .fc-front { transform: rotateY(180deg); }
+    .flashcard.flipped .fc-back { transform: rotateY(0); }
+    .fc-word { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 800; color: var(--primary); margin-bottom: 12px; }
+    .fc-hint { font-size: 14px; color: var(--text3); }
+    .fc-back .fc-word { color: white; }
+    .fc-meaning { font-size: 18px; line-height: 1.65; margin-top: 12px; }
+    .fc-controls { display: flex; gap: 14px; justify-content: center; margin-top: 28px; }
+    .fc-btn {
+      padding: 12px 28px; border-radius: 12px; font-size: 14px; font-weight: 600;
+      cursor: pointer; border: none; transition: all .2s;
+    }
+    .fc-btn-prev { background: var(--bg2); color: var(--text2); }
+    .fc-btn-prev:hover { background: var(--border); }
+    .fc-btn-next { background: var(--primary); color: white; }
+    .fc-btn-next:hover { background: var(--primary-light); }
+    .fc-progress { text-align: center; margin-top: 16px; font-size: 14px; color: var(--text3); }
+    .fc-progress-bar { height: 4px; background: var(--border); border-radius: 2px; margin-top: 8px; }
+    .fc-progress-fill { height: 100%; background: var(--primary); border-radius: 2px; transition: width .4s; }
+
+    /* Quiz */
+    .quiz-box {
+      max-width: 700px; margin: 0 auto;
+      background: var(--card); border-radius: 24px; padding: 40px;
+      box-shadow: var(--shadow);
+    }
+    .quiz-question { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 28px; line-height: 1.4; color: var(--primary); }
+    .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .quiz-opt {
+      padding: 16px 20px; border-radius: 12px;
+      border: 2px solid var(--border); background: var(--bg);
+      font-size: 15px; cursor: pointer; transition: all .2s; text-align: left;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .quiz-opt:hover:not(:disabled) { border-color: var(--primary); background: rgba(44,62,122,.06); }
+    .quiz-opt.correct { background: rgba(60,191,165,.15); border-color: var(--teal); color: #1a7a6a; }
+    .quiz-opt.wrong { background: rgba(199,91,122,.12); border-color: var(--accent); color: #962040; }
+    .quiz-feedback { margin-top: 20px; padding: 16px; border-radius: 12px; font-size: 15px; font-weight: 600; display: none; }
+    .quiz-feedback.correct { background: rgba(60,191,165,.15); color: #1a7a6a; border: 1.5px solid var(--teal); }
+    .quiz-feedback.wrong { background: rgba(199,91,122,.12); color: #962040; border: 1.5px solid var(--accent); }
+    .quiz-score { text-align: center; font-size: 22px; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+    .quiz-next-btn {
+      margin-top: 20px; padding: 12px 28px; border-radius: 12px;
+      background: var(--primary); color: white; border: none; font-size: 15px; font-weight: 600;
+      cursor: pointer; transition: background .2s; display: none;
+    }
+    .quiz-next-btn:hover { background: var(--primary-light); }
+
+    /* ===== READING TIPS ===== */
+    #tips { background: var(--bg2); }
+    .tips-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .tip-card {
+      background: var(--card); border-radius: 20px; padding: 28px;
+      border: 1px solid var(--border); transition: all .3s;
+    }
+    .tip-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .tip-num {
+      font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 800;
+      color: var(--primary); opacity: .15; line-height: 1; margin-bottom: 12px;
+    }
+    .tip-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .tip-text { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,.6); backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden; transition: all .3s;
+    }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+    .modal {
+      background: var(--card); border-radius: 24px;
+      width: 90%; max-width: 700px; max-height: 85vh;
+      overflow-y: auto; padding: 40px;
+      transform: scale(.9); transition: transform .3s;
+      position: relative;
+    }
+    .modal-overlay.open .modal { transform: scale(1); }
+    .modal-close {
+      position: absolute; top: 20px; right: 20px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--bg2); border: none; cursor: pointer;
+      font-size: 16px; color: var(--text2); transition: all .2s;
+    }
+    .modal-close:hover { background: var(--accent); color: white; }
+    .modal-book { display: flex; gap: 28px; }
+    .modal-cover { width: 140px; height: 200px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+    .modal-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 800; margin-bottom: 8px; }
+    .modal-author { font-size: 15px; color: var(--text2); margin-bottom: 16px; }
+    .modal-meta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+    .modal-tag {
+      padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;
+      background: rgba(44,62,122,.1); color: var(--primary);
+    }
+    .modal-desc { font-size: 15px; color: var(--text2); line-height: 1.75; margin-bottom: 24px; }
+    .modal-read-btn {
+      padding: 13px 28px; border-radius: 12px;
+      background: var(--primary); color: white; border: none;
+      font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px; transition: background .2s;
+    }
+    .modal-read-btn:hover { background: var(--primary-light); }
+
+    /* ===== SEARCH MODAL ===== */
+    .search-overlay {
+      position: fixed; inset: 0; z-index: 1500;
+      background: rgba(0,0,0,.7); backdrop-filter: blur(12px);
+      display: flex; align-items: flex-start; justify-content: center;
+      padding-top: 100px;
+      opacity: 0; visibility: hidden; transition: all .3s;
+    }
+    .search-overlay.open { opacity: 1; visibility: visible; }
+    .search-box {
+      background: var(--card); border-radius: 20px; width: 90%; max-width: 600px;
+      padding: 24px; transform: translateY(-20px); transition: transform .3s;
+    }
+    .search-overlay.open .search-box { transform: translateY(0); }
+    .search-input-wrap { display: flex; align-items: center; gap: 12px; }
+    .search-input-wrap i { font-size: 20px; color: var(--text3); }
+    .search-input-wrap input {
+      flex: 1; border: none; outline: none; font-size: 18px;
+      color: var(--text); background: transparent; font-family: 'DM Sans', sans-serif;
+    }
+    .search-close { background: none; border: none; font-size: 20px; color: var(--text3); cursor: pointer; }
+    .search-results { margin-top: 20px; }
+
+    /* ===== SPECIAL COLLECTIONS ===== */
+    #collections { background: var(--bg); }
+    .coll-series-tabs {
+      display: flex; gap: 12px; justify-content: center; margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .coll-tab {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 24px; border-radius: 40px;
+      border: 2px solid var(--border); background: var(--card);
+      cursor: pointer; transition: all .25s; font-size: 15px; font-weight: 600;
+      color: var(--text2);
+    }
+    .coll-tab img { width: 28px; height: 28px; border-radius: 6px; object-fit: cover; }
+    .coll-tab.active { border-color: var(--primary); background: var(--primary); color: white; }
+    .coll-tab:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+    .coll-panel { display: none; animation: fadeUp .4s ease both; }
+    .coll-panel.active { display: block; }
+    .coll-header-banner {
+      border-radius: 24px; overflow: hidden; margin-bottom: 40px;
+      position: relative; min-height: 220px;
+      display: flex; align-items: flex-end;
+    }
+    .coll-banner-img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; filter: brightness(.45);
+    }
+    .coll-banner-info {
+      position: relative; z-index: 1; padding: 36px 40px;
+      color: white; width: 100%;
+    }
+    .coll-series-name {
+      font-family: 'Playfair Display', serif; font-size: clamp(28px,4vw,48px);
+      font-weight: 800; margin-bottom: 8px; line-height: 1.2;
+    }
+    .coll-series-author { font-size: 16px; opacity: .8; margin-bottom: 12px; }
+    .coll-series-desc { font-size: 15px; opacity: .75; max-width: 640px; line-height: 1.7; }
+    .coll-series-meta { display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+    .coll-meta-tag {
+      padding: 5px 14px; border-radius: 20px;
+      background: rgba(255,255,255,.15); backdrop-filter: blur(6px);
+      font-size: 12px; font-weight: 600; color: white;
+      border: 1px solid rgba(255,255,255,.25);
+    }
+    .coll-books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 28px;
+    }
+    .coll-book-card {
+      background: var(--card); border-radius: 20px; overflow: hidden;
+      border: 1px solid var(--border); transition: all .3s; cursor: pointer;
+      position: relative;
+    }
+    .coll-book-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: var(--shadow2); border-color: transparent; }
+    .coll-cover-wrap {
+      position: relative; overflow: hidden;
+      aspect-ratio: 2/3;
+    }
+    .coll-cover {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; transition: transform .4s;
+    }
+    .coll-book-card:hover .coll-cover { transform: scale(1.06); }
+    .coll-cover-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 55%);
+      opacity: 0; transition: opacity .3s;
+      display: flex; align-items: flex-end; padding: 16px;
+    }
+    .coll-book-card:hover .coll-cover-overlay { opacity: 1; }
+    .coll-read-btn {
+      width: 100%; padding: 10px; border-radius: 10px;
+      background: white; color: var(--primary);
+      font-size: 13px; font-weight: 700; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      transition: background .2s;
+    }
+    .coll-read-btn:hover { background: var(--teal); color: white; }
+    .coll-book-num {
+      position: absolute; top: 10px; left: 10px;
+      width: 28px; height: 28px; border-radius: 8px;
+      background: var(--primary); color: white;
+      font-size: 12px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .coll-book-info { padding: 16px 18px 20px; }
+    .coll-book-title {
+      font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700;
+      line-height: 1.4; margin-bottom: 6px; color: var(--text);
+    }
+    .coll-book-year { font-size: 12px; color: var(--text3); margin-bottom: 10px; }
+    .coll-book-synopsis {
+      font-size: 12px; color: var(--text2); line-height: 1.65;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .coll-card-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 9px 16px; border-radius: 10px;
+      background: var(--primary); color: white;
+      font-size: 13px; font-weight: 600; border: none; cursor: pointer;
+      text-decoration: none; transition: background .2s; width: 100%; justify-content: center;
+    }
+    .coll-card-btn:hover { background: var(--primary-light); }
+
+    /* ===== NEWSLETTER ===== */
+    #newsletter { background: var(--accent); color: white; padding: 70px 5%; }
+    #newsletter .section-title { color: white; }
+    .newsletter-inner { max-width: 560px; margin: 0 auto; text-align: center; }
+    .newsletter-sub { font-size: 16px; opacity: .9; margin: 12px 0 28px; line-height: 1.65; }
+    .newsletter-form { display: flex; gap: 12px; }
+    .newsletter-form input {
+      flex: 1; padding: 14px 20px; border-radius: 12px;
+      border: none; background: rgba(255,255,255,.2); color: white;
+      font-size: 15px; outline: none; font-family: 'DM Sans', sans-serif;
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,.7); }
+    .newsletter-form button {
+      padding: 14px 24px; border-radius: 12px;
+      background: white; color: var(--accent); border: none;
+      font-size: 15px; font-weight: 700; cursor: pointer; transition: all .2s;
+    }
+    .newsletter-form button:hover { background: var(--text); color: white; }
+
+    /* ===== FOOTER ===== */
+    footer { background: #1a1630; color: white; padding: 60px 5% 28px; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand .nav-logo-icon { border-color: rgba(255,255,255,.3); }
+    .footer-brand .nav-logo-text { color: white; }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,.55); margin-top: 12px; line-height: 1.75; max-width: 280px; }
+    .footer-col h4 { font-size: 14px; font-weight: 700; letter-spacing: .5px; margin-bottom: 16px; color: rgba(255,255,255,.85); }
+    .footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,.5); text-decoration: none; margin-bottom: 10px; transition: color .2s; }
+    .footer-col a:hover { color: var(--teal); }
+    .footer-socials { display: flex; gap: 12px; margin-top: 16px; }
+    .social-btn {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: rgba(255,255,255,.1); color: rgba(255,255,255,.7);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; cursor: pointer; transition: all .2s; text-decoration: none;
+    }
+    .social-btn:hover { background: var(--primary); color: white; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 24px; display: flex; justify-content: space-between;
+      align-items: center; font-size: 13px; color: rgba(255,255,255,.4);
+    }
+
+    /* ===== LOADING ===== */
+    #page-loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--primary);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      transition: opacity .5s;
+    }
+    #page-loader.fade-out { opacity: 0; pointer-events: none; }
+    .loader-logo { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 800; color: white; }
+    .loader-logo span { color: var(--teal); }
+    .loader-bar { width: 200px; height: 3px; background: rgba(255,255,255,.2); border-radius: 2px; margin-top: 24px; overflow: hidden; }
+    .loader-fill { height: 100%; background: var(--teal); border-radius: 2px; animation: loadBar 1.5s ease forwards; }
+    @keyframes loadBar { from { width: 0%; } to { width: 100%; } }
+
+    /* ===== TOAST ===== */
+    .toast {
+      position: fixed; bottom: 24px; right: 24px; z-index: 3000;
+      background: var(--text); color: white;
+      padding: 14px 20px; border-radius: 12px;
+      font-size: 14px; font-weight: 500;
+      transform: translateY(80px); opacity: 0;
+      transition: all .3s;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-30px); transition: all .6s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(30px); transition: all .6s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .featured-grid { grid-template-columns: 1fr 1fr; }
+      .featured-grid > .feat-main { grid-column: 1/-1; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-right { display: none; }
+      .hero-btns { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .quiz-options { grid-template-columns: 1fr; }
+      .modal-book { flex-direction: column; align-items: center; text-align: center; }
+      .newsletter-form { flex-direction: column; }
+    }
+
+    /* ===== SPECIAL COLLECTIONS ===== */
+    #collections { background: var(--bg); }
+    .coll-tabs {
+      display: flex; gap: 10px; justify-content: center; margin-bottom: 44px; flex-wrap: wrap;
+    }
+    .coll-tab {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 50px;
+      border: 2px solid var(--border); background: var(--card);
+      color: var(--text2); font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: all .25s;
+    }
+    .coll-tab:hover { border-color: var(--primary); color: var(--primary); }
+    .coll-tab.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 4px 16px rgba(44,62,122,.3); }
+    .coll-panel { display: none; animation: fadeUp .4s ease both; }
+    .coll-panel.active { display: block; }
+    .coll-series-banner {
+      border-radius: 24px; overflow: hidden; position: relative;
+      min-height: 220px; margin-bottom: 40px;
+      display: flex; align-items: flex-end;
+    }
+    .coll-banner-bg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: brightness(.42); }
+    .coll-banner-info {
+      position: relative; z-index: 1; padding: 36px 40px; color: white; width: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,.72) 0%, transparent 100%);
+    }
+    .coll-banner-tag {
+      display: inline-block; padding: 4px 12px; border-radius: 20px;
+      background: var(--accent); font-size: 11px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .coll-banner-title { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; line-height: 1.2; margin-bottom: 8px; }
+    .coll-banner-author { font-size: 15px; opacity: .8; }
+    .coll-banner-desc { font-size: 14px; opacity: .75; margin-top: 8px; max-width: 600px; line-height: 1.65; }
+    .coll-books-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 24px;
+    }
+    .coll-book-card {
+      background: var(--card); border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border); cursor: pointer;
+      transition: all .3s; animation: fadeUp .5s ease both; position: relative;
+    }
+    .coll-book-card:hover { transform: translateY(-8px); box-shadow: var(--shadow2); border-color: transparent; }
+    .coll-book-cover-wrap { position: relative; overflow: hidden; aspect-ratio: 2/3; }
+    .coll-book-cover { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+    .coll-book-card:hover .coll-book-cover { transform: scale(1.06); }
+    .coll-book-overlay {
+      position: absolute; inset: 0; background: rgba(44,62,122,.78);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .3s;
+    }
+    .coll-book-card:hover .coll-book-overlay { opacity: 1; }
+    .coll-read-btn {
+      background: white; color: var(--primary); border: none;
+      padding: 10px 18px; border-radius: 20px; font-size: 13px; font-weight: 700;
+      cursor: pointer; display: flex; align-items: center; gap: 6px;
+      transform: translateY(8px); transition: transform .3s; text-decoration: none;
+    }
+    .coll-book-card:hover .coll-read-btn { transform: translateY(0); }
+    .coll-book-num {
+      position: absolute; top: 10px; left: 10px;
+      background: var(--primary); color: white; width: 28px; height: 28px;
+      border-radius: 50%; font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; z-index: 2;
+    }
+    .coll-book-info { padding: 14px 14px 16px; }
+    .coll-book-title {
+      font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700;
+      line-height: 1.4; margin-bottom: 5px;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .coll-book-year { font-size: 11px; color: var(--teal); font-weight: 600; }
+    .coll-modal-read-btn {
+      padding: 13px 28px; border-radius: 12px; background: var(--primary); color: white;
+      border: none; font-size: 15px; font-weight: 600; cursor: pointer;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: background .2s; margin-right: 10px;
+    }
+    .coll-modal-read-btn:hover { background: var(--primary-light); }
+    .coll-modal-wiki-btn {
+      padding: 13px 20px; border-radius: 12px; background: var(--bg2);
+      color: var(--text2); border: 1.5px solid var(--border); font-size: 14px;
+      font-weight: 600; cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px; transition: all .2s;
+    }
+    .coll-modal-wiki-btn:hover { background: var(--border); }
+
+    /* ===== PARTICLES ===== */
+    #particles { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .particle {
+      position: absolute; border-radius: 50%;
+      background: var(--primary); opacity: .06;
+      animation: particleFloat linear infinite;
+    }
+  </style>
+</head>
+<body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <img src="sofia-logo.jpg" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.3);margin-bottom:16px;" alt="Sofia" />
+  <div class="loader-logo">Sofia <span>Library</span></div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Search books, topics..." />
+      <button class="search-close" onclick="closeSearch()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<!-- BOOK MODAL -->
+<div class="modal-overlay" id="bookModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon"><img src="sofia-logo.jpg" alt="Sofia Library Logo" /></div>
+    <div class="nav-logo-text">Sofia <span>Library</span></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#books" class="nav-link" data-i18n="nav.books">Books</a>
+    <a href="#collections" class="nav-link" data-i18n="nav.collections">Collections</a>
+    <a href="#categories" class="nav-link" data-i18n="nav.categories">Categories</a>
+    <a href="#english" class="nav-link" data-i18n="nav.learn">Learn English</a>
+    <a href="#tips" class="nav-link" data-i18n="nav.tips">Reading Tips</a>
+  </div>
+  <div class="nav-actions">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btnID" onclick="setLang('id')">ID</button>
+    </div>
+    <button class="nav-search-btn" onclick="openSearch()"><i class="fas fa-search"></i></button>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div id="particles"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge" data-i18n="hero.badge">Premium Digital Library</div>
+      <h1 class="hero-h1">
+        <span data-i18n="hero.h1a">Your Gateway to</span><br/>
+        <em data-i18n="hero.h1b">Infinite Knowledge</em>
+      </h1>
+      <p class="hero-p" data-i18n="hero.sub">Explore thousands of curated books in science, knowledge, and captivating stories. Learn English while you read, and grow your mind every single day.</p>
+      <div class="hero-btns">
+        <a href="#books" class="btn-primary"><i class="fas fa-book-open"></i> <span data-i18n="hero.cta1">Explore Books</span></a>
+        <a href="#english" class="btn-outline"><i class="fas fa-graduation-cap"></i> <span data-i18n="hero.cta2">Learn English</span></a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">20M+</div>
+          <div class="hero-stat-label" data-i18n="hero.stat1">Books Available</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">8</div>
+          <div class="hero-stat-label" data-i18n="hero.stat2">Categories</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label" data-i18n="hero.stat3">Free Access</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="books-visual" id="heroBooks"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge" data-i18n="cat.badge">Browse</div>
+      <h2 class="section-title" data-i18n="cat.title">Explore by Category</h2>
+      <p class="section-sub" data-i18n="cat.sub">Dive into curated collections across science, history, fiction, and more</p>
+    </div>
+    <div class="cats-grid" id="catsGrid"></div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section id="featured">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge" data-i18n="feat.badge">Editor's Pick</div>
+      <h2 class="section-title" data-i18n="feat.title">Featured This Month</h2>
+      <p class="section-sub" data-i18n="feat.sub">Handpicked selections from our curators to inspire your next great read</p>
+    </div>
+    <div class="featured-grid" id="featuredGrid">
+      <!-- dynamically filled -->
+      <div style="grid-column:1/-1;text-align:center;padding:60px;opacity:.5;color:white;">Loading featured books...</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIAL COLLECTIONS -->
+<section id="collections">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge" data-i18n="coll.badge">Special Collections</div>
+      <h2 class="section-title" data-i18n="coll.title">Iconic Book Series</h2>
+      <p class="section-sub" data-i18n="coll.sub">Dive into legendary worlds — Harry Potter, The Lord of the Rings, and The Hobbit. Click any book to read for free on Open Library.</p>
+    </div>
+    <div class="coll-tabs">
+      <button class="coll-tab active" onclick="showColl('hp',this)">⚡ Harry Potter</button>
+      <button class="coll-tab" onclick="showColl('lotr',this)">💍 The Lord of the Rings</button>
+      <button class="coll-tab" onclick="showColl('hobbit',this)">🐉 The Hobbit</button>
+    </div>
+
+    <!-- Harry Potter -->
+    <div class="coll-panel active" id="coll-hp">
+      <div class="coll-series-banner">
+        <div class="coll-banner-bg" style="background-image:url('https://covers.openlibrary.org/b/isbn/0439708184-L.jpg');"></div>
+        <div class="coll-banner-info">
+          <span class="coll-banner-tag">Fantasy · Series</span>
+          <div class="coll-banner-title">Harry Potter Series</div>
+          <div class="coll-banner-author">by J.K. Rowling</div>
+          <div class="coll-banner-desc">The beloved seven-book series following the young wizard Harry Potter and his journey through Hogwarts School of Witchcraft and Wizardry — a timeless tale of friendship, courage, and the battle between good and evil.</div>
+        </div>
+      </div>
+      <div class="coll-books-grid" id="hp-grid"></div>
+    </div>
+
+    <!-- Lord of the Rings -->
+    <div class="coll-panel" id="coll-lotr">
+      <div class="coll-series-banner">
+        <div class="coll-banner-bg" style="background-image:url('https://covers.openlibrary.org/b/isbn/0618574948-L.jpg');"></div>
+        <div class="coll-banner-info">
+          <span class="coll-banner-tag">Epic Fantasy · Series</span>
+          <div class="coll-banner-title">The Lord of the Rings</div>
+          <div class="coll-banner-author">by J.R.R. Tolkien</div>
+          <div class="coll-banner-desc">The epic three-part saga of the One Ring and the Fellowship's quest to destroy it in the fires of Mount Doom. One of the greatest literary achievements of the 20th century.</div>
+        </div>
+      </div>
+      <div class="coll-books-grid" id="lotr-grid"></div>
+    </div>
+
+    <!-- The Hobbit -->
+    <div class="coll-panel" id="coll-hobbit">
+      <div class="coll-series-banner">
+        <div class="coll-banner-bg" style="background-image:url('https://covers.openlibrary.org/b/isbn/054792822X-L.jpg');"></div>
+        <div class="coll-banner-info">
+          <span class="coll-banner-tag">Fantasy · Novel</span>
+          <div class="coll-banner-title">The Hobbit</div>
+          <div class="coll-banner-author">by J.R.R. Tolkien</div>
+          <div class="coll-banner-desc">The adventure that started it all — Bilbo Baggins, an unlikely hero, joins a company of dwarves and the wizard Gandalf on a quest to reclaim the dwarves' homeland from the fearsome dragon Smaug.</div>
+        </div>
+      </div>
+      <div class="coll-books-grid" id="hobbit-grid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section id="books">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge" data-i18n="books.badge">Discover</div>
+      <h2 class="section-title" data-i18n="books.title">Our Book Collection</h2>
+      <p class="section-sub" data-i18n="books.sub">Search and explore thousands of free books powered by Open Library</p>
+    </div>
+    <div class="books-search reveal">
+      <input type="text" id="bookSearchInput" placeholder="Search title, author, topic..." data-i18n-ph="books.search_ph" />
+      <button onclick="searchBooks()" data-i18n="books.search_btn">Search</button>
+    </div>
+    <div class="books-grid" id="booksGrid"></div>
+    <div class="books-load-more reveal">
+      <button class="btn-outline" id="loadMoreBtn" onclick="loadMoreBooks()" data-i18n="books.load_more">Load More Books</button>
+    </div>
+  </div>
+</section>
+
+<!-- ENGLISH LEARNING -->
+<section id="english">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge" data-i18n="eng.badge">Learn</div>
+      <h2 class="section-title" data-i18n="eng.title">English Learning Center</h2>
+      <p class="section-sub" data-i18n="eng.sub">Master English with our interactive tools — dictionary, word of the day, flashcards, and quizzes</p>
+    </div>
+    <div class="english-tabs">
+      <button class="etab active" onclick="showETab('wod')" data-i18n="eng.tab1">Word of Day</button>
+      <button class="etab" onclick="showETab('dict')" data-i18n="eng.tab2">Dictionary</button>
+      <button class="etab" onclick="showETab('flash')" data-i18n="eng.tab3">Flashcards</button>
+      <button class="etab" onclick="showETab('quiz')" data-i18n="eng.tab4">Vocabulary Quiz</button>
+    </div>
+
+    <!-- Word of Day -->
+    <div class="english-panel active" id="panel-wod">
+      <div class="wod-box" id="wodBox">
+        <div class="wod-label" data-i18n="eng.wod_label">✦ Word of the Day</div>
+        <div class="wod-word" id="wodWord">Loading...</div>
+        <div class="wod-phonetic" id="wodPhon"></div>
+        <div class="wod-def" id="wodDef"></div>
+        <div class="wod-example" id="wodEx"></div>
+        <div class="wod-actions">
+          <button class="wod-btn wod-btn-primary" onclick="pronounceWord()"><i class="fas fa-volume-up"></i> Listen</button>
+          <button class="wod-btn wod-btn-outline" onclick="newWod()" data-i18n="eng.new_word">New Word</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dictionary -->
+    <div class="english-panel" id="panel-dict">
+      <div class="dict-box">
+        <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:20px;" data-i18n="eng.dict_title">Word Dictionary</h3>
+        <div class="dict-search">
+          <input type="text" id="dictInput" placeholder="Enter a word..." data-i18n-ph="eng.dict_ph" onkeydown="if(event.key==='Enter')lookupWord()" />
+          <button onclick="lookupWord()" data-i18n="eng.dict_search">Look Up</button>
+        </div>
+        <div class="dict-result" id="dictResult"></div>
+      </div>
+    </div>
+
+    <!-- Flashcards -->
+    <div class="english-panel" id="panel-flash">
+      <div class="flashcard-wrap">
+        <div class="flashcard" id="flashcard" onclick="flipCard()">
+          <div class="fc-front">
+            <div class="fc-word" id="fcWord"></div>
+            <div class="fc-hint" data-i18n="eng.fc_tap">Tap to see meaning</div>
+          </div>
+          <div class="fc-back">
+            <div class="fc-word" style="font-size:22px;margin-bottom:8px;" id="fcWordBack"></div>
+            <div class="fc-meaning" id="fcMeaning"></div>
+          </div>
+        </div>
+        <div class="fc-controls">
+          <button class="fc-btn fc-btn-prev" onclick="prevCard()" data-i18n="eng.fc_prev">← Previous</button>
+          <button class="fc-btn fc-btn-next" onclick="nextCard()" data-i18n="eng.fc_next">Next →</button>
+        </div>
+        <div class="fc-progress">
+          <span id="fcProgressText">1 / 20</span>
+          <div class="fc-progress-bar"><div class="fc-progress-fill" id="fcFill" style="width:5%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="english-panel" id="panel-quiz">
+      <div class="quiz-box">
+        <div class="quiz-score" id="quizScore" style="display:none"></div>
+        <div class="quiz-question" id="quizQ"></div>
+        <div class="quiz-options" id="quizOpts"></div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+        <button class="quiz-next-btn" id="quizNextBtn" onclick="nextQuestion()" data-i18n="eng.quiz_next">Next Question →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- READING TIPS -->
+<section id="tips">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge" data-i18n="tips.badge">Reading</div>
+      <h2 class="section-title" data-i18n="tips.title">Tips for Better Reading</h2>
+      <p class="section-sub" data-i18n="tips.sub">Proven strategies to improve your reading speed, comprehension, and retention</p>
+    </div>
+    <div class="tips-grid" id="tipsGrid"></div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="newsletter-inner">
+    <div class="section-badge" style="color:rgba(255,255,255,.8);" data-i18n="nl.badge">Newsletter</div>
+    <h2 class="section-title" data-i18n="nl.title">Stay in the Loop</h2>
+    <p class="newsletter-sub" data-i18n="nl.sub">Get weekly book recommendations, vocabulary tips, and reading challenges delivered to your inbox.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="your@email.com" id="nlEmail" />
+      <button onclick="subscribeNL()" data-i18n="nl.btn">Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="nav-logo-icon"><img src="sofia-logo.jpg" alt="Sofia Library Logo" /></div>
+          <div class="nav-logo-text">Sofia <span>Library</span></div>
+        </div>
+        <p data-i18n="footer.about">Sofia Library is a free digital library platform dedicated to making knowledge accessible to everyone, everywhere.</p>
+        <div class="footer-socials">
+          <a class="social-btn" href="https://github.com/dafariel278/SOFIA-LIBRARY" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a class="social-btn" href="https://www.instagram.com/sofiasusilo278" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a class="social-btn" href="mailto:alfajarsofiami@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.explore">Explore</h4>
+        <a href="#books" data-i18n="nav.books">Books</a>
+        <a href="#collections" data-i18n="nav.collections">Collections</a>
+        <a href="#categories" data-i18n="nav.categories">Categories</a>
+        <a href="#featured" data-i18n="footer.featured">Featured</a>
+        <a href="#english" data-i18n="nav.learn">Learn English</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.learn">Learn</h4>
+        <a href="#english" data-i18n="eng.tab1">Word of Day</a>
+        <a href="#english" data-i18n="eng.tab2">Dictionary</a>
+        <a href="#english" data-i18n="eng.tab3">Flashcards</a>
+        <a href="#english" data-i18n="eng.tab4">Vocabulary Quiz</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.about_us">About</h4>
+        <a href="#" data-i18n="footer.mission">Our Mission</a>
+        <a href="https://github.com/dafariel278/SOFIA-LIBRARY" target="_blank">GitHub</a>
+        <a href="https://www.instagram.com/sofiasusilo278" target="_blank">Instagram</a>
+        <a href="mailto:alfajarsofiami@gmail.com" data-i18n="footer.contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Sofia Library. <span data-i18n="footer.copy">Made with ❤️ for readers everywhere.</span></span>
+      <span>Powered by Open Library & Free Dictionary API</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ==================== i18n ====================
+const i18n = {
+  en: {
+    "nav.books":"Books","nav.collections":"Collections","nav.categories":"Categories","nav.learn":"Learn English","nav.tips":"Reading Tips",
+    "hero.badge":"Digital Library",
+    "hero.h1a":"Your Gateway to","hero.h1b":"Infinite Knowledge",
+    "hero.sub":"Sofia Library — a curated digital library for science, knowledge, and stories. Read freely, learn daily, and grow without limits.",
+    "hero.cta1":"Explore Books","hero.cta2":"Learn English",
+    "hero.stat1":"Books Available","hero.stat2":"Categories","hero.stat3":"Free Access",
+    "cat.badge":"Browse","cat.title":"Explore by Category","cat.sub":"Dive into curated collections across science, history, fiction, and more",
+    "feat.badge":"Editor's Pick","feat.title":"Featured This Month","feat.sub":"Handpicked selections from our curators to inspire your next great read",
+    "books.badge":"Discover","books.title":"Our Book Collection","books.sub":"Search and explore thousands of free books powered by Open Library",
+    "books.search_ph":"Search title, author, topic...","books.search_btn":"Search","books.load_more":"Load More Books",
+    "eng.badge":"Learn","eng.title":"English Learning Center","eng.sub":"Master English with our interactive tools — dictionary, word of the day, flashcards, and quizzes",
+    "eng.tab1":"Word of Day","eng.tab2":"Dictionary","eng.tab3":"Flashcards","eng.tab4":"Vocabulary Quiz",
+    "eng.wod_label":"✦ Word of the Day","eng.new_word":"New Word",
+    "eng.dict_title":"Word Dictionary","eng.dict_ph":"Enter a word...","eng.dict_search":"Look Up",
+    "eng.fc_tap":"Tap to see meaning","eng.fc_prev":"← Previous","eng.fc_next":"Next →",
+    "eng.quiz_next":"Next Question →",
+    "tips.badge":"Reading","tips.title":"Tips for Better Reading","tips.sub":"Proven strategies to improve your reading speed, comprehension, and retention",
+    "coll.badge":"Special Collections","coll.title":"Iconic Book Series","coll.sub":"Dive into legendary worlds — Harry Potter, The Lord of the Rings, and The Hobbit. Click any book to read for free on Open Library.",
+    "nl.badge":"Newsletter","nl.title":"Stay in the Loop","nl.sub":"Get weekly book recommendations, vocabulary tips, and reading challenges delivered to your inbox.","nl.btn":"Subscribe",
+    "footer.about":"Sofia Library is a free digital library platform dedicated to making knowledge accessible to everyone, everywhere.",
+    "footer.explore":"Explore","footer.featured":"Featured","footer.learn":"Learn","footer.about_us":"About",
+    "footer.mission":"Our Mission","footer.privacy":"Privacy Policy","footer.contact":"Contact",
+    "footer.copy":"Made with ❤️ for readers everywhere.",
+  },
+  id: {
+    "nav.books":"Buku","nav.collections":"Koleksi","nav.categories":"Kategori","nav.learn":"Belajar Inggris","nav.tips":"Tips Membaca",
+    "hero.badge":"Digital Library",
+    "hero.h1a":"Pintu Menuju","hero.h1b":"Pengetahuan Tak Terbatas",
+    "hero.sub":"Sofia Library — perpustakaan digital pilihan untuk sains, pengetahuan, dan cerita. Baca dengan bebas, belajar setiap hari, dan berkembang tanpa batas.",
+    "hero.cta1":"Jelajahi Buku","hero.cta2":"Belajar Inggris",
+    "hero.stat1":"Buku Tersedia","hero.stat2":"Kategori","hero.stat3":"Akses Gratis",
+    "cat.badge":"Jelajahi","cat.title":"Kategori Buku","cat.sub":"Temukan koleksi pilihan dalam bidang sains, sejarah, fiksi, dan masih banyak lagi",
+    "feat.badge":"Pilihan Editor","feat.title":"Unggulan Bulan Ini","feat.sub":"Pilihan tangan pertama dari kurator kami untuk menginspirasi bacaan berikutnya",
+    "books.badge":"Temukan","books.title":"Koleksi Buku Kami","books.sub":"Cari dan jelajahi ribuan buku gratis dari Open Library",
+    "books.search_ph":"Cari judul, penulis, topik...","books.search_btn":"Cari","books.load_more":"Muat Lebih Banyak",
+    "eng.badge":"Belajar","eng.title":"Pusat Belajar Bahasa Inggris","eng.sub":"Kuasai Bahasa Inggris dengan alat interaktif kami — kamus, kata hari ini, kartu belajar, dan kuis",
+    "eng.tab1":"Kata Hari Ini","eng.tab2":"Kamus","eng.tab3":"Kartu Belajar","eng.tab4":"Kuis Kosakata",
+    "eng.wod_label":"✦ Kata Hari Ini","eng.new_word":"Kata Baru",
+    "eng.dict_title":"Kamus Bahasa Inggris","eng.dict_ph":"Masukkan kata...","eng.dict_search":"Cari",
+    "eng.fc_tap":"Ketuk untuk melihat arti","eng.fc_prev":"← Sebelumnya","eng.fc_next":"Berikutnya →",
+    "eng.quiz_next":"Soal Berikutnya →",
+    "tips.badge":"Membaca","tips.title":"Tips Membaca yang Lebih Baik","tips.sub":"Strategi terbukti untuk meningkatkan kecepatan, pemahaman, dan retensi membaca",
+    "coll.badge":"Koleksi Spesial","coll.title":"Seri Buku Ikonik","coll.sub":"Masuki dunia legendaris — Harry Potter, The Lord of the Rings, dan The Hobbit. Klik buku mana saja untuk membaca gratis di Open Library.",
+    "nl.badge":"Newsletter","nl.title":"Tetap Terhubung","nl.sub":"Dapatkan rekomendasi buku mingguan, tips kosakata, dan tantangan membaca langsung ke kotak masuk Anda.","nl.btn":"Berlangganan",
+    "footer.about":"Sofia Library adalah platform perpustakaan digital gratis yang berdedikasi membuat pengetahuan dapat diakses semua orang, di mana saja.",
+    "footer.explore":"Jelajahi","footer.featured":"Unggulan","footer.learn":"Belajar","footer.about_us":"Tentang Kami",
+    "footer.mission":"Misi Kami","footer.privacy":"Kebijakan Privasi","footer.contact":"Kontak",
+    "footer.copy":"Dibuat dengan ❤️ untuk para pembaca di seluruh dunia.",
+  }
+};
+let currentLang = 'en';
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang][key]) el.textContent = i18n[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (i18n[lang][key]) el.placeholder = i18n[lang][key];
+  });
+  document.getElementById('btnEN').classList.toggle('active', lang==='en');
+  document.getElementById('btnID').classList.toggle('active', lang==='id');
+}
+
+// ==================== LOADER ====================
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('page-loader').classList.add('fade-out');
+    setTimeout(() => document.getElementById('page-loader').remove(), 500);
+  }, 1600);
+  initParticles();
+  initHeroBooks();
+  initCategories();
+  loadBooks('science');
+  loadFeatured();
+  initCollections();
+  initWod();
+  initFlashcards();
+  initQuiz();
+  initTips();
+  renderCollections();
+  initReveal();
+});
+
+// ==================== PARTICLES ====================
+function initParticles() {
+  const c = document.getElementById('particles');
+  for (let i=0;i<18;i++) {
+    const p = document.createElement('div');
+    p.className='particle';
+    const s=Math.random()*40+10;
+    p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-duration:${Math.random()*20+10}s;animation-delay:${Math.random()*10}s;`;
+    c.appendChild(p);
+  }
+}
+
+// ==================== NAVBAR ====================
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+function toggleMenu() {
+  document.getElementById('navLinks').style.display =
+    document.getElementById('navLinks').style.display === 'flex' ? 'none' : 'flex';
+}
+
+// ==================== SEARCH ====================
+function openSearch() {
+  document.getElementById('searchOverlay').classList.add('open');
+  setTimeout(() => document.getElementById('searchInput').focus(), 300);
+}
+function closeSearch() { document.getElementById('searchOverlay').classList.remove('open'); }
+document.getElementById('searchOverlay').addEventListener('click', e => { if(e.target===e.currentTarget) closeSearch(); });
+document.getElementById('searchInput').addEventListener('keydown', async e => {
+  if (e.key==='Enter') {
+    const q = e.target.value.trim();
+    if (!q) return;
+    const res = document.getElementById('searchResults');
+    res.innerHTML = '<p style="color:var(--text3);font-size:14px;">Searching...</p>';
+    try {
+      const data = await fetch(`https://openlibrary.org/search.json?q=${encodeURIComponent(q)}&limit=5`).then(r=>r.json());
+      if (!data.docs.length) { res.innerHTML='<p style="color:var(--text3)">No results found.</p>'; return; }
+      res.innerHTML = data.docs.slice(0,5).map(b => `
+        <div onclick="openBookModal(${JSON.stringify(b).replace(/"/g,'&quot;')})" style="display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;cursor:pointer;border:1px solid var(--border);margin-bottom:10px;background:var(--bg);transition:background .2s;" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">
+          <img src="${b.cover_i?`https://covers.openlibrary.org/b/id/${b.cover_i}-S.jpg`:'https://via.placeholder.com/40x60?text=📖'}" style="width:40px;height:60px;object-fit:cover;border-radius:6px;" onerror="this.src='https://via.placeholder.com/40x60?text=📖'" />
+          <div><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:14px;">${b.title||'Unknown'}</div><div style="font-size:12px;color:var(--text3);margin-top:3px;">${(b.author_name||['Unknown'])[0]}</div></div>
+        </div>`).join('');
+    } catch { res.innerHTML='<p style="color:var(--text3)">Search error. Try again.</p>'; }
+  }
+});
+
+// ==================== HERO BOOKS ====================
+const heroBookTopics = ['science','history','philosophy','fiction','cosmos'];
+async function initHeroBooks() {
+  const wrap = document.getElementById('heroBooks');
+  const positions = [
+    {top:'5%',left:'8%',w:130,h:190},
+    {top:'12%',left:'34%',w:158,h:228},
+    {top:'42%',left:'62%',w:120,h:175},
+    {top:'54%',left:'15%',w:144,h:210},
+    {top:'60%',left:'52%',w:112,h:162},
+  ];
+  const anims = ['bookFloat1','bookFloat2','bookFloat1','bookFloat2','bookFloat1'];
+  for (let i=0;i<5;i++) {
+    const pos = positions[i];
+    const div = document.createElement('div');
+    div.className='book-float';
+    div.style.cssText=`width:${pos.w}px;height:${pos.h}px;top:${pos.top};left:${pos.left};animation:${anims[i]} ${5+i}s ease-in-out infinite ${i*0.5}s;`;
+    const covers = [
+      'https://covers.openlibrary.org/b/id/8739161-M.jpg',
+      'https://covers.openlibrary.org/b/id/10521270-M.jpg',
+      'https://covers.openlibrary.org/b/id/12193571-M.jpg',
+      'https://covers.openlibrary.org/b/id/8221120-M.jpg',
+      'https://covers.openlibrary.org/b/id/9255566-M.jpg',
+    ];
+    const img = document.createElement('img');
+    img.src = covers[i];
+    img.onerror = () => img.src = `https://picsum.photos/seed/book${i}/200/300`;
+    div.appendChild(img);
+    div.addEventListener('click', () => {});
+    wrap.appendChild(div);
+  }
+}
+
+// ==================== CATEGORIES ====================
+const categories = [
+  {key:'science',icon:'🔬',name:'Science',nameId:'Sains',color:'#3CBFA5',q:'science'},
+  {key:'history',icon:'🏛️',name:'History',nameId:'Sejarah',color:'#E8965A',q:'history'},
+  {key:'philosophy',icon:'🧠',name:'Philosophy',nameId:'Filsafat',color:'#C75B7A',q:'philosophy'},
+  {key:'fiction',icon:'📖',name:'Fiction',nameId:'Fiksi',color:'#6B5CEE',q:'fiction novel'},
+  {key:'cosmos',icon:'🌌',name:'Cosmos & Space',nameId:'Luar Angkasa',color:'#2C3E7A',q:'astronomy cosmos'},
+  {key:'technology',icon:'💻',name:'Technology',nameId:'Teknologi',color:'#1E8BC3',q:'technology'},
+  {key:'biology',icon:'🌿',name:'Biology',nameId:'Biologi',color:'#27AE60',q:'biology nature'},
+  {key:'psychology',icon:'💡',name:'Psychology',nameId:'Psikologi',color:'#D35400',q:'psychology mind'},
+];
+let activeCategory = 'science';
+function initCategories() {
+  const grid = document.getElementById('catsGrid');
+  grid.innerHTML = categories.map(c => `
+    <div class="cat-card reveal ${c.key===activeCategory?'active':''}" style="--cat-color:${c.color}" onclick="selectCat('${c.key}','${c.q}')">
+      <div class="cat-icon" style="background:${c.color}">${c.icon}</div>
+      <div class="cat-name">${currentLang==='id'?c.nameId:c.name}</div>
+      <div class="cat-count">Explore →</div>
+    </div>`).join('');
+}
+
+function selectCat(key, q) {
+  activeCategory = key;
+  document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  currentQuery = q; currentPage = 0;
+  loadBooks(q, true);
+  document.getElementById('books').scrollIntoView({behavior:'smooth'});
+}
+
+// ==================== BOOKS ====================
+let currentQuery = 'science'; let currentPage = 0; let allBooks = [];
+const booksPerPage = 12;
+
+async function loadBooks(q, reset=false) {
+  if (reset) { currentPage=0; allBooks=[]; }
+  const grid = document.getElementById('booksGrid');
+  if (reset) grid.innerHTML = Array(booksPerPage).fill(`<div class="book-skeleton"><div class="skel-cover"></div><div class="skel-info"><div class="skel-line"></div><div class="skel-line"></div><div class="skel-line" style="width:60%"></div></div></div>`).join('');
+  try {
+    const offset = currentPage * booksPerPage;
+    const res = await fetch(`https://openlibrary.org/search.json?q=${encodeURIComponent(q)}&limit=${booksPerPage}&offset=${offset}&fields=key,title,author_name,cover_i,first_publish_year,subject`);
+    const data = await res.json();
+    if (reset) { allBooks = data.docs; grid.innerHTML = ''; }
+    else allBooks = [...allBooks, ...data.docs];
+    const books = reset ? data.docs : data.docs;
+    renderBooks(books, reset);
+    currentPage++;
+  } catch(e) {
+    grid.innerHTML = '<p style="text-align:center;color:var(--text3);grid-column:1/-1;padding:40px">Failed to load books. Please check your connection.</p>';
+  }
+}
+
+function renderBooks(books, reset) {
+  const grid = document.getElementById('booksGrid');
+  if (reset) grid.innerHTML = '';
+  books.forEach((b,i) => {
+    const div = document.createElement('div');
+    div.className='book-card reveal';
+    div.style.animationDelay = (i%booksPerPage * 0.05)+'s';
+    const cover = b.cover_i ? `https://covers.openlibrary.org/b/id/${b.cover_i}-M.jpg` : `https://picsum.photos/seed/${encodeURIComponent(b.title||'book'+i)}/200/300`;
+    div.innerHTML = `
+      <img class="book-cover" src="${cover}" alt="${b.title}" loading="lazy" onerror="this.src='https://picsum.photos/seed/${i}${Date.now()}/200/300'" />
+      <div class="book-info">
+        <div class="book-title">${b.title||'Unknown Title'}</div>
+        <div class="book-author">${(b.author_name||['Unknown'])[0]}</div>
+        <div class="book-year">${b.first_publish_year||'—'}</div>
+      </div>`;
+    div.addEventListener('click', () => openBookModal(b));
+    grid.appendChild(div);
+  });
+  initReveal();
+}
+
+function loadMoreBooks() { loadBooks(currentQuery, false); }
+
+async function searchBooks() {
+  const q = document.getElementById('bookSearchInput').value.trim();
+  if (!q) return;
+  currentQuery = q; loadBooks(q, true);
+}
+document.getElementById('bookSearchInput').addEventListener('keydown', e => { if(e.key==='Enter') searchBooks(); });
+
+// ==================== MODAL ====================
+function openBookModal(b) {
+  const cover = b.cover_i ? `https://covers.openlibrary.org/b/id/${b.cover_i}-L.jpg` : `https://picsum.photos/seed/${encodeURIComponent(b.title||'book')}/200/300`;
+  const olKey = b.key||'';
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-book">
+      <img class="modal-cover" src="${cover}" alt="${b.title}" onerror="this.src='https://picsum.photos/seed/modal/200/300'" />
+      <div>
+        <div class="modal-title">${b.title||'Unknown Title'}</div>
+        <div class="modal-author">by ${(b.author_name||['Unknown']).join(', ')}</div>
+        <div class="modal-meta">
+          ${b.first_publish_year?`<span class="modal-tag">📅 ${b.first_publish_year}</span>`:''}
+          ${b.subject?`<span class="modal-tag">🏷 ${b.subject[0]||''}</span>`:''}
+        </div>
+        <div class="modal-desc">Explore this fascinating work and discover the knowledge within. Available for free reading on Open Library.</div>
+        <a class="modal-read-btn" href="https://openlibrary.org${olKey}" target="_blank"><i class="fas fa-external-link-alt"></i> Read on Open Library</a>
+      </div>
+    </div>`;
+  document.getElementById('bookModal').classList.add('open');
+}
+function closeModal() { document.getElementById('bookModal').classList.remove('open'); }
+document.getElementById('bookModal').addEventListener('click', e => { if(e.target.classList.contains('modal-overlay')) closeModal(); });
+
+// ==================== FEATURED ====================
+const featuredBooks = [
+  {id:'8739161',title:'A Brief History of Time',author:'Stephen Hawking',tag:'Science',key:'/works/OL47167W'},
+  {id:'10521270',title:'Sapiens',author:'Yuval Noah Harari',tag:'History',key:'/works/OL17075842W'},
+  {id:'9255566',title:'The Alchemist',author:'Paulo Coelho',tag:'Fiction',key:'/works/OL18283800W'},
+  {id:'12193571',title:'Cosmos',author:'Carl Sagan',tag:'Space',key:'/works/OL10021504W'},
+];
+async function loadFeatured() {
+  const grid = document.getElementById('featuredGrid');
+  const main = featuredBooks[0];
+  const sides = featuredBooks.slice(1);
+  grid.innerHTML = `
+    <div class="feat-main" onclick="window.open('https://openlibrary.org${main.key}','_blank')">
+      <img class="feat-main-img" src="https://covers.openlibrary.org/b/id/${main.id}-L.jpg" onerror="this.src='https://picsum.photos/seed/feat1/600/400'" />
+      <div class="feat-main-info">
+        <span class="feat-tag">${main.tag}</span>
+        <div class="feat-title">${main.title}</div>
+        <div style="opacity:.75;font-size:14px;">by ${main.author}</div>
+      </div>
+    </div>
+    <div class="feat-sub-grid">
+      ${sides.map(b=>`
+      <div class="feat-side" onclick="window.open('https://openlibrary.org${b.key}','_blank')">
+        <img src="https://covers.openlibrary.org/b/id/${b.id}-M.jpg" onerror="this.src='https://picsum.photos/seed/${b.id}/100/150'" />
+        <div>
+          <div class="feat-tag" style="margin-bottom:6px;">${b.tag}</div>
+          <div class="feat-side-title">${b.title}</div>
+          <div class="feat-side-author">by ${b.author}</div>
+        </div>
+      </div>`).join('')}
+    </div>`;
+}
+
+// ==================== ENGLISH TABS ====================
+function showETab(id) {
+  document.querySelectorAll('.english-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.etab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// ==================== WORD OF DAY ====================
+const wodWords = [
+  {word:'Ephemeral',phon:'/ɪˈfɛm.ər.əl/',def:'Lasting for a very short time; transitory.',ex:'The ephemeral beauty of cherry blossoms makes them all the more precious.'},
+  {word:'Serendipity',phon:'/ˌsɛr.ənˈdɪp.ɪ.ti/',def:'The occurrence of events by chance in a happy or beneficial way.',ex:'Finding that rare book was pure serendipity.'},
+  {word:'Mellifluous',phon:'/mɛˈlɪf.lu.əs/',def:'Sweet or musical; pleasant to hear.',ex:'Her mellifluous voice captivated the entire audience.'},
+  {word:'Luminous',phon:'/ˈluː.mɪ.nəs/',def:'Full of or shedding light; bright or shining.',ex:'The luminous stars filled the night sky with wonder.'},
+  {word:'Eloquent',phon:'/ˈɛl.ə.kwənt/',def:'Fluent or persuasive in speaking or writing.',ex:'His eloquent speech moved the entire crowd to tears.'},
+  {word:'Resilient',phon:'/rɪˈzɪl.i.ənt/',def:'Able to withstand or recover quickly from difficult conditions.',ex:'She remained resilient despite the many challenges she faced.'},
+  {word:'Wanderlust',phon:'/ˈwɒn.də.lʌst/',def:'A strong desire to travel and explore the world.',ex:'His wanderlust led him to visit over fifty countries.'},
+  {word:'Quintessential',phon:'/ˌkwɪn.tɪˈsen.ʃəl/',def:'Representing the most perfect or typical example of something.',ex:'This library is the quintessential place for intellectual growth.'},
+];
+let currentWodIdx = Math.floor(Math.random() * wodWords.length);
+let currentWodWord = null;
+function initWod() { showWod(currentWodIdx); }
+async function showWod(idx) {
+  const w = wodWords[idx];
+  currentWodWord = w.word;
+  // Try API first
+  try {
+    const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${w.word}`).then(r=>r.json());
+    const entry = data[0];
+    document.getElementById('wodWord').textContent = entry.word;
+    document.getElementById('wodPhon').textContent = entry.phonetics?.find(p=>p.text)?.text || w.phon;
+    const meanings = entry.meanings?.[0];
+    document.getElementById('wodDef').textContent = meanings?.definitions?.[0]?.definition || w.def;
+    document.getElementById('wodEx').textContent = '"'+(meanings?.definitions?.[0]?.example || w.ex)+'"';
+    currentWodWord = entry.word;
+    const audio = entry.phonetics?.find(p=>p.audio)?.audio;
+    window._wodAudio = audio;
+  } catch {
+    document.getElementById('wodWord').textContent = w.word;
+    document.getElementById('wodPhon').textContent = w.phon;
+    document.getElementById('wodDef').textContent = w.def;
+    document.getElementById('wodEx').textContent = '"'+w.ex+'"';
+  }
+}
+function newWod() {
+  currentWodIdx = (currentWodIdx+1) % wodWords.length;
+  document.getElementById('wodWord').textContent = '...';
+  showWod(currentWodIdx);
+}
+function pronounceWord() {
+  if (window._wodAudio) {
+    new Audio(window._wodAudio).play().catch(()=>{});
+  } else if (window.speechSynthesis) {
+    const u = new SpeechSynthesisUtterance(currentWodWord);
+    u.lang = 'en-US'; u.rate = 0.8;
+    speechSynthesis.speak(u);
+  }
+}
+
+// ==================== DICTIONARY ====================
+async function lookupWord() {
+  const word = document.getElementById('dictInput').value.trim();
+  if (!word) return;
+  const res = document.getElementById('dictResult');
+  res.classList.remove('show');
+  res.innerHTML = '<p style="color:var(--text3);padding:12px 0;">Looking up...</p>';
+  res.classList.add('show');
+  try {
+    const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`).then(r=>r.json());
+    if (!Array.isArray(data)) { res.innerHTML='<p style="color:var(--accent);padding:12px 0">Word not found. Try another word.</p>'; return; }
+    const entry = data[0];
+    const audio = entry.phonetics?.find(p=>p.audio)?.audio;
+    let html = `<div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;">
+      <span class="dict-word">${entry.word}</span>
+      <span class="dict-phonetic">${entry.phonetics?.find(p=>p.text)?.text||''}</span>
+      ${audio?`<button class="dict-play-btn" onclick="new Audio('${audio}').play()"><i class="fas fa-volume-up"></i> Listen</button>`:'<button class="dict-play-btn" onclick="speakWord(\''+entry.word+'\')"><i class="fas fa-volume-up"></i> Listen</button>'}
+    </div>`;
+    entry.meanings?.slice(0,3).forEach(m => {
+      html += `<div class="dict-part">${m.partOfSpeech}</div>`;
+      m.definitions?.slice(0,3).forEach(d => {
+        html += `<div class="dict-def">${d.definition}${d.example?`<div class="dict-example">"${d.example}"</div>`:''}</div>`;
+      });
+    });
+    res.innerHTML = html;
+    res.classList.add('show');
+  } catch { res.innerHTML='<p style="color:var(--accent);padding:12px 0">Error. Please try again.</p>'; }
+}
+function speakWord(w) {
+  if (window.speechSynthesis) {
+    const u = new SpeechSynthesisUtterance(w); u.lang='en-US'; u.rate=0.8;
+    speechSynthesis.speak(u);
+  }
+}
+
+// ==================== FLASHCARDS ====================
+const flashcards = [
+  {word:'Abundant',meaning:'Present in large quantities; more than enough.',id:'Berlimpah'},
+  {word:'Benevolent',meaning:'Well-meaning and kindly; generous.',id:'Baik hati'},
+  {word:'Candid',meaning:'Truthful and straightforward; frank.',id:'Jujur'},
+  {word:'Diligent',meaning:'Having or showing care and conscientiousness in one\'s work.',id:'Rajin'},
+  {word:'Eloquent',meaning:'Fluent or persuasive in speaking or writing.',id:'Fasih'},
+  {word:'Fortitude',meaning:'Courage in pain or adversity.',id:'Ketabahan'},
+  {word:'Gratitude',meaning:'The quality of being thankful.',id:'Rasa Syukur'},
+  {word:'Harmony',meaning:'The quality of forming a pleasing whole.',id:'Harmoni'},
+  {word:'Integrity',meaning:'The quality of being honest and having strong moral principles.',id:'Integritas'},
+  {word:'Jubilant',meaning:'Feeling or expressing great happiness.',id:'Gembira'},
+  {word:'Keen',meaning:'Having or showing eagerness or enthusiasm.',id:'Antusias'},
+  {word:'Luminous',meaning:'Full of or shedding light; bright.',id:'Bercahaya'},
+  {word:'Meticulous',meaning:'Showing great attention to detail; very careful.',id:'Teliti'},
+  {word:'Noble',meaning:'Having or showing fine personal qualities.',id:'Mulia'},
+  {word:'Optimistic',meaning:'Hoping or expecting the best.',id:'Optimis'},
+  {word:'Persevere',meaning:'Continue in a course of action in spite of difficulty.',id:'Gigih'},
+  {word:'Radiant',meaning:'Sending out light; shining or glowing brightly.',id:'Bersinar'},
+  {word:'Serene',meaning:'Calm, peaceful, and untroubled.',id:'Tentram'},
+  {word:'Tenacious',meaning:'Tending to keep a firm hold; persistent.',id:'Teguh'},
+  {word:'Virtuous',meaning:'Having or showing high moral standards.',id:'Berbudi'},
+];
+let fcIdx = 0;
+function initFlashcards() { showCard(); }
+function showCard() {
+  const card = flashcards[fcIdx];
+  document.getElementById('fcWord').textContent = card.word;
+  document.getElementById('fcWordBack').textContent = card.word;
+  document.getElementById('fcMeaning').textContent = card.meaning;
+  document.getElementById('flashcard').classList.remove('flipped');
+  document.getElementById('fcProgressText').textContent = `${fcIdx+1} / ${flashcards.length}`;
+  document.getElementById('fcFill').style.width = `${((fcIdx+1)/flashcards.length)*100}%`;
+}
+function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
+function nextCard() { fcIdx = (fcIdx+1)%flashcards.length; showCard(); }
+function prevCard() { fcIdx = (fcIdx-1+flashcards.length)%flashcards.length; showCard(); }
+
+// ==================== QUIZ ====================
+const quizData = [
+  {q:'What does "Ephemeral" mean?',opts:['Lasting a short time','Very large','Extremely loud','Deeply sad'],ans:0},
+  {q:'Choose the correct meaning of "Diligent":',opts:['Lazy and careless','Hard-working and careful','Angry and rude','Silent and shy'],ans:1},
+  {q:'"Mellifluous" describes a sound that is:',opts:['Harsh and grating','Sweet and pleasant','Very loud','Completely silent'],ans:1},
+  {q:'What is the meaning of "Resilient"?',opts:['Easily broken','Unable to change','Able to recover quickly','Extremely fragile'],ans:2},
+  {q:'"Wanderlust" refers to:',opts:['Fear of the dark','Love of reading','A strong desire to travel','Deep sadness'],ans:2},
+  {q:'Which word means "truthful and frank"?',opts:['Candid','Timid','Ardent','Jovial'],ans:0},
+  {q:'What does "Benevolent" mean?',opts:['Cruel and harsh','Kind and generous','Loud and boisterous','Silent and cold'],ans:1},
+  {q:'"Luminous" means something that is:',opts:['Heavy','Dark','Bright and glowing','Soft'],ans:2},
+  {q:'What does "Fortitude" mean?',opts:['Weakness','Courage in difficulty','Happiness','Intelligence'],ans:1},
+  {q:'Which sentence uses "Meticulous" correctly?',opts:['She was meticulous about every detail','He was meticulous and very lazy','The dog was meticulous in sleep','They meticulous ran fast'],ans:0},
+];
+let quizIdx=0; let quizScore=0; let quizAnswered=false;
+function initQuiz() { showQuestion(); }
+function showQuestion() {
+  const q = quizData[quizIdx];
+  document.getElementById('quizQ').textContent = `Q${quizIdx+1}: ${q.q}`;
+  document.getElementById('quizOpts').innerHTML = q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQ(${i})">${o}</button>`).join('');
+  document.getElementById('quizFeedback').style.display='none';
+  document.getElementById('quizNextBtn').style.display='none';
+  document.getElementById('quizScore').style.display='none';
+  quizAnswered=false;
+}
+function answerQ(i) {
+  if (quizAnswered) return;
+  quizAnswered=true;
+  const q=quizData[quizIdx];
+  const opts=document.querySelectorAll('.quiz-opt');
+  opts.forEach(o=>o.disabled=true);
+  if (i===q.ans) {
+    opts[i].classList.add('correct');
+    quizScore++;
+    const fb=document.getElementById('quizFeedback');
+    fb.textContent='✓ Correct! Great job!'; fb.className='quiz-feedback correct'; fb.style.display='block';
+  } else {
+    opts[i].classList.add('wrong');
+    opts[q.ans].classList.add('correct');
+    const fb=document.getElementById('quizFeedback');
+    fb.textContent=`✗ Incorrect. The correct answer is: "${q.opts[q.ans]}"`;
+    fb.className='quiz-feedback wrong'; fb.style.display='block';
+  }
+  document.getElementById('quizNextBtn').style.display='block';
+}
+function nextQuestion() {
+  quizIdx++;
+  if (quizIdx>=quizData.length) {
+    document.getElementById('quizQ').textContent='Quiz Complete! 🎉';
+    document.getElementById('quizOpts').innerHTML='';
+    document.getElementById('quizFeedback').style.display='none';
+    document.getElementById('quizNextBtn').style.display='none';
+    const sc=document.getElementById('quizScore');
+    sc.textContent=`Your Score: ${quizScore}/${quizData.length} — ${Math.round(quizScore/quizData.length*100)}%`;
+    sc.style.display='block';
+    setTimeout(()=>{quizIdx=0;quizScore=0;showQuestion();},4000);
+  } else { showQuestion(); }
+}
+
+// ==================== TIPS ====================
+const tipsData = [
+  {num:'01',title:'Create a Reading Habit',titleId:'Bangun Kebiasaan Membaca',text:'Set aside 20–30 minutes daily for reading. Consistency builds a lifelong love for books and knowledge.',textId:'Sisihkan 20–30 menit setiap hari untuk membaca. Konsistensi membangun kecintaan seumur hidup terhadap buku.'},
+  {num:'02',title:'Take Notes While Reading',titleId:'Catat Saat Membaca',text:'Write down key ideas, quotes, and reflections. Active note-taking boosts comprehension and retention significantly.',textId:'Catat ide utama, kutipan, dan refleksi. Mencatat secara aktif meningkatkan pemahaman dan retensi secara signifikan.'},
+  {num:'03',title:'Use the SQ3R Method',titleId:'Gunakan Metode SQ3R',text:'Survey, Question, Read, Recite, Review. This proven technique transforms passive reading into active learning.',textId:'Survei, Pertanyaan, Baca, Ucapkan, Tinjau. Teknik terbukti ini mengubah membaca pasif menjadi pembelajaran aktif.'},
+  {num:'04',title:'Read Diverse Genres',titleId:'Baca Berbagai Genre',text:'Expand your mind by reading across genres: science, philosophy, fiction, and biography all offer unique perspectives.',textId:'Perluas pikiran Anda dengan membaca berbagai genre: sains, filsafat, fiksi, dan biografi menawarkan perspektif unik.'},
+  {num:'05',title:'Build Your Vocabulary',titleId:'Kembangkan Kosakata',text:'Look up unfamiliar words immediately. A rich vocabulary enhances both your reading and communication skills.',textId:'Segera cari kata yang tidak familiar. Kosakata yang kaya meningkatkan kemampuan membaca dan komunikasi Anda.'},
+  {num:'06',title:'Set Reading Goals',titleId:'Tetapkan Target Membaca',text:'Challenge yourself with a reading goal: try the 52 Books in 52 Weeks challenge to expand your horizons.',textId:'Tantang diri dengan target membaca: coba tantangan 52 Buku dalam 52 Minggu untuk memperluas wawasan.'},
+];
+function initTips() {
+  const grid = document.getElementById('tipsGrid');
+  grid.innerHTML = tipsData.map(t => `
+    <div class="tip-card reveal">
+      <div class="tip-num">${t.num}</div>
+      <div class="tip-title" data-en="${t.title}" data-id="${t.titleId}">${t.title}</div>
+      <div class="tip-text" data-en="${t.text}" data-id="${t.textId}">${t.text}</div>
+    </div>`).join('');
+}
+
+// ==================== SPECIAL COLLECTIONS ====================
+const collectionData = {
+  hp: [
+    { num:1, title:"Harry Potter and the Philosopher's Stone", year:1997, isbn:"0439708184", key:"/works/OL82563W", desc:"Harry discovers he's a wizard and begins his journey at Hogwarts School of Witchcraft and Wizardry." },
+    { num:2, title:"Harry Potter and the Chamber of Secrets", year:1998, isbn:"0439064864", key:"/works/OL82586W", desc:"Harry returns to Hogwarts to face a mysterious force that is turning students to stone." },
+    { num:3, title:"Harry Potter and the Prisoner of Azkaban", year:1999, isbn:"0439136350", key:"/works/OL82592W", desc:"A dangerous prisoner has escaped from Azkaban, and everyone believes he is after Harry." },
+    { num:4, title:"Harry Potter and the Goblet of Fire", year:2000, isbn:"0439139597", key:"/works/OL82596W", desc:"Harry is unexpectedly entered into the deadly Triwizard Tournament, a contest between three wizarding schools." },
+    { num:5, title:"Harry Potter and the Order of the Phoenix", year:2003, isbn:"0439358078", key:"/works/OL82597W", desc:"Harry and his friends form Dumbledore's Army to fight against the Ministry of Magic's denial of Voldemort's return." },
+    { num:6, title:"Harry Potter and the Half-Blood Prince", year:2005, isbn:"0439784549", key:"/works/OL82598W", desc:"Harry learns about Voldemort's past as Dumbledore prepares him for the final confrontation." },
+    { num:7, title:"Harry Potter and the Deathly Hallows", year:2007, isbn:"0545010225", key:"/works/OL82599W", desc:"The thrilling conclusion — Harry, Ron, and Hermione hunt for the final Horcruxes while Voldemort tightens his grip on the wizarding world." },
+  ],
+  lotr: [
+    { num:1, title:"The Fellowship of the Ring", year:1954, isbn:"0618574948", key:"/works/OL27482W", desc:"The first volume — the Fellowship sets out on a perilous quest to destroy the One Ring and save Middle-earth." },
+    { num:2, title:"The Two Towers", year:1954, isbn:"0618574957", key:"/works/OL27483W", desc:"The Fellowship is broken. Frodo and Sam journey toward Mordor, while Aragorn leads the fight against Saruman's forces." },
+    { num:3, title:"The Return of the King", year:1955, isbn:"0618574965", key:"/works/OL27484W", desc:"The final volume — the War of the Ring reaches its climax as Frodo approaches Mount Doom to destroy the One Ring forever." },
+  ],
+  hobbit: [
+    { num:1, title:"The Hobbit, or There and Back Again", year:1937, isbn:"054792822X", key:"/works/OL95854W", desc:"Bilbo Baggins, a respectable hobbit, is swept into an epic quest to reclaim the dwarven kingdom of Erebor from the dragon Smaug." },
+  ],
+};
+
+function showColl(id, btn) {
+  document.querySelectorAll('.coll-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.coll-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('coll-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function renderCollections() {
+  Object.entries(collectionData).forEach(([series, books]) => {
+    const gridId = series === 'hp' ? 'hp-grid' : series === 'lotr' ? 'lotr-grid' : 'hobbit-grid';
+    const grid = document.getElementById(gridId);
+    if (!grid) return;
+    grid.innerHTML = books.map((b, i) => `
+      <div class="coll-book-card reveal" style="animation-delay:${i*0.07}s" onclick="openCollModal(${JSON.stringify(b).replace(/"/g,'&quot;')})">
+        <div class="coll-book-num">${b.num}</div>
+        <div class="coll-book-cover-wrap">
+          <img class="coll-book-cover" 
+            src="https://covers.openlibrary.org/b/isbn/${b.isbn}-M.jpg" 
+            alt="${b.title}"
+            onerror="this.src='https://covers.openlibrary.org/b/isbn/${b.isbn}-S.jpg';this.onerror=null;" 
+            loading="lazy" />
+          <div class="coll-book-overlay">
+            <span class="coll-read-btn"><i class="fas fa-book-open"></i> Read</span>
+          </div>
+        </div>
+        <div class="coll-book-info">
+          <div class="coll-book-title">${b.title}</div>
+          <div class="coll-book-year">${b.year}</div>
+        </div>
+      </div>`).join('');
+  });
+  initReveal();
+}
+
+function openCollModal(b) {
+  const coverLg = `https://covers.openlibrary.org/b/isbn/${b.isbn}-L.jpg`;
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-book">
+      <img class="modal-cover" src="${coverLg}" alt="${b.title}"
+        onerror="this.src='https://covers.openlibrary.org/b/isbn/${b.isbn}-M.jpg'" />
+      <div>
+        <div class="modal-title">${b.title}</div>
+        <div class="modal-author" style="margin-bottom:14px;">${b.num ? 'Book #'+b.num : ''} · ${b.year}</div>
+        <div class="modal-desc">${b.desc}</div>
+        <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;">
+          <a class="coll-modal-read-btn" href="https://openlibrary.org${b.key}" target="_blank">
+            <i class="fas fa-book-open"></i> Read on Open Library
+          </a>
+          <a class="coll-modal-wiki-btn" href="https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(b.title)}" target="_blank">
+            <i class="fab fa-wikipedia-w"></i> Wikipedia
+          </a>
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('bookModal').classList.add('open');
+}
+
+// ==================== SCROLL REVEAL ====================
+function initReveal() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+}
+
+// ==================== NEWSLETTER ====================
+function subscribeNL() {
+  const email = document.getElementById('nlEmail').value.trim();
+  if (!email || !email.includes('@')) { showToast('Please enter a valid email!'); return; }
+  showToast('🎉 Subscribed successfully! Welcome to Sofia Library!');
+  document.getElementById('nlEmail').value = '';
+}
+
+// ==================== TOAST ====================
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ==================== LANG SWITCH for dynamic content ====================
+const origSetLang = setLang;
+window.setLang = function(lang) {
+  origSetLang(lang);
+  // update tips
+  document.querySelectorAll('.tip-title').forEach(el => el.textContent = el.getAttribute(`data-${lang}`)||el.textContent);
+  document.querySelectorAll('.tip-text').forEach(el => el.textContent = el.getAttribute(`data-${lang}`)||el.textContent);
+  // update category names
+  const cats = document.querySelectorAll('.cat-name');
+  cats.forEach((el,i) => {
+    if (categories[i]) el.textContent = lang==='id' ? categories[i].nameId : categories[i].name;
+  });
+};
+
+// init reveal after DOM ready
+document.addEventListener('DOMContentLoaded', initReveal);
+setTimeout(initReveal, 800);
+
+// Auto-load reveal on scroll
+window.addEventListener('scroll', initReveal);
+</script>
+</body>
+</html>
