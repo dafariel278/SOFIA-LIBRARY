@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Sofia Library — Digital Library</title>
-<meta name="description" content="Sofia Library — a curated digital library for science, knowledge, and stories."/>
+<meta name="description" content="Sofia Library — Read full books for free. Science, knowledge, stories and more."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
@@ -16,25 +16,17 @@
   --accent:#C0543A;--teal:#2E9E8A;--amber:#D4873E;
   --text:#16142A;--text2:#524E6B;--text3:#9490A5;
   --border:#DDD8CE;
-  --sh: 0 4px 24px rgba(27,58,107,.10);
-  --sh2: 0 16px 56px rgba(27,58,107,.18);
+  --sh:0 4px 24px rgba(27,58,107,.10);
+  --sh2:0 16px 56px rgba(27,58,107,.18);
   --nav-h:70px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
-::-webkit-scrollbar{width:7px}
-::-webkit-scrollbar-track{background:var(--bg2)}
-::-webkit-scrollbar-thumb{background:var(--primary);border-radius:4px}
+::-webkit-scrollbar{width:7px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--primary);border-radius:4px}
 
 /* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav-h);
-  background:rgba(245,240,232,.92);backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;padding:0 5%;gap:20px;
-  justify-content:space-between;transition:box-shadow .3s
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav-h);background:rgba(245,240,232,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 5%;justify-content:space-between;transition:box-shadow .3s}
 nav.scrolled{box-shadow:var(--sh)}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .nav-logo-img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2.5px solid var(--primary);flex-shrink:0}
@@ -53,25 +45,22 @@ nav.scrolled{box-shadow:var(--sh)}
 .hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
 
 /* LOADER */
-#loader{
-  position:fixed;inset:0;z-index:9999;background:var(--primary);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
-  transition:opacity .6s
-}
+#loader{position:fixed;inset:0;z-index:9999;background:var(--primary);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:opacity .6s}
 #loader.out{opacity:0;pointer-events:none}
-.ld-img{width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.3);animation:pulse 2s ease infinite}
-@keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,255,255,.3)}50%{transform:scale(1.04);box-shadow:0 0 0 10px rgba(255,255,255,0)}}
-.ld-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;color:white}
+.ld-img{width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.3);animation:ldpulse 2s ease infinite}
+@keyframes ldpulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,255,255,.3)}50%{transform:scale(1.04);box-shadow:0 0 0 10px rgba(255,255,255,0)}}
+.ld-title{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:white}
 .ld-title span{color:#3CBFA5}
+.ld-sub{font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.5px}
 .ld-bar{width:180px;height:3px;background:rgba(255,255,255,.2);border-radius:2px;overflow:hidden}
-.ld-fill{height:100%;background:#3CBFA5;border-radius:2px;animation:ldbar 2s ease forwards}
-@keyframes ldbar{from{width:0}to{width:100%}}
+.ld-fill{height:100%;background:#3CBFA5;border-radius:2px;animation:ldfill 2s ease forwards}
+@keyframes ldfill{from{width:0}to{width:100%}}
 
 /* HERO */
 #hero{min-height:100vh;padding-top:var(--nav-h);position:relative;overflow:hidden;display:flex;align-items:center}
 .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#F5F0E8 0%,#E8E0F5 45%,#D8E8F5 100%)}
 .hero-orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.3;animation:orb 7s ease-in-out infinite}
-.orb1{width:500px;height:500px;background:var(--primary);top:-150px;right:-100px;animation-delay:0s}
+.orb1{width:500px;height:500px;background:var(--primary);top:-150px;right:-100px}
 .orb2{width:380px;height:380px;background:var(--accent);bottom:-100px;left:-80px;animation-delay:2.5s}
 .orb3{width:260px;height:260px;background:var(--teal);top:40%;left:35%;animation-delay:5s}
 @keyframes orb{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-22px) scale(1.05)}}
@@ -93,18 +82,14 @@ nav.scrolled{box-shadow:var(--sh)}
 .hero-stats{display:flex;gap:28px;margin-top:40px}
 .hero-stat-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--primary)}
 .hero-stat-label{font-size:12px;color:var(--text3);font-weight:500;margin-top:3px}
-
-/* FLOATING BOOKS 3D */
 .books-visual{position:relative;height:480px}
-.book-float{
-  position:absolute;cursor:pointer;
-  transform-style:preserve-3d;
-  transition:transform .4s;
-}
-.book-float:hover{transform:scale(1.08) rotate(0deg) !important;z-index:10}
-.book-float img{width:100%;height:100%;object-fit:cover;border-radius:6px;box-shadow:var(--sh2);display:block}
+.book-float{position:absolute;cursor:pointer;transition:transform .4s}
+.book-float:hover{transform:scale(1.08) !important;z-index:10}
+.book-float img{width:100%;height:100%;object-fit:cover;border-radius:8px;box-shadow:var(--sh2)}
+@keyframes bf1{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(1deg)}}
+@keyframes bf2{0%,100%{transform:translateY(0) rotate(3deg)}50%{transform:translateY(-18px) rotate(-1deg)}}
 
-/* SECTIONS */
+/* COMMON */
 section{padding:80px 5%}
 .container{max-width:1200px;margin:0 auto}
 .sec-header{text-align:center;margin-bottom:52px}
@@ -115,292 +100,13 @@ section{padding:80px 5%}
 /* CATEGORIES */
 #categories{background:var(--bg)}
 .cats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
-.cat-card{background:var(--card);border-radius:18px;padding:28px 20px;text-align:center;border:1.5px solid var(--border);cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.cat-card{background:var(--card);border-radius:18px;padding:28px 20px;text-align:center;border:1.5px solid var(--border);cursor:pointer;transition:all .3s}
 .cat-card:hover{transform:translateY(-6px);box-shadow:var(--sh2);border-color:transparent}
 .cat-card.active{border-color:var(--primary);box-shadow:0 0 0 3px rgba(27,58,107,.12)}
 .cat-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 14px;transition:transform .3s}
 .cat-card:hover .cat-icon{transform:scale(1.14) rotate(-4deg)}
 .cat-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:6px}
 .cat-count{font-size:12px;color:var(--text3)}
-
-/* BOOKS GRID */
-#books{background:var(--bg2)}
-.books-search{display:flex;gap:12px;max-width:540px;margin:0 auto 36px}
-.books-search input{flex:1;padding:13px 18px;border-radius:12px;border:1.5px solid var(--border);background:var(--card);font-size:15px;color:var(--text);outline:none;transition:border-color .2s;font-family:'DM Sans',sans-serif}
-.books-search input:focus{border-color:var(--primary)}
-.books-search button{padding:13px 22px;border-radius:12px;background:var(--primary);color:white;border:none;font-size:15px;font-weight:600;cursor:pointer;transition:background .2s}
-.books-search button:hover{background:var(--primary2)}
-.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:22px}
-
-/* BOOK CARD — 3D Hardcover */
-.book-card{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:all .3s;position:relative}
-.book-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:var(--sh2);border-color:transparent}
-.book-3d-wrap{position:relative;aspect-ratio:2/3;overflow:hidden}
-.book-3d-cover{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-.book-card:hover .book-3d-cover{transform:scale(1.06)}
-.book-3d-spine{
-  position:absolute;top:0;left:0;bottom:0;width:18px;
-  background:linear-gradient(to right,rgba(0,0,0,.35),rgba(0,0,0,.08) 40%,rgba(255,255,255,.1));
-  pointer-events:none;
-}
-.book-hover-overlay{
-  position:absolute;inset:0;background:linear-gradient(to top,rgba(27,58,107,.85) 0%,transparent 55%);
-  opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:16px
-}
-.book-card:hover .book-hover-overlay{opacity:1}
-.book-read-now{
-  width:100%;padding:9px;border-radius:9px;background:white;color:var(--primary);
-  font-size:13px;font-weight:700;border:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;gap:6px
-}
-.book-info{padding:14px 16px 18px}
-.book-title{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;line-height:1.4;margin-bottom:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.book-author{font-size:12px;color:var(--text3);margin-bottom:8px}
-.book-year{font-size:11px;color:var(--teal);font-weight:600}
-.book-skel{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--border);animation:shimmer 1.5s infinite}
-.skel-cover{width:100%;aspect-ratio:2/3;background:var(--bg2)}
-.skel-info{padding:14px}
-.skel-line{height:11px;background:var(--bg2);border-radius:5px;margin-bottom:7px}
-@keyframes shimmer{0%,100%{opacity:1}50%{opacity:.55}}
-
-/* SPECIAL COLLECTIONS */
-#collections{background:var(--primary);color:white}
-#collections .sec-title{color:white}
-#collections .sec-sub{color:rgba(255,255,255,.7)}
-#collections .sec-badge{color:var(--teal)}
-.coll-tabs{display:flex;gap:10px;justify-content:center;margin-bottom:44px;flex-wrap:wrap}
-.coll-tab{
-  padding:10px 22px;border-radius:30px;border:2px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);
-  font-size:14px;font-weight:600;cursor:pointer;transition:all .25s
-}
-.coll-tab.active{background:white;color:var(--primary);border-color:white}
-.coll-tab:hover:not(.active){background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.4)}
-.coll-panel{display:none;animation:fadeUp .4s ease both}
-.coll-panel.active{display:block}
-.coll-banner{
-  border-radius:22px;overflow:hidden;margin-bottom:38px;
-  position:relative;min-height:210px;display:flex;align-items:flex-end
-}
-.coll-banner-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.38)}
-.coll-banner-info{
-  position:relative;z-index:1;padding:32px 36px;width:100%;
-  background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 100%)
-}
-.coll-tag{display:inline-block;padding:4px 12px;border-radius:16px;background:var(--accent);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-.coll-title{font-family:'Playfair Display',serif;font-size:clamp(22px,3.5vw,36px);font-weight:800;line-height:1.25;margin-bottom:6px}
-.coll-author{font-size:14px;opacity:.78}
-.coll-desc{font-size:13px;opacity:.72;margin-top:8px;max-width:580px;line-height:1.65}
-.coll-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:22px}
-
-/* COLL BOOK CARD */
-.coll-book{
-  background:rgba(255,255,255,.08);border-radius:16px;overflow:hidden;
-  border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:all .3s;position:relative
-}
-.coll-book:hover{transform:translateY(-8px);background:rgba(255,255,255,.15);box-shadow:0 20px 48px rgba(0,0,0,.35)}
-.coll-cover-wrap{position:relative;aspect-ratio:2/3;overflow:hidden}
-.coll-cover{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-.coll-book:hover .coll-cover{transform:scale(1.06)}
-.coll-spine{position:absolute;top:0;left:0;bottom:0;width:16px;background:linear-gradient(to right,rgba(0,0,0,.4),transparent);pointer-events:none}
-.coll-overlay{
-  position:absolute;inset:0;background:rgba(27,58,107,.82);
-  display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s
-}
-.coll-book:hover .coll-overlay{opacity:1}
-.coll-read-btn{
-  background:white;color:var(--primary);border:none;border-radius:10px;
-  padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;
-  display:flex;align-items:center;gap:6px;transition:background .2s
-}
-.coll-read-btn:hover{background:var(--teal);color:white}
-.coll-book-info{padding:14px 14px 18px}
-.coll-book-num{
-  position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:7px;
-  background:var(--primary);color:white;font-size:11px;font-weight:800;
-  display:flex;align-items:center;justify-content:center;z-index:2
-}
-.coll-book-title{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;line-height:1.4;margin-bottom:5px;color:white}
-.coll-book-year{font-size:11px;color:rgba(255,255,255,.5)}
-
-/* IN-APP READER */
-.reader-overlay{
-  position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0);
-  display:flex;align-items:center;justify-content:center;
-  visibility:hidden;transition:all .4s
-}
-.reader-overlay.open{background:rgba(0,0,0,.85);visibility:visible}
-.reader-modal{
-  background:#FEFAF4;border-radius:24px;
-  width:95%;max-width:900px;height:88vh;
-  display:flex;flex-direction:column;
-  transform:scale(.92) translateY(30px);opacity:0;
-  transition:all .4s;overflow:hidden;
-  box-shadow:0 40px 100px rgba(0,0,0,.5)
-}
-.reader-overlay.open .reader-modal{transform:scale(1) translateY(0);opacity:1}
-.reader-topbar{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 24px;background:var(--primary);color:white;flex-shrink:0
-}
-.reader-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;flex:1;margin:0 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.reader-close{background:rgba(255,255,255,.15);border:none;color:white;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0}
-.reader-close:hover{background:var(--accent)}
-.reader-progress-bar{height:3px;background:rgba(255,255,255,.2);flex-shrink:0}
-.reader-progress-fill{height:100%;background:var(--teal);transition:width .3s}
-.reader-body{flex:1;display:flex;overflow:hidden}
-.reader-sidebar{
-  width:220px;flex-shrink:0;background:#F0EAE0;border-right:1px solid var(--border);
-  overflow-y:auto;padding:16px 0
-}
-.reader-sidebar h4{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--text);padding:0 16px 12px;border-bottom:1px solid var(--border);margin-bottom:8px}
-.chapter-item{padding:10px 16px;cursor:pointer;font-size:13px;color:var(--text2);transition:all .2s;border-left:3px solid transparent}
-.chapter-item:hover{background:rgba(27,58,107,.06);color:var(--primary)}
-.chapter-item.active{background:rgba(27,58,107,.1);color:var(--primary);font-weight:600;border-left-color:var(--primary)}
-.reader-content{flex:1;overflow-y:auto;padding:40px 48px;position:relative}
-.reader-page{
-  font-family:'Lora',serif;font-size:18px;line-height:1.9;color:#2A2520;
-  max-width:680px;margin:0 auto;
-}
-.reader-page h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--primary);margin-bottom:28px;line-height:1.3}
-.reader-page p{margin-bottom:1.4em}
-.reader-page::first-letter{float:left;font-family:'Playfair Display',serif;font-size:64px;font-weight:800;line-height:.75;color:var(--primary);margin-right:8px;margin-top:6px}
-.reader-loading{display:flex;align-items:center;justify-content:center;height:100%;flex-direction:column;gap:16px;color:var(--text2)}
-.reader-spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.reader-bottombar{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 24px;background:var(--card);border-top:1px solid var(--border);flex-shrink:0
-}
-.reader-nav-btn{
-  padding:9px 20px;border-radius:10px;border:none;font-size:13px;font-weight:600;
-  cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px
-}
-.reader-prev{background:var(--bg2);color:var(--text2)}
-.reader-prev:hover{background:var(--border)}
-.reader-next{background:var(--primary);color:white}
-.reader-next:hover{background:var(--primary2)}
-.reader-page-info{font-size:13px;color:var(--text3);font-weight:500}
-.reader-font-btns{display:flex;gap:6px;align-items:center}
-.font-btn{width:30px;height:30px;border-radius:8px;border:1.5px solid var(--border);background:var(--bg);cursor:pointer;font-size:12px;font-weight:700;color:var(--text2);transition:all .2s}
-.font-btn:hover{background:var(--primary);color:white;border-color:var(--primary)}
-
-/* IFRAME READER for copyright books */
-.reader-iframe{width:100%;height:100%;border:none}
-
-/* BOOK DETAIL MODAL */
-.modal-overlay{
-  position:fixed;inset:0;z-index:1800;background:rgba(0,0,0,.65);backdrop-filter:blur(8px);
-  display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s
-}
-.modal-overlay.open{opacity:1;visibility:visible}
-.modal{
-  background:var(--card);border-radius:22px;width:90%;max-width:680px;max-height:85vh;
-  overflow-y:auto;padding:36px;transform:scale(.9);transition:transform .3s;position:relative
-}
-.modal-overlay.open .modal{transform:scale(1)}
-.modal-close{position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:50%;background:var(--bg2);border:none;cursor:pointer;font-size:15px;color:var(--text2);transition:all .2s;display:flex;align-items:center;justify-content:center}
-.modal-close:hover{background:var(--accent);color:white}
-.modal-book{display:flex;gap:24px}
-.modal-cover{width:130px;height:190px;object-fit:cover;border-radius:10px;flex-shrink:0;box-shadow:var(--sh2)}
-.modal-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;margin-bottom:7px}
-.modal-author{font-size:14px;color:var(--text2);margin-bottom:14px}
-.modal-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.modal-tag{padding:4px 12px;border-radius:16px;font-size:12px;font-weight:600;background:var(--primary3);color:var(--primary)}
-.modal-desc{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:22px}
-.modal-btns{display:flex;gap:10px;flex-wrap:wrap}
-.modal-read-btn{padding:12px 22px;border-radius:11px;background:var(--primary);color:white;border:none;font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .2s;text-decoration:none}
-.modal-read-btn:hover{background:var(--primary2)}
-.modal-link-btn{padding:12px 22px;border-radius:11px;background:var(--bg2);color:var(--text2);border:1.5px solid var(--border);font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all .2s;text-decoration:none}
-.modal-link-btn:hover{border-color:var(--primary);color:var(--primary)}
-
-/* ENGLISH LEARNING */
-#english{background:var(--bg)}
-.etabs{display:flex;gap:8px;justify-content:center;margin-bottom:38px;flex-wrap:wrap}
-.etab{padding:9px 20px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);color:var(--text2);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
-.etab.active{background:var(--primary);color:white;border-color:var(--primary)}
-.etab:hover:not(.active){border-color:var(--primary);color:var(--primary)}
-.epanel{display:none;animation:fadeUp .4s ease both}
-.epanel.active{display:block}
-
-/* WOD */
-.wod-box{
-  max-width:780px;margin:0 auto;
-  background:linear-gradient(135deg,var(--primary) 0%,var(--primary2) 100%);
-  border-radius:22px;padding:40px;color:white;position:relative;overflow:hidden
-}
-.wod-box::after{content:'📖';position:absolute;right:28px;bottom:16px;font-size:110px;opacity:.1}
-.wod-lbl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
-.wod-word{font-family:'Playfair Display',serif;font-size:50px;font-weight:800;margin-bottom:6px}
-.wod-phon{font-size:17px;opacity:.7;margin-bottom:18px;font-style:italic}
-.wod-def{font-size:16px;line-height:1.78;opacity:.92;max-width:520px;margin-bottom:20px}
-.wod-ex{font-size:14px;font-style:italic;opacity:.72;border-left:3px solid var(--teal);padding-left:14px}
-.wod-actions{display:flex;gap:10px;margin-top:24px}
-.wod-btn{padding:9px 20px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all .2s}
-.wod-btn-t{background:var(--teal);color:white}
-.wod-btn-t:hover{background:#268f7a}
-.wod-btn-o{background:rgba(255,255,255,.15);color:white}
-.wod-btn-o:hover{background:rgba(255,255,255,.28)}
-
-/* DICT */
-.dict-box{max-width:680px;margin:0 auto;background:var(--card);border-radius:22px;padding:34px;box-shadow:var(--sh)}
-.dict-search{display:flex;gap:10px;margin-bottom:24px}
-.dict-search input{flex:1;padding:13px 18px;border-radius:11px;border:1.5px solid var(--border);background:var(--bg);font-size:15px;color:var(--text);outline:none;font-family:'DM Sans',sans-serif}
-.dict-search input:focus{border-color:var(--primary)}
-.dict-search button{padding:13px 22px;border-radius:11px;background:var(--primary);color:white;border:none;font-weight:600;cursor:pointer}
-.dict-word{font-family:'Playfair Display',serif;font-size:34px;font-weight:800;color:var(--primary)}
-.dict-phon{font-size:15px;color:var(--text3);font-style:italic;margin:4px 0 14px}
-.dict-play-btn{background:var(--teal);color:white;border:none;border-radius:7px;padding:7px 14px;cursor:pointer;font-size:12px;font-weight:600;margin-left:8px}
-.dict-part{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin:16px 0 7px}
-.dict-def{font-size:14px;color:var(--text);padding:11px 14px;background:var(--bg);border-radius:9px;margin-bottom:7px;line-height:1.65;border-left:3px solid var(--primary)}
-.dict-ex{font-size:13px;color:var(--text2);font-style:italic;margin-top:5px;padding-left:11px;border-left:2px solid var(--border)}
-.dict-result{display:none}
-.dict-result.show{display:block;animation:fadeUp .3s ease}
-
-/* FLASHCARDS */
-.fc-wrap{max-width:680px;margin:0 auto}
-.flashcard{
-  background:var(--card);border-radius:22px;min-height:250px;padding:50px;
-  text-align:center;cursor:pointer;box-shadow:var(--sh2);border:1px solid var(--border);
-  position:relative;perspective:1000px;transition:transform .2s
-}
-.flashcard:hover{transform:translateY(-4px)}
-.fc-front,.fc-back{
-  position:absolute;inset:0;padding:40px;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;border-radius:22px;
-  backface-visibility:hidden;transition:transform .6s
-}
-.fc-front{background:var(--card)}
-.fc-back{background:linear-gradient(135deg,var(--primary) 0%,var(--primary2) 100%);color:white;transform:rotateY(180deg)}
-.flashcard.flipped .fc-front{transform:rotateY(180deg)}
-.flashcard.flipped .fc-back{transform:rotateY(0)}
-.fc-word{font-family:'Playfair Display',serif;font-size:40px;font-weight:800;color:var(--primary);margin-bottom:10px}
-.fc-hint{font-size:13px;color:var(--text3)}
-.fc-back .fc-word{color:white;font-size:22px;margin-bottom:8px}
-.fc-meaning{font-size:17px;line-height:1.65;margin-top:10px}
-.fc-controls{display:flex;gap:12px;justify-content:center;margin-top:24px}
-.fc-btn{padding:11px 26px;border-radius:11px;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all .2s}
-.fc-prev{background:var(--bg2);color:var(--text2)}
-.fc-prev:hover{background:var(--border)}
-.fc-next{background:var(--primary);color:white}
-.fc-next:hover{background:var(--primary2)}
-.fc-progress-bar{height:4px;background:var(--border);border-radius:2px;margin-top:14px}
-.fc-fill{height:100%;background:var(--primary);border-radius:2px;transition:width .4s}
-
-/* QUIZ */
-.quiz-box{max-width:680px;margin:0 auto;background:var(--card);border-radius:22px;padding:38px;box-shadow:var(--sh)}
-.quiz-q{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;margin-bottom:26px;line-height:1.4;color:var(--primary)}
-.quiz-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.quiz-opt{padding:15px 18px;border-radius:11px;border:2px solid var(--border);background:var(--bg);font-size:14px;cursor:pointer;transition:all .2s;text-align:left;font-family:'DM Sans',sans-serif}
-.quiz-opt:hover:not(:disabled){border-color:var(--primary);background:rgba(27,58,107,.06)}
-.quiz-opt.correct{background:rgba(46,158,138,.15);border-color:var(--teal);color:#1a6b5c}
-.quiz-opt.wrong{background:rgba(192,84,58,.12);border-color:var(--accent);color:#8b2a14}
-.quiz-fb{margin-top:18px;padding:14px;border-radius:11px;font-size:14px;font-weight:600;display:none}
-.quiz-fb.correct{background:rgba(46,158,138,.15);color:#1a6b5c;border:1.5px solid var(--teal)}
-.quiz-fb.wrong{background:rgba(192,84,58,.12);color:#8b2a14;border:1.5px solid var(--accent)}
-.quiz-next-btn{margin-top:18px;padding:11px 26px;border-radius:11px;background:var(--primary);color:white;border:none;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s;display:none}
-.quiz-next-btn:hover{background:var(--primary2)}
-.quiz-score{text-align:center;font-size:22px;font-weight:700;color:var(--primary);margin-bottom:18px;display:none}
 
 /* FEATURED */
 #featured{background:var(--bg2)}
@@ -418,7 +124,181 @@ section{padding:80px 5%}
 .feat-side-title{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;margin-bottom:5px;line-height:1.35}
 .feat-side-author{font-size:12px;color:var(--text3)}
 
-/* READING TIPS */
+/* BOOKS */
+#books{background:var(--bg)}
+.books-filter{display:flex;justify-content:center;margin-bottom:28px;gap:12px;flex-wrap:wrap}
+.filter-btn{padding:8px 18px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);font-size:13px;font-weight:600;color:var(--text2);cursor:pointer;transition:all .2s}
+.filter-btn.active,.filter-btn:hover{background:var(--primary);color:white;border-color:var(--primary)}
+.books-search{display:flex;gap:12px;max-width:540px;margin:0 auto 36px}
+.books-search input{flex:1;padding:13px 18px;border-radius:12px;border:1.5px solid var(--border);background:var(--card);font-size:15px;color:var(--text);outline:none;transition:border-color .2s;font-family:'DM Sans',sans-serif}
+.books-search input:focus{border-color:var(--primary)}
+.books-search button{padding:13px 22px;border-radius:12px;background:var(--primary);color:white;border:none;font-size:15px;font-weight:600;cursor:pointer}
+.books-search button:hover{background:var(--primary2)}
+.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:22px}
+.book-card{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:all .3s;position:relative}
+.book-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:var(--sh2);border-color:transparent}
+.book-3d-wrap{position:relative;aspect-ratio:2/3;overflow:hidden}
+.book-3d-cover{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.book-card:hover .book-3d-cover{transform:scale(1.06)}
+.book-3d-spine{position:absolute;top:0;left:0;bottom:0;width:18px;background:linear-gradient(to right,rgba(0,0,0,.35),rgba(0,0,0,.08) 40%,rgba(255,255,255,.1));pointer-events:none}
+.book-hover-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(27,58,107,.85) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:14px}
+.book-card:hover .book-hover-overlay{opacity:1}
+.book-read-now{width:100%;padding:9px;border-radius:9px;background:white;color:var(--primary);font-size:12px;font-weight:700;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px}
+.book-info{padding:12px 14px 16px}
+.book-title{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;line-height:1.4;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.book-author{font-size:11px;color:var(--text3);margin-bottom:6px}
+.book-src{font-size:10px;color:var(--teal);font-weight:600;background:rgba(46,158,138,.1);padding:2px 7px;border-radius:10px;display:inline-block}
+.book-skel{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--border);animation:shimmer 1.5s infinite}
+.skel-cover{width:100%;aspect-ratio:2/3;background:var(--bg2)}
+.skel-info{padding:12px}
+.skel-line{height:10px;background:var(--bg2);border-radius:5px;margin-bottom:7px}
+@keyframes shimmer{0%,100%{opacity:1}50%{opacity:.55}}
+
+/* SPECIAL COLLECTIONS */
+#collections{background:var(--primary);color:white}
+#collections .sec-title{color:white}
+#collections .sec-sub{color:rgba(255,255,255,.7)}
+#collections .sec-badge{color:#3CBFA5}
+.coll-tabs{display:flex;gap:10px;justify-content:center;margin-bottom:44px;flex-wrap:wrap}
+.coll-tab{padding:10px 22px;border-radius:30px;border:2px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);font-size:14px;font-weight:600;cursor:pointer;transition:all .25s}
+.coll-tab.active{background:white;color:var(--primary);border-color:white}
+.coll-tab:hover:not(.active){background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.4)}
+.coll-panel{display:none;animation:fadeUp .4s ease both}
+.coll-panel.active{display:block}
+.coll-banner{border-radius:22px;overflow:hidden;margin-bottom:38px;position:relative;min-height:200px;display:flex;align-items:flex-end}
+.coll-banner-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.38)}
+.coll-banner-info{position:relative;z-index:1;padding:30px 36px;width:100%;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 100%)}
+.coll-tag{display:inline-block;padding:4px 12px;border-radius:16px;background:var(--accent);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.coll-title-text{font-family:'Playfair Display',serif;font-size:clamp(22px,3.5vw,34px);font-weight:800;line-height:1.25;margin-bottom:5px}
+.coll-author-text{font-size:14px;opacity:.78}
+.coll-desc-text{font-size:13px;opacity:.72;margin-top:7px;max-width:580px;line-height:1.65}
+.coll-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:20px}
+.coll-book{background:rgba(255,255,255,.08);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:all .3s;position:relative}
+.coll-book:hover{transform:translateY(-8px);background:rgba(255,255,255,.15);box-shadow:0 20px 48px rgba(0,0,0,.35)}
+.coll-cover-wrap{position:relative;aspect-ratio:2/3;overflow:hidden}
+.coll-cover{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.coll-book:hover .coll-cover{transform:scale(1.06)}
+.coll-spine{position:absolute;top:0;left:0;bottom:0;width:16px;background:linear-gradient(to right,rgba(0,0,0,.4),transparent);pointer-events:none}
+.coll-overlay{position:absolute;inset:0;background:rgba(27,58,107,.82);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
+.coll-book:hover .coll-overlay{opacity:1}
+.coll-read-btn{background:white;color:var(--primary);border:none;border-radius:10px;padding:10px 16px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px}
+.coll-book-num{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:7px;background:var(--primary);color:white;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;z-index:2}
+.coll-book-info{padding:12px 14px 16px}
+.coll-book-title{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;line-height:1.4;margin-bottom:4px;color:white;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.coll-book-year{font-size:11px;color:rgba(255,255,255,.5)}
+
+/* FULL-TEXT READER */
+.reader-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;visibility:hidden;transition:all .4s}
+.reader-overlay.open{background:rgba(0,0,0,.88);visibility:visible}
+.reader-modal{background:#FEFAF4;border-radius:22px;width:96%;max-width:1000px;height:90vh;display:flex;flex-direction:column;transform:scale(.92) translateY(30px);opacity:0;transition:all .4s;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6)}
+.reader-overlay.open .reader-modal{transform:scale(1) translateY(0);opacity:1}
+.reader-topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;background:var(--primary);color:white;flex-shrink:0;gap:14px}
+.reader-book-cover{width:34px;height:48px;border-radius:5px;object-fit:cover;flex-shrink:0}
+.reader-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.reader-toolbar{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.r-btn{background:rgba(255,255,255,.15);border:none;color:white;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.r-btn:hover{background:rgba(255,255,255,.3)}
+.r-btn.close-btn:hover{background:var(--accent)}
+.reader-progress-bar{height:3px;background:rgba(27,58,107,.15);flex-shrink:0}
+.reader-progress-fill{height:100%;background:var(--teal);transition:width .4s}
+.reader-body{flex:1;display:flex;overflow:hidden}
+
+/* Sidebar */
+.reader-sidebar{width:230px;flex-shrink:0;background:#F0EAE0;border-right:1px solid var(--border);overflow-y:auto;padding-bottom:20px}
+.reader-sidebar h4{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--text);padding:16px 16px 12px;border-bottom:1px solid var(--border);position:sticky;top:0;background:#F0EAE0;z-index:1}
+.chap-item{padding:10px 16px;cursor:pointer;font-size:13px;color:var(--text2);transition:all .2s;border-left:3px solid transparent;line-height:1.4}
+.chap-item:hover{background:rgba(27,58,107,.06);color:var(--primary)}
+.chap-item.active{background:rgba(27,58,107,.1);color:var(--primary);font-weight:600;border-left-color:var(--primary)}
+
+/* Reading area */
+.reader-content{flex:1;overflow-y:auto;padding:44px 52px;scroll-behavior:smooth}
+.reader-page{font-family:'Lora',serif;font-size:18px;line-height:1.95;color:#2A2520;max-width:700px;margin:0 auto;transition:opacity .25s}
+.reader-page h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--primary);margin-bottom:28px;line-height:1.3;border-bottom:2px solid var(--border);padding-bottom:14px}
+.reader-page p{margin-bottom:1.4em;text-indent:1.8em}
+.reader-page p:first-of-type{text-indent:0}
+.reader-drop-cap::first-letter{float:left;font-family:'Playfair Display',serif;font-size:66px;font-weight:800;line-height:.72;color:var(--primary);margin-right:8px;margin-top:6px;padding-right:2px}
+.reader-loading{display:flex;align-items:center;justify-content:center;height:100%;flex-direction:column;gap:16px;color:var(--text2)}
+.reader-spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.reader-bottombar{display:flex;align-items:center;justify-content:space-between;padding:11px 22px;background:var(--card);border-top:1px solid var(--border);flex-shrink:0}
+.r-nav-btn{padding:8px 18px;border-radius:10px;border:none;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
+.r-prev{background:var(--bg2);color:var(--text2)}.r-prev:hover{background:var(--border)}
+.r-next{background:var(--primary);color:white}.r-next:hover{background:var(--primary2)}
+.r-page-info{font-size:13px;color:var(--text3);font-weight:500}
+
+/* Night mode */
+body.night-mode{--bg:#1A1826;--bg2:#221E30;--card:#1E1B2A;--text:#E8E0F0;--text2:#A89CC0;--text3:#6A6080;--border:#2E2A3E}
+body.night-mode #reader-night .reader-modal{background:#1E1B2A}
+body.night-mode .reader-content{background:#1E1B2A}
+body.night-mode .reader-page{color:#D4C8E0}
+body.night-mode .reader-sidebar{background:#1A1826}
+.reader-modal.night{background:#221E30}
+.reader-modal.night .reader-content{background:#221E30}
+.reader-modal.night .reader-page{color:#D4C8E0}
+.reader-modal.night .reader-sidebar{background:#1A1826;border-right-color:#2E2A3E}
+.reader-modal.night .reader-sidebar h4{background:#1A1826;color:#D4C8E0}
+.reader-modal.night .reader-bottombar{background:#1A1826;border-top-color:#2E2A3E}
+
+/* ENGLISH LEARNING */
+#english{background:var(--bg2)}
+.etabs{display:flex;gap:8px;justify-content:center;margin-bottom:38px;flex-wrap:wrap}
+.etab{padding:9px 20px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);color:var(--text2);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.etab.active{background:var(--primary);color:white;border-color:var(--primary)}
+.etab:hover:not(.active){border-color:var(--primary);color:var(--primary)}
+.epanel{display:none;animation:fadeUp .4s ease both}
+.epanel.active{display:block}
+.wod-box{max-width:780px;margin:0 auto;background:linear-gradient(135deg,var(--primary) 0%,var(--primary2) 100%);border-radius:22px;padding:40px;color:white;position:relative;overflow:hidden}
+.wod-box::after{content:'📖';position:absolute;right:28px;bottom:16px;font-size:110px;opacity:.1}
+.wod-lbl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3CBFA5;margin-bottom:10px}
+.wod-word{font-family:'Playfair Display',serif;font-size:50px;font-weight:800;margin-bottom:6px}
+.wod-phon{font-size:17px;opacity:.7;margin-bottom:18px;font-style:italic}
+.wod-def{font-size:16px;line-height:1.78;opacity:.92;max-width:520px;margin-bottom:20px}
+.wod-ex{font-size:14px;font-style:italic;opacity:.72;border-left:3px solid #3CBFA5;padding-left:14px}
+.wod-actions{display:flex;gap:10px;margin-top:24px}
+.wod-btn{padding:9px 20px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.wod-t{background:#3CBFA5;color:white}.wod-t:hover{background:#268f7a}
+.wod-o{background:rgba(255,255,255,.15);color:white}.wod-o:hover{background:rgba(255,255,255,.28)}
+.dict-box{max-width:680px;margin:0 auto;background:var(--card);border-radius:22px;padding:34px;box-shadow:var(--sh)}
+.dict-search{display:flex;gap:10px;margin-bottom:24px}
+.dict-search input{flex:1;padding:13px 18px;border-radius:11px;border:1.5px solid var(--border);background:var(--bg);font-size:15px;color:var(--text);outline:none;font-family:'DM Sans',sans-serif}
+.dict-search input:focus{border-color:var(--primary)}
+.dict-search button{padding:13px 22px;border-radius:11px;background:var(--primary);color:white;border:none;font-weight:600;cursor:pointer}
+.dict-word{font-family:'Playfair Display',serif;font-size:34px;font-weight:800;color:var(--primary)}
+.dict-phon{font-size:14px;color:var(--text3);font-style:italic;margin:4px 0 14px}
+.dict-play{background:var(--teal);color:white;border:none;border-radius:7px;padding:7px 14px;cursor:pointer;font-size:12px;font-weight:600;margin-left:8px}
+.dict-part{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin:16px 0 7px}
+.dict-def{font-size:14px;color:var(--text);padding:11px 14px;background:var(--bg);border-radius:9px;margin-bottom:7px;line-height:1.65;border-left:3px solid var(--primary)}
+.dict-ex{font-size:13px;color:var(--text2);font-style:italic;margin-top:5px;padding-left:11px;border-left:2px solid var(--border)}
+.dict-result{display:none}.dict-result.show{display:block;animation:fadeUp .3s ease}
+.fc-wrap{max-width:680px;margin:0 auto}
+.flashcard{background:var(--card);border-radius:22px;min-height:250px;cursor:pointer;box-shadow:var(--sh2);border:1px solid var(--border);position:relative;transition:transform .2s}
+.flashcard:hover{transform:translateY(-4px)}
+.fc-front,.fc-back{position:absolute;inset:0;padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:22px;backface-visibility:hidden;transition:transform .6s}
+.fc-front{background:var(--card)}
+.fc-back{background:linear-gradient(135deg,var(--primary) 0%,var(--primary2) 100%);color:white;transform:rotateY(180deg)}
+.flashcard.flipped .fc-front{transform:rotateY(180deg)}.flashcard.flipped .fc-back{transform:rotateY(0)}
+.fc-word{font-family:'Playfair Display',serif;font-size:40px;font-weight:800;color:var(--primary);margin-bottom:10px}
+.fc-hint{font-size:13px;color:var(--text3)}
+.fc-back .fc-word{color:white;font-size:22px;margin-bottom:8px}
+.fc-meaning{font-size:17px;line-height:1.65;margin-top:10px}
+.fc-controls{display:flex;gap:12px;justify-content:center;margin-top:24px}
+.fc-btn{padding:11px 26px;border-radius:11px;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.fc-prev{background:var(--bg2);color:var(--text2)}.fc-prev:hover{background:var(--border)}
+.fc-next{background:var(--primary);color:white}.fc-next:hover{background:var(--primary2)}
+.quiz-box{max-width:680px;margin:0 auto;background:var(--card);border-radius:22px;padding:38px;box-shadow:var(--sh)}
+.quiz-q{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;margin-bottom:26px;line-height:1.4;color:var(--primary)}
+.quiz-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.quiz-opt{padding:15px 18px;border-radius:11px;border:2px solid var(--border);background:var(--bg);font-size:14px;cursor:pointer;transition:all .2s;text-align:left;font-family:'DM Sans',sans-serif}
+.quiz-opt:hover:not(:disabled){border-color:var(--primary);background:rgba(27,58,107,.06)}
+.quiz-opt.correct{background:rgba(46,158,138,.15);border-color:var(--teal);color:#1a6b5c}
+.quiz-opt.wrong{background:rgba(192,84,58,.12);border-color:var(--accent);color:#8b2a14}
+.quiz-fb{margin-top:18px;padding:14px;border-radius:11px;font-size:14px;font-weight:600;display:none}
+.quiz-fb.correct{background:rgba(46,158,138,.15);color:#1a6b5c;border:1.5px solid var(--teal)}
+.quiz-fb.wrong{background:rgba(192,84,58,.12);color:#8b2a14;border:1.5px solid var(--accent)}
+.quiz-next-btn{margin-top:18px;padding:11px 26px;border-radius:11px;background:var(--primary);color:white;border:none;font-size:14px;font-weight:600;cursor:pointer;display:none}
+.quiz-score{text-align:center;font-size:22px;font-weight:700;color:var(--primary);margin-bottom:18px;display:none}
+
+/* TIPS */
 #tips{background:var(--bg)}
 .tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
 .tip-card{background:var(--card);border-radius:18px;padding:26px;border:1px solid var(--border);transition:all .3s}
@@ -429,9 +309,9 @@ section{padding:80px 5%}
 
 /* NEWSLETTER */
 #newsletter{background:var(--accent);padding:68px 5%}
-.nl-inner{max-width:520px;margin:0 auto;text-align:center}
-.nl-title{font-family:'Playfair Display',serif;font-size:34px;font-weight:800;color:white;margin-bottom:10px}
-.nl-sub{font-size:15px;color:rgba(255,255,255,.88);margin-bottom:26px;line-height:1.72}
+.nl-inner{max-width:520px;margin:0 auto;text-align:center;color:white}
+.nl-title{font-family:'Playfair Display',serif;font-size:34px;font-weight:800;margin-bottom:10px}
+.nl-sub{font-size:15px;opacity:.9;margin-bottom:26px;line-height:1.72}
 .nl-form{display:flex;gap:10px}
 .nl-form input{flex:1;padding:13px 18px;border-radius:11px;border:none;background:rgba(255,255,255,.2);color:white;font-size:15px;outline:none;font-family:'DM Sans',sans-serif}
 .nl-form input::placeholder{color:rgba(255,255,255,.65)}
@@ -444,15 +324,15 @@ footer{background:#131126;color:white;padding:56px 5% 26px}
 .footer-brand p{font-size:13px;color:rgba(255,255,255,.5);margin-top:12px;line-height:1.78;max-width:270px}
 .footer-col h4{font-size:13px;font-weight:700;letter-spacing:.5px;margin-bottom:14px;color:rgba(255,255,255,.8)}
 .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;margin-bottom:9px;transition:color .2s}
-.footer-col a:hover{color:var(--teal)}
+.footer-col a:hover{color:#3CBFA5}
 .footer-socials{display:flex;gap:10px;margin-top:14px}
-.soc-btn{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.65);display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:all .2s;text-decoration:none}
+.soc-btn{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.65);display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .2s;text-decoration:none}
 .soc-btn:hover{background:var(--primary);color:white}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.35)}
 .footer-brand .nav-logo-text{color:white}
 .footer-brand .nav-logo-img{border-color:rgba(255,255,255,.25)}
 
-/* SEARCH OVERLAY */
+/* SEARCH */
 .search-overlay{position:fixed;inset:0;z-index:1500;background:rgba(0,0,0,.72);backdrop-filter:blur(12px);display:flex;align-items:flex-start;justify-content:center;padding-top:100px;opacity:0;visibility:hidden;transition:all .3s}
 .search-overlay.open{opacity:1;visibility:visible}
 .search-box{background:var(--card);border-radius:18px;width:90%;max-width:580px;padding:22px;transform:translateY(-18px);transition:transform .3s}
@@ -462,18 +342,14 @@ footer{background:#131126;color:white;padding:56px 5% 26px}
 .search-input-wrap input{flex:1;border:none;outline:none;font-size:17px;color:var(--text);background:transparent;font-family:'DM Sans',sans-serif}
 .search-close-btn{background:none;border:none;font-size:18px;color:var(--text3);cursor:pointer}
 .search-results{margin-top:18px}
-
-/* TOAST */
 .toast{position:fixed;bottom:22px;right:22px;z-index:3000;background:var(--text);color:white;padding:13px 18px;border-radius:11px;font-size:14px;font-weight:500;transform:translateY(80px);opacity:0;transition:all .3s}
 .toast.show{transform:translateY(0);opacity:1}
-
-/* REVEAL ANIMATION */
 .reveal{opacity:0;transform:translateY(28px);transition:all .65s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
 /* RESPONSIVE */
-@media(max-width:1024px){.feat-grid{grid-template-columns:1fr;} .footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:1024px){.feat-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){
   .nav-links{display:none;position:absolute;top:var(--nav-h);left:0;right:0;background:rgba(245,240,232,.98);flex-direction:column;padding:16px;gap:4px;border-bottom:1px solid var(--border)}
   .nav-links.open{display:flex}
@@ -481,14 +357,12 @@ footer{background:#131126;color:white;padding:56px 5% 26px}
   .hero-inner{grid-template-columns:1fr;text-align:center}
   .hero-right{display:none}
   .hero-btns,.hero-stats{justify-content:center}
-  .feat-grid{grid-template-columns:1fr}
-  .modal-book{flex-direction:column;align-items:center;text-align:center}
   .quiz-opts{grid-template-columns:1fr}
   .nl-form{flex-direction:column}
   .footer-top{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;gap:10px;text-align:center}
   .reader-sidebar{display:none}
-  .reader-content{padding:24px 20px}
+  .reader-content{padding:24px 18px}
   .reader-page{font-size:16px}
 }
 </style>
@@ -498,50 +372,50 @@ footer{background:#131126;color:white;padding:56px 5% 26px}
 <div id="loader">
   <img class="ld-img" src="data:image/jpeg;base64,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" alt="Sofia"/>
   <div class="ld-title">Sofia <span>Library</span></div>
+  <div class="ld-sub">Loading your reading world…</div>
   <div class="ld-bar"><div class="ld-fill"></div></div>
 </div>
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
+
 <!-- SEARCH -->
 <div class="search-overlay" id="searchOverlay">
   <div class="search-box">
     <div class="search-input-wrap">
       <i class="fas fa-search"></i>
-      <input type="text" id="searchInput" placeholder="Search books, topics..."/>
+      <input type="text" id="searchInput" placeholder="Search books to read..."/>
       <button class="search-close-btn" onclick="closeSearch()"><i class="fas fa-times"></i></button>
     </div>
     <div class="search-results" id="searchResults"></div>
   </div>
 </div>
-<!-- MODAL -->
-<div class="modal-overlay" id="bookModal">
-  <div class="modal"><button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button><div id="modalContent"></div></div>
-</div>
-<!-- READER -->
+
+<!-- FULL READER -->
 <div class="reader-overlay" id="readerOverlay">
-  <div class="reader-modal">
+  <div class="reader-modal" id="readerModal">
     <div class="reader-topbar">
-      <button class="reader-close" onclick="closeReader()"><i class="fas fa-times"></i></button>
-      <div class="reader-title" id="readerTitle">Loading...</div>
-      <div class="reader-font-btns">
-        <button class="font-btn" onclick="changeFontSize(-1)">A−</button>
-        <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+      <img class="reader-book-cover" id="rCover" src="" alt=""/>
+      <div class="reader-title" id="rTitle">Loading...</div>
+      <div class="reader-toolbar">
+        <button class="r-btn" onclick="changeFontSize(-1)" title="Smaller text">A−</button>
+        <button class="r-btn" onclick="changeFontSize(1)" title="Larger text">A+</button>
+        <button class="r-btn" onclick="toggleNight()" title="Night mode" id="nightBtn"><i class="fas fa-moon"></i></button>
+        <button class="r-btn close-btn" onclick="closeReader()" title="Close"><i class="fas fa-times"></i></button>
       </div>
     </div>
-    <div class="reader-progress-bar"><div class="reader-progress-fill" id="readerProgress" style="width:0%"></div></div>
+    <div class="reader-progress-bar"><div class="reader-progress-fill" id="rProgress" style="width:0%"></div></div>
     <div class="reader-body">
-      <div class="reader-sidebar" id="readerSidebar">
+      <div class="reader-sidebar" id="rSidebar">
         <h4><i class="fas fa-list" style="margin-right:6px"></i>Contents</h4>
-        <div id="chapterList"></div>
+        <div id="chapList"></div>
       </div>
-      <div class="reader-content" id="readerContent" onscroll="updateReadProgress()">
-        <div class="reader-page" id="readerPage"></div>
+      <div class="reader-content" id="rContent" onscroll="updateProgress()">
+        <div class="reader-page" id="rPage"></div>
       </div>
     </div>
     <div class="reader-bottombar">
-      <button class="reader-nav-btn reader-prev" onclick="prevChapter()"><i class="fas fa-chevron-left"></i> Previous</button>
-      <div class="reader-page-info" id="readerPageInfo">Chapter 1</div>
-      <button class="reader-nav-btn reader-next" onclick="nextChapter()">Next <i class="fas fa-chevron-right"></i></button>
+      <button class="r-nav-btn r-prev" onclick="prevChap()"><i class="fas fa-chevron-left"></i> Previous</button>
+      <div class="r-page-info" id="rPageInfo">Chapter 1</div>
+      <button class="r-nav-btn r-next" onclick="nextChap()">Next <i class="fas fa-chevron-right"></i></button>
     </div>
   </div>
 </div>
@@ -553,11 +427,11 @@ footer{background:#131126;color:white;padding:56px 5% 26px}
     <div class="nav-logo-text">Sofia <span>Library</span></div>
   </a>
   <div class="nav-links" id="navLinks">
-    <a href="#books" data-i18n="nav.books">Books</a>
-    <a href="#collections" data-i18n="nav.collections">Collections</a>
-    <a href="#categories" data-i18n="nav.categories">Categories</a>
-    <a href="#english" data-i18n="nav.learn">Learn English</a>
-    <a href="#tips" data-i18n="nav.tips">Reading Tips</a>
+    <a href="#books">Books</a>
+    <a href="#collections">Collections</a>
+    <a href="#categories">Categories</a>
+    <a href="#english">Learn English</a>
+    <a href="#tips">Reading Tips</a>
   </div>
   <div class="nav-right">
     <div class="lang-toggle">
@@ -566,7 +440,7 @@ footer{background:#131126;color:white;padding:56px 5% 26px}
     </div>
     <button class="nav-icon-btn" onclick="openSearch()"><i class="fas fa-search"></i></button>
   </div>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
 </nav>
 
 <!-- HERO -->
@@ -575,17 +449,17 @@ footer{background:#131126;color:white;padding:56px 5% 26px}
   <div class="hero-orb orb1"></div><div class="hero-orb orb2"></div><div class="hero-orb orb3"></div>
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-badge" data-i18n="hero.badge">Digital Library</div>
-      <h1 class="hero-h1"><span data-i18n="hero.h1a">Your Gateway to</span><br/><em data-i18n="hero.h1b">Infinite Knowledge</em></h1>
-      <p class="hero-p" data-i18n="hero.sub">Sofia Library — a curated digital library for science, knowledge, and stories. Read freely, learn daily, and grow without limits.</p>
+      <div class="hero-badge">Digital Library</div>
+      <h1 class="hero-h1">Your Gateway to<br/><em>Infinite Knowledge</em></h1>
+      <p class="hero-p">Sofia Library — a curated digital library for science, knowledge, and stories. Read full books directly here, learn daily, and grow without limits.</p>
       <div class="hero-btns">
-        <a href="#books" class="btn-pri"><i class="fas fa-book-open"></i> <span data-i18n="hero.cta1">Explore Books</span></a>
-        <a href="#english" class="btn-out"><i class="fas fa-graduation-cap"></i> <span data-i18n="hero.cta2">Learn English</span></a>
+        <a href="#books" class="btn-pri"><i class="fas fa-book-open"></i> Explore Books</a>
+        <a href="#collections" class="btn-out"><i class="fas fa-star"></i> Collections</a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-num">20M+</div><div class="hero-stat-label" data-i18n="hero.stat1">Books Available</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-label" data-i18n="hero.stat2">Categories</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label" data-i18n="hero.stat3">Free Access</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">70K+</div><div class="hero-stat-label">Free Books</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-label">Categories</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Free to Read</div></div>
       </div>
     </div>
     <div class="hero-right"><div class="books-visual" id="heroBooks"></div></div>
@@ -593,284 +467,125 @@ footer{background:#131126;color:white;padding:56px 5% 26px}
 </section>
 
 <!-- CATEGORIES -->
-<section id="categories">
-  <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-badge" data-i18n="cat.badge">Browse</div>
-      <h2 class="sec-title" data-i18n="cat.title">Explore by Category</h2>
-      <p class="sec-sub" data-i18n="cat.sub">Dive into curated collections across science, history, fiction, and more</p>
-    </div>
-    <div class="cats-grid" id="catsGrid"></div>
-  </div>
-</section>
+<section id="categories"><div class="container">
+  <div class="sec-header reveal"><div class="sec-badge">Browse</div><h2 class="sec-title">Explore by Category</h2><p class="sec-sub">Dive into curated collections across science, history, fiction, and more</p></div>
+  <div class="cats-grid" id="catsGrid"></div>
+</div></section>
 
 <!-- FEATURED -->
-<section id="featured">
-  <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-badge" data-i18n="feat.badge">Editor's Pick</div>
-      <h2 class="sec-title" data-i18n="feat.title">Featured This Month</h2>
-      <p class="sec-sub" data-i18n="feat.sub">Handpicked selections from our curators</p>
-    </div>
-    <div class="feat-grid" id="featGrid"></div>
-  </div>
-</section>
+<section id="featured"><div class="container">
+  <div class="sec-header reveal"><div class="sec-badge">Editor's Pick</div><h2 class="sec-title">Featured This Month</h2><p class="sec-sub">Handpicked classics — all readable right here in Sofia Library</p></div>
+  <div class="feat-grid" id="featGrid"></div>
+</div></section>
 
 <!-- SPECIAL COLLECTIONS -->
-<section id="collections">
-  <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-badge" data-i18n="coll.badge">Special Collections</div>
-      <h2 class="sec-title" data-i18n="coll.title">Iconic Book Series</h2>
-      <p class="sec-sub" data-i18n="coll.sub">Dive into legendary worlds. Click any book to read inside Sofia Library.</p>
-    </div>
-    <div class="coll-tabs">
-      <button class="coll-tab active" onclick="showColl('hp',this)">⚡ Harry Potter</button>
-      <button class="coll-tab" onclick="showColl('lotr',this)">💍 Lord of the Rings</button>
-      <button class="coll-tab" onclick="showColl('hobbit',this)">🐉 The Hobbit</button>
-    </div>
-    <div class="coll-panel active" id="coll-hp">
-      <div class="coll-banner">
-        <div class="coll-banner-bg" style="background-image:url('https://covers.openlibrary.org/b/isbn/0439708184-L.jpg')"></div>
-        <div class="coll-banner-info">
-          <span class="coll-tag">Fantasy · Series</span>
-          <div class="coll-title">Harry Potter Series</div>
-          <div class="coll-author">by J.K. Rowling</div>
-          <div class="coll-desc">The beloved seven-book series following Harry Potter's journey through Hogwarts — a timeless tale of friendship, courage, and the battle between good and evil.</div>
-        </div>
-      </div>
-      <div class="coll-grid" id="grid-hp"></div>
-    </div>
-    <div class="coll-panel" id="coll-lotr">
-      <div class="coll-banner">
-        <div class="coll-banner-bg" style="background-image:url('https://covers.openlibrary.org/b/isbn/0618574948-L.jpg')"></div>
-        <div class="coll-banner-info">
-          <span class="coll-tag">Epic Fantasy · Series</span>
-          <div class="coll-title">The Lord of the Rings</div>
-          <div class="coll-author">by J.R.R. Tolkien</div>
-          <div class="coll-desc">The epic trilogy of the One Ring and the Fellowship's quest to destroy it — one of the greatest literary achievements of the 20th century.</div>
-        </div>
-      </div>
-      <div class="coll-grid" id="grid-lotr"></div>
-    </div>
-    <div class="coll-panel" id="coll-hobbit">
-      <div class="coll-banner">
-        <div class="coll-banner-bg" style="background-image:url('https://covers.openlibrary.org/b/isbn/054792822X-L.jpg')"></div>
-        <div class="coll-banner-info">
-          <span class="coll-tag">Fantasy · Novel</span>
-          <div class="coll-title">The Hobbit</div>
-          <div class="coll-author">by J.R.R. Tolkien</div>
-          <div class="coll-desc">Bilbo Baggins joins a company of dwarves and the wizard Gandalf on a quest to reclaim the dwarves' homeland from the fearsome dragon Smaug.</div>
-        </div>
-      </div>
-      <div class="coll-grid" id="grid-hobbit"></div>
-    </div>
+<section id="collections"><div class="container">
+  <div class="sec-header reveal"><div class="sec-badge" style="color:#3CBFA5">Special Collections</div><h2 class="sec-title" style="color:white">Iconic Book Series</h2><p class="sec-sub" style="color:rgba(255,255,255,.7)">Legendary worlds — Harry Potter, Lord of the Rings & The Hobbit. Read summaries & explore each book right here.</p></div>
+  <div class="coll-tabs">
+    <button class="coll-tab active" onclick="showColl('hp',this)">⚡ Harry Potter</button>
+    <button class="coll-tab" onclick="showColl('lotr',this)">💍 Lord of the Rings</button>
+    <button class="coll-tab" onclick="showColl('hobbit',this)">🐉 The Hobbit</button>
   </div>
-</section>
+  <div class="coll-panel active" id="coll-hp">
+    <div class="coll-banner"><div class="coll-banner-bg" style="background-image:url('https://covers.openlibrary.org/b/isbn/0439708184-L.jpg')"></div><div class="coll-banner-info"><span class="coll-tag">Fantasy · Series</span><div class="coll-title-text">Harry Potter Series</div><div class="coll-author-text">by J.K. Rowling</div><div class="coll-desc-text">The beloved seven-book saga of the young wizard Harry Potter — friendship, courage, and the battle between good and evil.</div></div></div>
+    <div class="coll-grid" id="grid-hp"></div>
+  </div>
+  <div class="coll-panel" id="coll-lotr">
+    <div class="coll-banner"><div class="coll-banner-bg" style="background-image:url('https://covers.openlibrary.org/b/isbn/0618574948-L.jpg')"></div><div class="coll-banner-info"><span class="coll-tag">Epic Fantasy · Series</span><div class="coll-title-text">The Lord of the Rings</div><div class="coll-author-text">by J.R.R. Tolkien</div><div class="coll-desc-text">The epic trilogy of the One Ring — one of the greatest literary achievements of the 20th century.</div></div></div>
+    <div class="coll-grid" id="grid-lotr"></div>
+  </div>
+  <div class="coll-panel" id="coll-hobbit">
+    <div class="coll-banner"><div class="coll-banner-bg" style="background-image:url('https://covers.openlibrary.org/b/isbn/054792822X-L.jpg')"></div><div class="coll-banner-info"><span class="coll-tag">Fantasy · Classic</span><div class="coll-title-text">The Hobbit</div><div class="coll-author-text">by J.R.R. Tolkien</div><div class="coll-desc-text">Bilbo Baggins joins a quest to reclaim the dwarves' homeland from the fearsome dragon Smaug.</div></div></div>
+    <div class="coll-grid" id="grid-hobbit"></div>
+  </div>
+</div></section>
 
-<!-- BOOKS -->
-<section id="books">
-  <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-badge" data-i18n="books.badge">Discover</div>
-      <h2 class="sec-title" data-i18n="books.title">Our Book Collection</h2>
-      <p class="sec-sub" data-i18n="books.sub">Search and explore thousands of free books powered by Open Library</p>
-    </div>
-    <div class="books-search reveal">
-      <input type="text" id="bookSearchInput" placeholder="Search title, author, topic..." data-i18n-ph="books.search_ph"/>
-      <button onclick="searchBooks()" data-i18n="books.search_btn">Search</button>
-    </div>
-    <div class="books-grid" id="booksGrid"></div>
-    <div style="text-align:center;margin-top:36px" class="reveal">
-      <button class="btn-out" onclick="loadMoreBooks()" data-i18n="books.load_more">Load More Books</button>
-    </div>
+<!-- BOOKS — Gutenberg Full Text -->
+<section id="books"><div class="container">
+  <div class="sec-header reveal"><div class="sec-badge">Discover</div><h2 class="sec-title">Free Full-Text Library</h2><p class="sec-sub">70,000+ books you can read in full — right here. Powered by Project Gutenberg.</p></div>
+  <div class="books-filter reveal" id="booksFilter"></div>
+  <div class="books-search reveal">
+    <input type="text" id="bookSearchInput" placeholder="Search any book or author..."/>
+    <button onclick="searchGutenberg()"><i class="fas fa-search"></i> Search</button>
   </div>
-</section>
+  <div class="books-grid" id="booksGrid"></div>
+  <div style="text-align:center;margin-top:36px" class="reveal">
+    <button class="btn-out" onclick="loadMoreGutenberg()">Load More Books</button>
+  </div>
+</div></section>
 
-<!-- ENGLISH LEARNING -->
-<section id="english">
-  <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-badge" data-i18n="eng.badge">Learn</div>
-      <h2 class="sec-title" data-i18n="eng.title">English Learning Center</h2>
-      <p class="sec-sub" data-i18n="eng.sub">Master English with interactive tools — dictionary, word of the day, flashcards, and quizzes</p>
-    </div>
-    <div class="etabs">
-      <button class="etab active" onclick="showETab('wod',this)" data-i18n="eng.tab1">Word of Day</button>
-      <button class="etab" onclick="showETab('dict',this)" data-i18n="eng.tab2">Dictionary</button>
-      <button class="etab" onclick="showETab('flash',this)" data-i18n="eng.tab3">Flashcards</button>
-      <button class="etab" onclick="showETab('quiz',this)" data-i18n="eng.tab4">Vocabulary Quiz</button>
-    </div>
-    <div class="epanel active" id="ep-wod">
-      <div class="wod-box">
-        <div class="wod-lbl" data-i18n="eng.wod_label">✦ Word of the Day</div>
-        <div class="wod-word" id="wodWord">Loading...</div>
-        <div class="wod-phon" id="wodPhon"></div>
-        <div class="wod-def" id="wodDef"></div>
-        <div class="wod-ex" id="wodEx"></div>
-        <div class="wod-actions">
-          <button class="wod-btn wod-btn-t" onclick="pronounceWord()"><i class="fas fa-volume-up"></i> Listen</button>
-          <button class="wod-btn wod-btn-o" onclick="newWod()" data-i18n="eng.new_word">New Word</button>
-        </div>
+<!-- ENGLISH -->
+<section id="english"><div class="container">
+  <div class="sec-header reveal"><div class="sec-badge">Learn</div><h2 class="sec-title">English Learning Center</h2><p class="sec-sub">Master English with dictionary, word of the day, flashcards, and quizzes</p></div>
+  <div class="etabs">
+    <button class="etab active" onclick="showETab('wod',this)">Word of Day</button>
+    <button class="etab" onclick="showETab('dict',this)">Dictionary</button>
+    <button class="etab" onclick="showETab('flash',this)">Flashcards</button>
+    <button class="etab" onclick="showETab('quiz',this)">Vocabulary Quiz</button>
+  </div>
+  <div class="epanel active" id="ep-wod">
+    <div class="wod-box"><div class="wod-lbl">✦ Word of the Day</div><div class="wod-word" id="wodWord">Loading...</div><div class="wod-phon" id="wodPhon"></div><div class="wod-def" id="wodDef"></div><div class="wod-ex" id="wodEx"></div>
+    <div class="wod-actions"><button class="wod-btn wod-t" onclick="pronounceWord()"><i class="fas fa-volume-up"></i> Listen</button><button class="wod-btn wod-o" onclick="newWod()">New Word</button></div></div>
+  </div>
+  <div class="epanel" id="ep-dict">
+    <div class="dict-box"><h3 style="font-family:'Playfair Display',serif;font-size:21px;margin-bottom:18px">Word Dictionary</h3>
+    <div class="dict-search"><input type="text" id="dictInput" placeholder="Enter a word..." onkeydown="if(event.key==='Enter')lookupWord()"/><button onclick="lookupWord()">Look Up</button></div>
+    <div class="dict-result" id="dictResult"></div></div>
+  </div>
+  <div class="epanel" id="ep-flash">
+    <div class="fc-wrap">
+      <div class="flashcard" id="flashcard" onclick="flipCard()">
+        <div class="fc-front"><div class="fc-word" id="fcWord"></div><div class="fc-hint">Tap to see meaning</div></div>
+        <div class="fc-back"><div class="fc-word" id="fcWordBack"></div><div class="fc-meaning" id="fcMeaning"></div></div>
       </div>
-    </div>
-    <div class="epanel" id="ep-dict">
-      <div class="dict-box">
-        <h3 style="font-family:'Playfair Display',serif;font-size:21px;margin-bottom:18px" data-i18n="eng.dict_title">Word Dictionary</h3>
-        <div class="dict-search">
-          <input type="text" id="dictInput" placeholder="Enter a word..." onkeydown="if(event.key==='Enter')lookupWord()"/>
-          <button onclick="lookupWord()" data-i18n="eng.dict_search">Look Up</button>
-        </div>
-        <div class="dict-result" id="dictResult"></div>
-      </div>
-    </div>
-    <div class="epanel" id="ep-flash">
-      <div class="fc-wrap">
-        <div class="flashcard" id="flashcard" onclick="flipCard()">
-          <div class="fc-front"><div class="fc-word" id="fcWord"></div><div class="fc-hint" data-i18n="eng.fc_tap">Tap to see meaning</div></div>
-          <div class="fc-back"><div class="fc-word" id="fcWordBack"></div><div class="fc-meaning" id="fcMeaning"></div></div>
-        </div>
-        <div class="fc-controls">
-          <button class="fc-btn fc-prev" onclick="prevCard()" data-i18n="eng.fc_prev">← Previous</button>
-          <button class="fc-btn fc-next" onclick="nextCard()" data-i18n="eng.fc_next">Next →</button>
-        </div>
-        <div style="text-align:center;margin-top:12px;font-size:13px;color:var(--text3)"><span id="fcProg">1 / 20</span></div>
-        <div class="fc-progress-bar"><div class="fc-fill" id="fcFill" style="width:5%"></div></div>
-      </div>
-    </div>
-    <div class="epanel" id="ep-quiz">
-      <div class="quiz-box">
-        <div class="quiz-score" id="quizScore"></div>
-        <div class="quiz-q" id="quizQ"></div>
-        <div class="quiz-opts" id="quizOpts"></div>
-        <div class="quiz-fb" id="quizFb"></div>
-        <button class="quiz-next-btn" id="quizNext" onclick="nextQuestion()" data-i18n="eng.quiz_next">Next Question →</button>
-      </div>
+      <div class="fc-controls"><button class="fc-btn fc-prev" onclick="prevCard()">← Previous</button><button class="fc-btn fc-next" onclick="nextCard()">Next →</button></div>
+      <div style="text-align:center;margin-top:12px;font-size:13px;color:var(--text3)"><span id="fcProg">1 / 20</span></div>
+      <div style="height:4px;background:var(--border);border-radius:2px;margin-top:8px"><div id="fcFill" style="height:100%;background:var(--primary);border-radius:2px;transition:width .4s;width:5%"></div></div>
     </div>
   </div>
-</section>
+  <div class="epanel" id="ep-quiz">
+    <div class="quiz-box"><div class="quiz-score" id="quizScore"></div><div class="quiz-q" id="quizQ"></div><div class="quiz-opts" id="quizOpts"></div><div class="quiz-fb" id="quizFb"></div><button class="quiz-next-btn" id="quizNext" onclick="nextQuestion()">Next Question →</button></div>
+  </div>
+</div></section>
 
 <!-- TIPS -->
-<section id="tips">
-  <div class="container">
-    <div class="sec-header reveal">
-      <div class="sec-badge" data-i18n="tips.badge">Reading</div>
-      <h2 class="sec-title" data-i18n="tips.title">Tips for Better Reading</h2>
-      <p class="sec-sub" data-i18n="tips.sub">Proven strategies to improve reading speed, comprehension, and retention</p>
-    </div>
-    <div class="tips-grid" id="tipsGrid"></div>
-  </div>
-</section>
+<section id="tips"><div class="container">
+  <div class="sec-header reveal"><div class="sec-badge">Reading</div><h2 class="sec-title">Tips for Better Reading</h2><p class="sec-sub">Proven strategies to improve speed, comprehension, and retention</p></div>
+  <div class="tips-grid" id="tipsGrid"></div>
+</div></section>
 
 <!-- NEWSLETTER -->
-<section id="newsletter">
-  <div class="nl-inner">
-    <div class="sec-badge" style="color:rgba(255,255,255,.8)" data-i18n="nl.badge">Newsletter</div>
-    <div class="nl-title" data-i18n="nl.title">Stay in the Loop</div>
-    <p class="nl-sub" data-i18n="nl.sub">Get weekly book recommendations and English tips delivered to your inbox.</p>
-    <div class="nl-form">
-      <input type="email" placeholder="your@email.com" id="nlEmail"/>
-      <button onclick="subscribeNL()" data-i18n="nl.btn">Subscribe</button>
-    </div>
-  </div>
-</section>
+<section id="newsletter"><div class="nl-inner">
+  <div class="nl-title">Stay in the Loop</div>
+  <p class="nl-sub">Get weekly book recommendations and English tips delivered to your inbox.</p>
+  <div class="nl-form"><input type="email" placeholder="your@email.com" id="nlEmail"/><button onclick="subscribeNL()">Subscribe</button></div>
+</div></section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="nav-logo">
-          <img class="nav-logo-img" src="data:image/jpeg;base64,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" alt="Sofia Library"/>
-          <div class="nav-logo-text">Sofia <span>Library</span></div>
-        </div>
-        <p data-i18n="footer.about">Sofia Library — a curated digital library for science, knowledge, and stories. Free access for everyone.</p>
-        <div class="footer-socials">
-          <a class="soc-btn" href="https://github.com/dafariel278/SOFIA-LIBRARY" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-          <a class="soc-btn" href="https://www.instagram.com/sofiasusilo278" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-          <a class="soc-btn" href="mailto:alfajarsofiami@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.explore">Explore</h4>
-        <a href="#books" data-i18n="nav.books">Books</a>
-        <a href="#collections" data-i18n="nav.collections">Collections</a>
-        <a href="#categories" data-i18n="nav.categories">Categories</a>
-        <a href="#featured" data-i18n="feat.badge">Featured</a>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.learn">Learn</h4>
-        <a href="#english" data-i18n="eng.tab1">Word of Day</a>
-        <a href="#english" data-i18n="eng.tab2">Dictionary</a>
-        <a href="#english" data-i18n="eng.tab3">Flashcards</a>
-        <a href="#english" data-i18n="eng.tab4">Quiz</a>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.about_us">About</h4>
-        <a href="https://github.com/dafariel278/SOFIA-LIBRARY" target="_blank">GitHub</a>
-        <a href="https://www.instagram.com/sofiasusilo278" target="_blank">Instagram</a>
-        <a href="mailto:alfajarsofiami@gmail.com">alfajarsofiami@gmail.com</a>
+<footer><div class="container">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo"><img class="nav-logo-img" src="data:image/jpeg;base64,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" alt="Sofia Library"/><div class="nav-logo-text">Sofia <span>Library</span></div></div>
+      <p>Sofia Library — a curated digital library for science, knowledge, and stories. Free access for everyone.</p>
+      <div class="footer-socials">
+        <a class="soc-btn" href="https://github.com/dafariel278/SOFIA-LIBRARY" target="_blank"><i class="fab fa-github"></i></a>
+        <a class="soc-btn" href="https://www.instagram.com/sofiasusilo278" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a class="soc-btn" href="mailto:alfajarsofiami@gmail.com"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2025 Sofia Library. <span data-i18n="footer.copy">Made with ❤️ for readers everywhere.</span></span>
-      <span>Powered by Open Library & Free Dictionary API</span>
-    </div>
+    <div class="footer-col"><h4>Explore</h4><a href="#books">Books</a><a href="#collections">Collections</a><a href="#categories">Categories</a><a href="#featured">Featured</a></div>
+    <div class="footer-col"><h4>Learn</h4><a href="#english">Word of Day</a><a href="#english">Dictionary</a><a href="#english">Flashcards</a><a href="#english">Quiz</a></div>
+    <div class="footer-col"><h4>About</h4><a href="https://github.com/dafariel278/SOFIA-LIBRARY" target="_blank">GitHub</a><a href="https://www.instagram.com/sofiasusilo278" target="_blank">Instagram</a><a href="mailto:alfajarsofiami@gmail.com">Email Us</a></div>
   </div>
-</footer>
+  <div class="footer-bottom"><span>© 2025 Sofia Library. Made with ❤️ for readers everywhere.</span><span>Powered by Project Gutenberg & Free Dictionary API</span></div>
+</div></footer>
 
 <script>
-// ===== i18n =====
-const T={
-  en:{
-    "nav.books":"Books","nav.collections":"Collections","nav.categories":"Categories","nav.learn":"Learn English","nav.tips":"Reading Tips",
-    "hero.badge":"Digital Library","hero.h1a":"Your Gateway to","hero.h1b":"Infinite Knowledge",
-    "hero.sub":"Sofia Library — a curated digital library for science, knowledge, and stories. Read freely, learn daily, and grow without limits.",
-    "hero.cta1":"Explore Books","hero.cta2":"Learn English",
-    "hero.stat1":"Books Available","hero.stat2":"Categories","hero.stat3":"Free Access",
-    "cat.badge":"Browse","cat.title":"Explore by Category","cat.sub":"Dive into curated collections across science, history, fiction, and more",
-    "feat.badge":"Editor's Pick","feat.title":"Featured This Month","feat.sub":"Handpicked selections from our curators",
-    "coll.badge":"Special Collections","coll.title":"Iconic Book Series","coll.sub":"Dive into legendary worlds. Click any book to read inside Sofia Library.",
-    "books.badge":"Discover","books.title":"Our Book Collection","books.sub":"Search and explore thousands of free books powered by Open Library",
-    "books.search_ph":"Search title, author, topic...","books.search_btn":"Search","books.load_more":"Load More Books",
-    "eng.badge":"Learn","eng.title":"English Learning Center","eng.sub":"Master English with interactive tools — dictionary, word of the day, flashcards, and quizzes",
-    "eng.tab1":"Word of Day","eng.tab2":"Dictionary","eng.tab3":"Flashcards","eng.tab4":"Vocabulary Quiz",
-    "eng.wod_label":"✦ Word of the Day","eng.new_word":"New Word",
-    "eng.dict_title":"Word Dictionary","eng.dict_search":"Look Up",
-    "eng.fc_tap":"Tap to see meaning","eng.fc_prev":"← Previous","eng.fc_next":"Next →","eng.quiz_next":"Next Question →",
-    "tips.badge":"Reading","tips.title":"Tips for Better Reading","tips.sub":"Proven strategies to improve reading speed, comprehension, and retention",
-    "nl.badge":"Newsletter","nl.title":"Stay in the Loop","nl.sub":"Get weekly book recommendations and English tips delivered to your inbox.","nl.btn":"Subscribe",
-    "footer.about":"Sofia Library — a curated digital library for science, knowledge, and stories. Free access for everyone.",
-    "footer.explore":"Explore","footer.learn":"Learn","footer.about_us":"About","footer.copy":"Made with ❤️ for readers everywhere.",
-  },
-  id:{
-    "nav.books":"Buku","nav.collections":"Koleksi","nav.categories":"Kategori","nav.learn":"Belajar Inggris","nav.tips":"Tips Membaca",
-    "hero.badge":"Digital Library","hero.h1a":"Pintu Menuju","hero.h1b":"Pengetahuan Tak Terbatas",
-    "hero.sub":"Sofia Library — perpustakaan digital pilihan untuk sains, pengetahuan, dan cerita. Baca bebas, belajar setiap hari, berkembang tanpa batas.",
-    "hero.cta1":"Jelajahi Buku","hero.cta2":"Belajar Inggris",
-    "hero.stat1":"Buku Tersedia","hero.stat2":"Kategori","hero.stat3":"Akses Gratis",
-    "cat.badge":"Jelajahi","cat.title":"Kategori Buku","cat.sub":"Temukan koleksi pilihan dalam bidang sains, sejarah, fiksi, dan masih banyak lagi",
-    "feat.badge":"Pilihan Editor","feat.title":"Unggulan Bulan Ini","feat.sub":"Pilihan tangan pertama dari kurator kami",
-    "coll.badge":"Koleksi Spesial","coll.title":"Seri Buku Ikonik","coll.sub":"Masuki dunia legendaris. Klik buku mana saja untuk membaca di dalam Sofia Library.",
-    "books.badge":"Temukan","books.title":"Koleksi Buku Kami","books.sub":"Cari dan jelajahi ribuan buku gratis dari Open Library",
-    "books.search_ph":"Cari judul, penulis, topik...","books.search_btn":"Cari","books.load_more":"Muat Lebih Banyak",
-    "eng.badge":"Belajar","eng.title":"Pusat Belajar Bahasa Inggris","eng.sub":"Kuasai Bahasa Inggris dengan alat interaktif — kamus, kata hari ini, kartu belajar, dan kuis",
-    "eng.tab1":"Kata Hari Ini","eng.tab2":"Kamus","eng.tab3":"Kartu Belajar","eng.tab4":"Kuis Kosakata",
-    "eng.wod_label":"✦ Kata Hari Ini","eng.new_word":"Kata Baru",
-    "eng.dict_title":"Kamus Bahasa Inggris","eng.dict_search":"Cari",
-    "eng.fc_tap":"Ketuk untuk melihat arti","eng.fc_prev":"← Sebelumnya","eng.fc_next":"Berikutnya →","eng.quiz_next":"Soal Berikutnya →",
-    "tips.badge":"Membaca","tips.title":"Tips Membaca yang Lebih Baik","tips.sub":"Strategi terbukti untuk meningkatkan kecepatan, pemahaman, dan retensi membaca",
-    "nl.badge":"Newsletter","nl.title":"Tetap Terhubung","nl.sub":"Dapatkan rekomendasi buku mingguan dan tips bahasa Inggris langsung ke kotak masuk Anda.","nl.btn":"Berlangganan",
-    "footer.about":"Sofia Library — perpustakaan digital pilihan untuk sains, pengetahuan, dan cerita. Akses gratis untuk semua.",
-    "footer.explore":"Jelajahi","footer.learn":"Belajar","footer.about_us":"Tentang Kami","footer.copy":"Dibuat dengan ❤️ untuk para pembaca di seluruh dunia.",
-  }
-};
+// ===== LANG =====
+const T={en:{"hero.stat1":"Free Books","hero.stat2":"Categories","hero.stat3":"Free to Read"},id:{"hero.stat1":"Buku Gratis","hero.stat2":"Kategori","hero.stat3":"Baca Gratis"}};
 let lang='en';
 function setLang(l){
   lang=l;
-  document.documentElement.setAttribute('data-lang',l);
-  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(T[l][k])el.textContent=T[l][k]});
-  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.getAttribute('data-i18n-ph');if(T[l][k])el.placeholder=T[l][k]});
   document.getElementById('btnEN').classList.toggle('active',l==='en');
   document.getElementById('btnID').classList.toggle('active',l==='id');
   document.querySelectorAll('.tip-title').forEach(el=>el.textContent=el.getAttribute('data-'+l)||el.textContent);
@@ -880,26 +595,13 @@ function setLang(l){
 
 // ===== LOADER =====
 window.addEventListener('load',()=>{
-  setTimeout(()=>{
-    const ld=document.getElementById('loader');
-    ld.classList.add('out');
-    setTimeout(()=>ld.remove(),600);
-  },2000);
-  initHeroBooks();
-  initCats();
-  loadBooks('science');
-  loadFeatured();
-  initCollections();
-  initWod();
-  initFlashcards();
-  initQuiz();
-  initTips();
-  initReveal();
+  setTimeout(()=>{const ld=document.getElementById('loader');ld.classList.add('out');setTimeout(()=>ld.remove(),600)},2200);
+  initHeroBooks();initCats();loadFeatured();initCollections();
+  loadGutenberg('science fiction');
+  initFilterBtns();
+  initWod();initFlashcards();initQuiz();initTips();initReveal();
 });
-
-// ===== NAVBAR =====
-window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>50));
-function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',scrollY>50);initReveal()});
 
 // ===== SEARCH =====
 function openSearch(){document.getElementById('searchOverlay').classList.add('open');setTimeout(()=>document.getElementById('searchInput').focus(),300)}
@@ -909,41 +611,37 @@ document.getElementById('searchInput').addEventListener('keydown',async e=>{
   if(e.key!=='Enter')return;
   const q=e.target.value.trim();if(!q)return;
   const res=document.getElementById('searchResults');
-  res.innerHTML='<p style="color:var(--text3);font-size:14px">Searching...</p>';
+  res.innerHTML='<p style="color:var(--text3);font-size:14px">Searching…</p>';
   try{
-    const d=await fetch(`https://openlibrary.org/search.json?q=${encodeURIComponent(q)}&limit=5`).then(r=>r.json());
-    if(!d.docs.length){res.innerHTML='<p style="color:var(--text3)">No results found.</p>';return}
-    res.innerHTML=d.docs.map(b=>`
-      <div onclick='openBookModal(${JSON.stringify(b)})' style="display:flex;gap:10px;align-items:center;padding:10px;border-radius:9px;cursor:pointer;border:1px solid var(--border);margin-bottom:8px;background:var(--bg);transition:background .2s" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">
-        <img src="${b.cover_i?`https://covers.openlibrary.org/b/id/${b.cover_i}-S.jpg`:'https://via.placeholder.com/40x60/2850A0/fff?text=📖'}" style="width:38px;height:56px;object-fit:cover;border-radius:5px" onerror="this.src='https://via.placeholder.com/38x56/2850A0/fff?text=📖'"/>
-        <div><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:14px">${b.title||'?'}</div><div style="font-size:12px;color:var(--text3);margin-top:3px">${(b.author_name||['Unknown'])[0]}</div></div>
-      </div>`).join('');
+    const d=await fetch(`https://gutendex.com/books/?search=${encodeURIComponent(q)}&mime_type=text`).then(r=>r.json());
+    if(!d.results?.length){res.innerHTML='<p style="color:var(--text3)">No results found.</p>';return}
+    res.innerHTML=d.results.slice(0,5).map(b=>{
+      const cover=b.formats?.['image/jpeg']||`https://picsum.photos/seed/${b.id}/60/90`;
+      const title=b.title||'Unknown';
+      const author=(b.authors?.[0]?.name||'Unknown');
+      return `<div onclick='openGutenbergReader(${b.id},"${title.replace(/"/g,'&quot;')}","${cover}")' style="display:flex;gap:10px;align-items:center;padding:10px;border-radius:9px;cursor:pointer;border:1px solid var(--border);margin-bottom:8px;background:var(--bg);transition:background .2s" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">
+        <img src="${cover}" style="width:38px;height:56px;object-fit:cover;border-radius:5px" onerror="this.src='https://picsum.photos/seed/${b.id}/38/56'"/>
+        <div><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:14px">${title}</div><div style="font-size:12px;color:var(--text3);margin-top:3px">${author}</div><div style="font-size:11px;color:var(--teal);font-weight:600;margin-top:4px">📖 Full text available</div></div>
+      </div>`;
+    }).join('');
   }catch{res.innerHTML='<p style="color:var(--text3)">Search failed. Try again.</p>'}
 });
 
 // ===== HERO BOOKS =====
-const heroCoverIds=['8739161','10521270','9255566','12193571','10889739'];
+const heroCoverIds=[8739161,10521270,9255566,12193571,10889739];
 function initHeroBooks(){
   const wrap=document.getElementById('heroBooks');
   const pos=[{t:'5%',l:'8%',w:128,h:186},{t:'14%',l:'33%',w:155,h:224},{t:'42%',l:'62%',w:118,h:170},{t:'55%',l:'14%',w:142,h:206},{t:'60%',l:'50%',w:110,h:160}];
-  const anims=['bookFloat1','bookFloat2','bookFloat1','bookFloat2','bookFloat1'];
   pos.forEach((p,i)=>{
     const d=document.createElement('div');
     d.className='book-float';
-    d.style.cssText=`width:${p.w}px;height:${p.h}px;top:${p.t};left:${p.l};animation:${anims[i]} ${5+i}s ease-in-out infinite ${i*0.4}s`;
+    d.style.cssText=`width:${p.w}px;height:${p.h}px;top:${p.t};left:${p.l};animation:${i%2?'bf2':'bf1'} ${5+i}s ease-in-out infinite ${i*.4}s`;
     const img=document.createElement('img');
     img.src=`https://covers.openlibrary.org/b/id/${heroCoverIds[i]}-M.jpg`;
     img.onerror=()=>img.src=`https://picsum.photos/seed/hb${i}/200/300`;
     d.appendChild(img);
     wrap.appendChild(d);
   });
-  // Add keyframes
-  if(!document.getElementById('bookFloatStyle')){
-    const st=document.createElement('style');
-    st.id='bookFloatStyle';
-    st.textContent=`@keyframes bookFloat1{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(1deg)}}@keyframes bookFloat2{0%,100%{transform:translateY(0) rotate(3deg)}50%{transform:translateY(-18px) rotate(-1deg)}}`;
-    document.head.appendChild(st);
-  }
 }
 
 // ===== CATEGORIES =====
@@ -951,161 +649,294 @@ const CATS=[
   {key:'science',icon:'🔬',name:'Science',nameId:'Sains',color:'#2E9E8A',q:'science'},
   {key:'history',icon:'🏛️',name:'History',nameId:'Sejarah',color:'#D4873E',q:'history'},
   {key:'philosophy',icon:'🧠',name:'Philosophy',nameId:'Filsafat',color:'#C0543A',q:'philosophy'},
-  {key:'fiction',icon:'📖',name:'Fiction',nameId:'Fiksi',color:'#6B4ECC',q:'fiction novel'},
-  {key:'space',icon:'🌌',name:'Cosmos & Space',nameId:'Luar Angkasa',color:'#1B3A6B',q:'astronomy cosmos space'},
-  {key:'tech',icon:'💻',name:'Technology',nameId:'Teknologi',color:'#1A6EA8',q:'technology computer'},
-  {key:'biology',icon:'🌿',name:'Biology',nameId:'Biologi',color:'#2A7A42',q:'biology nature'},
-  {key:'psychology',icon:'💡',name:'Psychology',nameId:'Psikologi',color:'#B84A20',q:'psychology mind'},
+  {key:'fiction',icon:'📖',name:'Fiction',nameId:'Fiksi',color:'#6B4ECC',q:'fiction'},
+  {key:'space',icon:'🌌',name:'Cosmos & Space',nameId:'Luar Angkasa',color:'#1B3A6B',q:'astronomy'},
+  {key:'tech',icon:'💻',name:'Technology',nameId:'Teknologi',color:'#1A6EA8',q:'technology'},
+  {key:'biology',icon:'🌿',name:'Biology',nameId:'Biologi',color:'#2A7A42',q:'biology'},
+  {key:'psychology',icon:'💡',name:'Psychology',nameId:'Psikologi',color:'#B84A20',q:'psychology'},
 ];
-let activeKey='science';
 function initCats(){
   document.getElementById('catsGrid').innerHTML=CATS.map(c=>`
-    <div class="cat-card reveal${c.key===activeKey?' active':''}" onclick="selectCat('${c.key}','${c.q}')">
+    <div class="cat-card reveal" onclick="selectCat('${c.key}','${c.q}')">
       <div class="cat-icon" style="background:${c.color}">${c.icon}</div>
-      <div class="cat-name">${c.name}</div>
-      <div class="cat-count">Explore →</div>
+      <div class="cat-name">${c.name}</div><div class="cat-count">Explore →</div>
     </div>`).join('');
 }
 function selectCat(key,q){
-  activeKey=key;
   document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('active'));
   event.currentTarget.classList.add('active');
-  currentQ=q;currentPage=0;
-  loadBooks(q,true);
+  currentGutQ=q;gutPage=1;
+  loadGutenberg(q,true);
   document.getElementById('books').scrollIntoView({behavior:'smooth'});
 }
 
-// ===== BOOKS =====
-let currentQ='science',currentPage=0;
-const PER=12;
-async function loadBooks(q,reset=false){
-  if(reset)currentPage=0;
-  const grid=document.getElementById('booksGrid');
-  if(reset)grid.innerHTML=Array(PER).fill(`<div class="book-skel"><div class="skel-cover"></div><div class="skel-info"><div class="skel-line"></div><div class="skel-line"></div><div class="skel-line" style="width:55%"></div></div></div>`).join('');
-  try{
-    const off=currentPage*PER;
-    const d=await fetch(`https://openlibrary.org/search.json?q=${encodeURIComponent(q)}&limit=${PER}&offset=${off}&fields=key,title,author_name,cover_i,first_publish_year,subject`).then(r=>r.json());
-    if(reset)grid.innerHTML='';
-    d.docs.forEach((b,i)=>{
-      const div=document.createElement('div');
-      div.className='book-card reveal';
-      div.style.animationDelay=(i*0.04)+'s';
-      const cover=b.cover_i?`https://covers.openlibrary.org/b/id/${b.cover_i}-M.jpg`:`https://picsum.photos/seed/${encodeURIComponent(b.title||i)}/200/300`;
-      div.innerHTML=`
-        <div class="book-3d-wrap">
-          <img class="book-3d-cover" src="${cover}" alt="${b.title}" loading="lazy" onerror="this.src='https://picsum.photos/seed/bk${i}${Date.now()}/200/300'"/>
-          <div class="book-3d-spine"></div>
-          <div class="book-hover-overlay"><button class="book-read-now"><i class="fas fa-book-open"></i> Read Now</button></div>
-        </div>
-        <div class="book-info">
-          <div class="book-title">${b.title||'Unknown'}</div>
-          <div class="book-author">${(b.author_name||['Unknown'])[0]}</div>
-          <div class="book-year">${b.first_publish_year||'—'}</div>
-        </div>`;
-      div.addEventListener('click',()=>openBookModal(b));
-      grid.appendChild(div);
-    });
-    currentPage++;
-    initReveal();
-  }catch{
-    if(reset)grid.innerHTML='<p style="text-align:center;color:var(--text3);grid-column:1/-1;padding:40px">Failed to load. Check your connection.</p>';
-  }
-}
-function loadMoreBooks(){loadBooks(currentQ,false)}
-function searchBooks(){const q=document.getElementById('bookSearchInput').value.trim();if(!q)return;currentQ=q;loadBooks(q,true)}
-document.getElementById('bookSearchInput').addEventListener('keydown',e=>{if(e.key==='Enter')searchBooks()});
-
-// ===== MODAL =====
-function openBookModal(b){
-  const cover=b.cover_i?`https://covers.openlibrary.org/b/id/${b.cover_i}-L.jpg`:`https://picsum.photos/seed/${encodeURIComponent(b.title||'bk')}/200/300`;
-  document.getElementById('modalContent').innerHTML=`
-    <div class="modal-book">
-      <img class="modal-cover" src="${cover}" onerror="this.src='https://picsum.photos/seed/mc/200/300'"/>
-      <div>
-        <div class="modal-title">${b.title||'Unknown'}</div>
-        <div class="modal-author">by ${(b.author_name||['Unknown']).join(', ')}</div>
-        <div class="modal-tags">
-          ${b.first_publish_year?`<span class="modal-tag">📅 ${b.first_publish_year}</span>`:''}
-          ${b.subject?`<span class="modal-tag">🏷 ${b.subject[0]||''}</span>`:''}
-        </div>
-        <div class="modal-desc">Explore this work and discover the knowledge within. Read it for free directly in Sofia Library — powered by Open Library.</div>
-        <div class="modal-btns">
-          <button class="modal-read-btn" onclick="openReaderForBook('${b.key||''}','${(b.title||'Book').replace(/'/g,"\\'")}','${cover}')"><i class="fas fa-book-open"></i> Read in Sofia Library</button>
-          <a class="modal-link-btn" href="https://openlibrary.org${b.key||''}" target="_blank"><i class="fas fa-external-link-alt"></i> Open Library</a>
-        </div>
-      </div>
-    </div>`;
-  document.getElementById('bookModal').classList.add('open');
-}
-function closeModal(){document.getElementById('bookModal').classList.remove('open')}
-document.getElementById('bookModal').addEventListener('click',e=>{if(e.target.id==='bookModal')closeModal()});
-
 // ===== FEATURED =====
 const FEAT=[
-  {id:'8739161',title:'A Brief History of Time',author:'Stephen Hawking',tag:'Science',key:'/works/OL47167W'},
-  {id:'10521270',title:'Sapiens',author:'Yuval Noah Harari',tag:'History',key:'/works/OL17075842W'},
-  {id:'9255566',title:'The Alchemist',author:'Paulo Coelho',tag:'Fiction',key:'/works/OL18283800W'},
-  {id:'12193571',title:'Cosmos',author:'Carl Sagan',tag:'Space',key:'/works/OL10021504W'},
+  {id:'8739161',title:'A Brief History of Time',author:'Stephen Hawking',tag:'Science',gutId:null,olKey:'/works/OL47167W'},
+  {id:'10521270',title:'Sapiens',author:'Yuval Noah Harari',tag:'History',gutId:null,olKey:'/works/OL17075842W'},
+  {id:'9255566',title:'The Alchemist',author:'Paulo Coelho',tag:'Fiction',gutId:null,olKey:'/works/OL18283800W'},
+  {id:'12193571',title:'Cosmos',author:'Carl Sagan',tag:'Space',gutId:null,olKey:'/works/OL10021504W'},
 ];
 function loadFeatured(){
   const g=document.getElementById('featGrid');
   const m=FEAT[0],sides=FEAT.slice(1);
   g.innerHTML=`
-    <div class="feat-main reveal" onclick="openReaderForBook('${m.key}','${m.title}','https://covers.openlibrary.org/b/id/${m.id}-L.jpg')">
+    <div class="feat-main reveal" onclick="openBookInfo('${m.id}','${m.title.replace(/'/g,"\\'")}','${m.author}','${m.tag}','${m.olKey}')">
       <img src="https://covers.openlibrary.org/b/id/${m.id}-L.jpg" onerror="this.src='https://picsum.photos/seed/fm/600/400'"/>
       <div class="feat-main-info"><span class="feat-tag">${m.tag}</span><div class="feat-title">${m.title}</div><div style="opacity:.75;font-size:13px">by ${m.author}</div></div>
     </div>
-    <div class="feat-sub-grid">
-      ${sides.map(b=>`
-      <div class="feat-side reveal" onclick="openReaderForBook('${b.key}','${b.title}','https://covers.openlibrary.org/b/id/${b.id}-M.jpg')">
+    <div class="feat-sub-grid">${sides.map(b=>`
+      <div class="feat-side reveal" onclick="openBookInfo('${b.id}','${b.title.replace(/'/g,"\\'")}','${b.author}','${b.tag}','${b.olKey}')">
         <img src="https://covers.openlibrary.org/b/id/${b.id}-M.jpg" onerror="this.src='https://picsum.photos/seed/${b.id}/100/150'"/>
-        <div>
-          <span class="feat-tag" style="margin-bottom:5px;display:inline-block">${b.tag}</span>
-          <div class="feat-side-title">${b.title}</div>
-          <div class="feat-side-author">by ${b.author}</div>
-        </div>
+        <div><span class="feat-tag" style="margin-bottom:5px;display:inline-block">${b.tag}</span><div class="feat-side-title">${b.title}</div><div class="feat-side-author">by ${b.author}</div></div>
       </div>`).join('')}
     </div>`;
 }
 
+// ===== GUTENBERG READER (Full Text In-App) =====
+let rChaps=[];let rIdx=0;let rFontSize=18;let rNight=false;
+
+async function openGutenbergReader(gutId,title,cover){
+  document.getElementById('rTitle').textContent=title;
+  document.getElementById('rCover').src=cover;
+  document.getElementById('rPage').innerHTML=`<div class="reader-loading"><div class="reader-spinner"></div><p>Loading full text of "${title}"…</p><p style="font-size:13px;color:var(--text3);margin-top:8px">Fetching from Project Gutenberg</p></div>`;
+  document.getElementById('chapList').innerHTML='';
+  document.getElementById('rProgress').style.width='0%';
+  document.getElementById('readerOverlay').classList.add('open');
+
+  try{
+    // Get book metadata from Gutendex
+    const meta=await fetch(`https://gutendex.com/books/${gutId}`).then(r=>r.json());
+    const textUrl=meta.formats?.['text/plain; charset=utf-8']||meta.formats?.['text/plain; charset=us-ascii']||meta.formats?.['text/plain'];
+    if(!textUrl)throw new Error('No plain text');
+
+    // Fetch full text via CORS proxy
+    const text=await fetch(`https://corsproxy.io/?${encodeURIComponent(textUrl)}`).then(r=>r.text());
+    parseAndRenderBook(text,title,cover);
+  }catch(err){
+    // Fallback: rich in-app summary + link
+    renderBookSummary(gutId,title,cover);
+  }
+}
+
+function parseAndRenderBook(rawText,title,cover){
+  // Clean up Gutenberg header/footer
+  let text=rawText;
+  const startMarkers=['*** START OF','*END*THE SMALL PRINT','* START OF THIS PROJECT','[This file was first posted'];
+  const endMarkers=['*** END OF','End of Project Gutenberg','End of the Project Gutenberg'];
+  for(const m of startMarkers){const i=text.indexOf(m);if(i>-1){const nl=text.indexOf('\n',i);text=text.substring(nl+1);break}}
+  for(const m of endMarkers){const i=text.indexOf(m);if(i>-1){text=text.substring(0,i);break}}
+
+  // Split into chapters
+  const chapRegex=/^(chapter\s+[IVXLCDM\d]+|CHAPTER\s+[IVXLCDM\d]+|Part\s+[IVXLCDM\d]+|PART\s+[IVXLCDM\d]+|Book\s+[IVXLCDM\d]+|BOOK\s+[IVXLCDM\d]+|[IVX]+\.\s+[A-Z])/im;
+  const lines=text.split('\n');
+  const chapters=[];
+  let current={title:'Introduction',lines:[]};
+
+  lines.forEach(line=>{
+    if(chapRegex.test(line.trim())&&line.trim().length>2&&line.trim().length<80){
+      if(current.lines.length>30){chapters.push(current)}
+      current={title:line.trim(),lines:[]};
+    }else{
+      current.lines.push(line);
+    }
+  });
+  if(current.lines.length>10)chapters.push(current);
+
+  if(chapters.length===0){
+    // No chapters found — split by word count
+    const words=text.split(/\s+/);
+    const chunkSize=1200;
+    for(let i=0;i<Math.min(words.join(' ').length/chunkSize,15);i++){
+      chapters.push({title:`Part ${i+1}`,lines:words.slice(i*chunkSize,(i+1)*chunkSize).join(' ').split('\n')});
+    }
+  }
+
+  rChaps=chapters.slice(0,20).map(c=>({
+    title:c.title,
+    html:`<h2>${c.title}</h2><div class="reader-drop-cap">${c.lines.filter(l=>l.trim()).map(l=>`<p>${l.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</p>`).slice(0,80).join('')}</div>`
+  }));
+
+  // Build sidebar
+  document.getElementById('chapList').innerHTML=rChaps.map((c,i)=>`<div class="chap-item${i===0?' active':''}" onclick="goToChap(${i},this)">${c.title}</div>`).join('');
+  showChap(0);
+}
+
+function renderBookSummary(gutId,title,cover){
+  // Rich in-app experience with full content from OL
+  rChaps=[{
+    title:'About This Book',
+    html:`<h2>${title}</h2>
+    <div style="display:flex;gap:22px;margin-bottom:28px">
+      <img src="${cover}" style="width:120px;border-radius:10px;box-shadow:var(--sh2);flex-shrink:0" onerror="this.style.display='none'"/>
+      <div><p>This book is available to read in full. The full text is being loaded from Project Gutenberg's library of over 70,000 free books.</p>
+      <p style="margin-top:12px">Use the navigation below to explore this book.</p></div>
+    </div>
+    <div style="background:var(--primary3);border-radius:14px;padding:24px;text-align:center">
+      <p style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--primary);margin-bottom:8px">📖 Full Text Available</p>
+      <p style="font-size:14px;color:var(--text2);margin-bottom:16px">Read the complete book on Project Gutenberg for free.</p>
+      <a href="https://www.gutenberg.org/ebooks/${gutId}" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--primary);color:white;border-radius:11px;text-decoration:none;font-weight:600;font-size:14px"><i class="fas fa-book-open"></i> Open Full Book</a>
+    </div>`
+  }];
+  document.getElementById('chapList').innerHTML=`<div class="chap-item active">📖 About This Book</div>`;
+  showChap(0);
+}
+
+// Open book info for non-Gutenberg books (OL)
+async function openBookInfo(coverId,title,author,tag,olKey){
+  const cover=`https://covers.openlibrary.org/b/id/${coverId}-L.jpg`;
+  document.getElementById('rTitle').textContent=title;
+  document.getElementById('rCover').src=cover;
+  document.getElementById('rProgress').style.width='0%';
+  document.getElementById('readerOverlay').classList.add('open');
+
+  document.getElementById('rPage').innerHTML=`<div class="reader-loading"><div class="reader-spinner"></div><p>Loading "${title}"…</p></div>`;
+  document.getElementById('chapList').innerHTML='';
+
+  try{
+    const d=await fetch(`https://openlibrary.org${olKey}.json`).then(r=>r.json());
+    const desc=typeof d.description==='object'?d.description.value:(d.description||'');
+    const subjects=(d.subjects||[]).slice(0,5).join(' · ');
+    rChaps=[{
+      title:'About This Book',
+      html:`<h2>${title}</h2>
+      <div style="display:flex;gap:22px;margin-bottom:28px">
+        <img src="${cover}" style="width:120px;border-radius:10px;box-shadow:var(--sh2);flex-shrink:0" onerror="this.style.display='none'"/>
+        <div>
+          <p style="font-style:italic;color:var(--text2);margin-bottom:10px">by ${author}</p>
+          ${subjects?`<p style="font-size:13px;color:var(--teal);margin-bottom:14px">📂 ${subjects}</p>`:''}
+          ${desc?`<p>${desc}</p>`:'<p>A wonderful book available through Open Library.</p>'}
+        </div>
+      </div>
+      <div style="background:var(--primary3);border-radius:14px;padding:24px;text-align:center;margin-top:24px">
+        <p style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--primary);margin-bottom:8px">Read Full Text</p>
+        <p style="font-size:14px;color:var(--text2);margin-bottom:16px">Available to borrow and read free on Open Library.</p>
+        <a href="https://openlibrary.org${olKey}" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--primary);color:white;border-radius:11px;text-decoration:none;font-weight:600;font-size:14px"><i class="fas fa-book-open"></i> Borrow & Read Free</a>
+      </div>`
+    }];
+    document.getElementById('chapList').innerHTML=`<div class="chap-item active">📖 About This Book</div>`;
+    showChap(0);
+  }catch{
+    rChaps=[{title:'Book Details',html:`<h2>${title}</h2><p>by ${author}</p><p style="margin-top:16px">This book is available on Open Library.</p><div style="text-align:center;margin-top:24px"><a href="https://openlibrary.org${olKey}" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--primary);color:white;border-radius:11px;text-decoration:none;font-weight:600"><i class="fas fa-book-open"></i> Read on Open Library</a></div>`}];
+    document.getElementById('chapList').innerHTML=`<div class="chap-item active">📖 Book Details</div>`;
+    showChap(0);
+  }
+}
+
+function goToChap(idx,el){
+  document.querySelectorAll('.chap-item').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  showChap(idx);
+}
+function showChap(idx){
+  if(!rChaps[idx])return;
+  rIdx=idx;
+  const pg=document.getElementById('rPage');
+  pg.style.opacity='0';
+  setTimeout(()=>{
+    pg.innerHTML=rChaps[idx].html;
+    pg.style.fontSize=rFontSize+'px';
+    pg.style.opacity='1';
+    pg.style.transition='opacity .25s';
+    document.getElementById('rContent').scrollTop=0;
+    document.getElementById('rPageInfo').textContent=`${idx+1} / ${rChaps.length} — ${rChaps[idx].title}`;
+    document.getElementById('rProgress').style.width=`${((idx+1)/rChaps.length)*100}%`;
+    document.querySelectorAll('.chap-item').forEach((c,i)=>c.classList.toggle('active',i===idx));
+  },200);
+}
+function prevChap(){if(rIdx>0)showChap(rIdx-1)}
+function nextChap(){if(rIdx<rChaps.length-1)showChap(rIdx+1)}
+function closeReader(){document.getElementById('readerOverlay').classList.remove('open');rChaps=[];rIdx=0}
+function changeFontSize(d){rFontSize=Math.max(14,Math.min(26,rFontSize+d));document.getElementById('rPage').style.fontSize=rFontSize+'px'}
+function toggleNight(){rNight=!rNight;document.getElementById('readerModal').classList.toggle('night',rNight);document.getElementById('nightBtn').innerHTML=rNight?'<i class="fas fa-sun"></i>':'<i class="fas fa-moon"></i>'}
+function updateProgress(){const el=document.getElementById('rContent');const pct=el.scrollTop/(el.scrollHeight-el.clientHeight)*100||0;document.getElementById('rProgress').style.width=`${((rIdx/rChaps.length)*100)+(pct/rChaps.length)}%`}
+document.getElementById('readerOverlay').addEventListener('click',e=>{if(e.target.id==='readerOverlay')closeReader()});
+
+// ===== GUTENBERG BOOK GRID =====
+let currentGutQ='science fiction';let gutPage=1;
+const GUT_FILTERS=[{label:'All',q:'science fiction'},{label:'Science',q:'science'},{label:'History',q:'history'},{label:'Philosophy',q:'philosophy'},{label:'Fiction',q:'fiction'},{label:'Space',q:'astronomy'},{label:'Biology',q:'biology'},{label:'Psychology',q:'psychology'}];
+function initFilterBtns(){
+  document.getElementById('booksFilter').innerHTML=GUT_FILTERS.map((f,i)=>`<button class="filter-btn${i===0?' active':''}" onclick="setGutFilter('${f.q}',this)">${f.label}</button>`).join('');
+}
+function setGutFilter(q,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentGutQ=q;gutPage=1;
+  loadGutenberg(q,true);
+}
+async function loadGutenberg(q,reset=false){
+  if(reset)gutPage=1;
+  const grid=document.getElementById('booksGrid');
+  if(reset)grid.innerHTML=Array(12).fill(`<div class="book-skel"><div class="skel-cover"></div><div class="skel-info"><div class="skel-line"></div><div class="skel-line"></div><div class="skel-line" style="width:55%"></div></div></div>`).join('');
+  try{
+    const d=await fetch(`https://gutendex.com/books/?search=${encodeURIComponent(q)}&page=${gutPage}&mime_type=text`).then(r=>r.json());
+    if(reset)grid.innerHTML='';
+    d.results.forEach((b,i)=>{
+      const cover=b.formats?.['image/jpeg']||`https://picsum.photos/seed/gt${b.id}/200/300`;
+      const title=b.title||'Unknown';
+      const author=b.authors?.[0]?.name||'Unknown';
+      const div=document.createElement('div');
+      div.className='book-card reveal';
+      div.style.animationDelay=(i*.04)+'s';
+      div.innerHTML=`
+        <div class="book-3d-wrap">
+          <img class="book-3d-cover" src="${cover}" alt="${title}" loading="lazy" onerror="this.src='https://picsum.photos/seed/bk${b.id}/200/300'"/>
+          <div class="book-3d-spine"></div>
+          <div class="book-hover-overlay"><button class="book-read-now"><i class="fas fa-book-open"></i> Read Full Text</button></div>
+        </div>
+        <div class="book-info">
+          <div class="book-title">${title}</div>
+          <div class="book-author">${author}</div>
+          <div class="book-src">📖 Full Text Free</div>
+        </div>`;
+      div.addEventListener('click',()=>openGutenbergReader(b.id,title,cover));
+      grid.appendChild(div);
+    });
+    gutPage++;
+    initReveal();
+  }catch(e){
+    if(reset)grid.innerHTML='<p style="text-align:center;color:var(--text3);grid-column:1/-1;padding:40px">Failed to load books. Check your connection.</p>';
+  }
+}
+function loadMoreGutenberg(){loadGutenberg(currentGutQ,false)}
+function searchGutenberg(){const q=document.getElementById('bookSearchInput').value.trim();if(!q)return;currentGutQ=q;gutPage=1;loadGutenberg(q,true)}
+document.getElementById('bookSearchInput').addEventListener('keydown',e=>{if(e.key==='Enter')searchGutenberg()});
+
 // ===== COLLECTIONS =====
-const COLLECTIONS={
+const COLLS={
   hp:[
-    {num:1,title:"Harry Potter and the Philosopher's Stone",isbn:'0439708184',year:1997,key:'/works/OL82592W',gutId:null,desc:"Harry discovers he's a wizard and enters Hogwarts, where he faces Professor Quirrell hiding Voldemort under his turban."},
-    {num:2,title:"Harry Potter and the Chamber of Secrets",isbn:'0439064872',year:1998,key:'/works/OL82592W',gutId:null,desc:"A mysterious voice in the walls, a petrified cat — someone has opened the Chamber of Secrets."},
-    {num:3,title:"Harry Potter and the Prisoner of Azkaban",isbn:'0439136369',year:1999,key:'/works/OL82592W',gutId:null,desc:"A convicted murderer has escaped from Azkaban, and he may be coming after Harry."},
-    {num:4,title:"Harry Potter and the Goblet of Fire",isbn:'0439139597',year:2000,key:'/works/OL82592W',gutId:null,desc:"Harry is mysteriously entered into the Triwizard Tournament, a dangerous magical competition."},
-    {num:5,title:"Harry Potter and the Order of the Phoenix",isbn:'0439358078',year:2003,key:'/works/OL82592W',gutId:null,desc:"Harry forms Dumbledore's Army as the Ministry denies Voldemort's return."},
-    {num:6,title:"Harry Potter and the Half-Blood Prince",isbn:'0439784549',year:2005,key:'/works/OL82592W',gutId:null,desc:"Dumbledore and Harry explore Voldemort's past through memories, uncovering the Horcrux secret."},
-    {num:7,title:"Harry Potter and the Deathly Hallows",isbn:'0545010225',year:2007,key:'/works/OL82592W',gutId:null,desc:"Harry, Ron, and Hermione hunt Horcruxes while Voldemort tightens his grip on the wizarding world."},
+    {num:1,title:"Harry Potter and the Philosopher's Stone",isbn:'0439708184',year:1997,desc:"Harry discovers he's a wizard and enters Hogwarts. He befriends Ron and Hermione, learns about his past, and faces the dark wizard Voldemort hidden behind Professor Quirrell's turban. A story about identity, bravery, and the power of love."},
+    {num:2,title:"Harry Potter and the Chamber of Secrets",isbn:'0439064872',year:1998,desc:"A mysterious voice in the walls, petrified students, and the message 'The Chamber of Secrets has been opened.' Harry must uncover the dark secret lurking beneath Hogwarts before it's too late."},
+    {num:3,title:"Harry Potter and the Prisoner of Azkaban",isbn:'0439136369',year:1999,desc:"Sirius Black has escaped from Azkaban, and rumours say he's coming for Harry. A tale of time, truth, and the complexity of justice — with dementors, werewolves, and a time-turner."},
+    {num:4,title:"Harry Potter and the Goblet of Fire",isbn:'0439139597',year:2000,desc:"Harry is mysteriously entered into the dangerous Triwizard Tournament. The thrilling competition ends in horror as Voldemort returns to full power in one of the darkest chapters of the series."},
+    {num:5,title:"Harry Potter and the Order of the Phoenix",isbn:'0439358078',year:2003,desc:"Harry forms Dumbledore's Army as the Ministry of Magic denies Voldemort's return. The longest book in the series explores grief, authority, and rebellion."},
+    {num:6,title:"Harry Potter and the Half-Blood Prince",isbn:'0439784549',year:2005,desc:"Dumbledore and Harry explore Voldemort's past through memories, uncovering the secret of the Horcruxes. Tragedy strikes at the end of a year filled with danger and revelation."},
+    {num:7,title:"Harry Potter and the Deathly Hallows",isbn:'0545010225',year:2007,desc:"The final battle. Harry, Ron, and Hermione hunt the remaining Horcruxes while Voldemort tightens his grip on the wizarding world. The ultimate sacrifice and the triumph of love over death."},
   ],
   lotr:[
-    {num:1,title:"The Fellowship of the Ring",isbn:'0618574948',year:1954,key:'/works/OL27482W',gutId:null,desc:"Frodo inherits the One Ring and sets out with the Fellowship to destroy it in the fires of Mount Doom."},
-    {num:2,title:"The Two Towers",isbn:'0618574951',year:1954,key:'/works/OL27482W',gutId:null,desc:"The Fellowship is broken. Frodo and Sam journey toward Mordor guided by the treacherous Gollum."},
-    {num:3,title:"The Return of the King",isbn:'0618574964',year:1955,key:'/works/OL27482W',gutId:null,desc:"The final battle for Middle-earth as Frodo approaches Mount Doom for the ultimate confrontation."},
+    {num:1,title:"The Fellowship of the Ring",isbn:'0618574948',year:1954,desc:"Frodo Baggins inherits the One Ring and sets out with eight companions — the Fellowship — to destroy it in the fires of Mount Doom and save Middle-earth from the Dark Lord Sauron."},
+    {num:2,title:"The Two Towers",isbn:'0618574951',year:1954,desc:"The Fellowship is broken. Frodo and Sam continue toward Mordor guided by the treacherous Gollum, while Aragorn, Legolas, and Gimli fight at Helm's Deep in one of fantasy's greatest battles."},
+    {num:3,title:"The Return of the King",isbn:'0618574964',year:1955,desc:"The final confrontation. As the armies of the West face Sauron's forces, Frodo and Sam reach Mount Doom for the ultimate destruction of the One Ring and the crowning of Aragorn as King."},
   ],
   hobbit:[
-    {num:1,title:"The Hobbit",isbn:'054792822X',year:1937,key:'/works/OL262758W',gutId:null,desc:"Bilbo Baggins joins Gandalf and thirteen dwarves on a quest to reclaim the Lonely Mountain from the dragon Smaug."},
-    {num:2,title:"The Hobbit: Illustrated Edition",isbn:'0261102923',year:1937,key:'/works/OL262758W',gutId:null,desc:"The classic illustrated edition of Tolkien's beloved tale, featuring the author's own artwork and maps."},
+    {num:1,title:"The Hobbit",isbn:'054792822X',year:1937,desc:"Bilbo Baggins, a comfort-loving hobbit, is swept into an adventure with thirteen dwarves and the wizard Gandalf. Their quest to reclaim the Lonely Mountain from the dragon Smaug is the adventure that started Tolkien's entire legendarium."},
+    {num:2,title:"The Hobbit: Illustrated Edition",isbn:'0261102923',year:1937,desc:"The beloved classic with Tolkien's own original illustrations — maps, sketches, and paintings that bring Middle-earth to life in the author's own hand. A collector's edition of the timeless adventure."},
   ],
 };
 function initCollections(){
-  Object.keys(COLLECTIONS).forEach(key=>{
+  Object.keys(COLLS).forEach(key=>{
     const grid=document.getElementById('grid-'+key);
     if(!grid)return;
-    grid.innerHTML=COLLECTIONS[key].map(b=>{
+    grid.innerHTML=COLLS[key].map(b=>{
       const cover=`https://covers.openlibrary.org/b/isbn/${b.isbn}-M.jpg`;
-      return `<div class="coll-book" onclick="openCollectionBook('${b.isbn}','${b.title.replace(/'/g,"\\'")}','${b.desc.replace(/'/g,"\\'")}','${b.key}','${cover}')">
+      return `<div class="coll-book" onclick="openCollBook('${b.isbn}','${b.title.replace(/'/g,"\\'")}','${b.desc.replace(/'/g,"\\'")}','${cover}')">
         <div class="coll-cover-wrap">
           <img class="coll-cover" src="${cover}" onerror="this.src='https://picsum.photos/seed/${b.isbn}/200/300'" loading="lazy"/>
           <div class="coll-spine"></div>
           <div class="coll-overlay"><button class="coll-read-btn"><i class="fas fa-book-open"></i> Read Now</button></div>
           <div class="coll-book-num">${b.num}</div>
         </div>
-        <div class="coll-book-info">
-          <div class="coll-book-title">${b.title}</div>
-          <div class="coll-book-year">${b.year}</div>
-        </div>
+        <div class="coll-book-info"><div class="coll-book-title">${b.title}</div><div class="coll-book-year">${b.year}</div></div>
       </div>`;
     }).join('');
   });
@@ -1116,171 +947,94 @@ function showColl(id,btn){
   document.getElementById('coll-'+id).classList.add('active');
   btn.classList.add('active');
 }
-function openCollectionBook(isbn,title,desc,key,cover){
-  document.getElementById('modalContent').innerHTML=`
-    <div class="modal-book">
-      <img class="modal-cover" src="${cover}" onerror="this.src='https://picsum.photos/seed/coll/200/300'"/>
+function openCollBook(isbn,title,desc,cover){
+  document.getElementById('rTitle').textContent=title;
+  document.getElementById('rCover').src=cover;
+  document.getElementById('rProgress').style.width='0%';
+  document.getElementById('readerOverlay').classList.add('open');
+
+  // Build rich in-app reading experience with summary + chapters
+  const chapterTitles=['Preface','Chapter 1','Chapter 2','Chapter 3','Chapter 4','Chapter 5','Chapter 6','Chapter 7','Chapter 8','Epilogue'];
+  rChaps=[{
+    title:'📖 About This Book',
+    html:`<h2>${title}</h2>
+    <div style="display:flex;gap:22px;margin-bottom:28px">
+      <img src="${cover}" style="width:130px;border-radius:10px;box-shadow:var(--sh2);flex-shrink:0" onerror="this.style.display='none'"/>
       <div>
-        <div class="modal-title">${title}</div>
-        <div class="modal-tags"><span class="modal-tag">📖 Classic Series</span></div>
-        <div class="modal-desc">${desc}</div>
-        <div class="modal-btns">
-          <button class="modal-read-btn" onclick="openEmbedReader('${key}','${title.replace(/'/g,"\\'")}','${cover}')"><i class="fas fa-book-open"></i> Read in Sofia Library</button>
+        <p style="font-size:16px;line-height:1.8">${desc}</p>
+        <div style="margin-top:18px;padding:16px;background:rgba(27,58,107,.06);border-radius:12px;border-left:4px solid var(--primary)">
+          <p style="font-size:14px;color:var(--text2)"><strong>ℹ️ Note:</strong> This is a currently copyrighted work. The full text chapters below contain a reading experience with key story summaries. For the complete book, click "Buy or Borrow" below.</p>
         </div>
       </div>
-    </div>`;
-  document.getElementById('bookModal').classList.add('open');
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+      <a href="https://www.goodreads.com/search?q=${encodeURIComponent(title)}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;padding:11px 20px;background:var(--primary);color:white;border-radius:10px;text-decoration:none;font-weight:600;font-size:13px"><i class="fas fa-book"></i> Read Reviews</a>
+      <a href="https://openlibrary.org/search?q=${encodeURIComponent(title)}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;padding:11px 20px;background:var(--bg2);color:var(--text);border-radius:10px;text-decoration:none;font-weight:600;font-size:13px;border:1.5px solid var(--border)"><i class="fas fa-external-link-alt"></i> Borrow on Open Library</a>
+    </div>`
+  }];
+
+  // Build story summary chapters for each book
+  const storySummaries=getStorySummaries(title);
+  storySummaries.forEach((s,i)=>{
+    rChaps.push({title:s.title,html:`<h2>${s.title}</h2><div class="reader-drop-cap">${s.content.split('\n\n').map(p=>`<p>${p}</p>`).join('')}</div>`});
+  });
+
+  document.getElementById('chapList').innerHTML=rChaps.map((c,i)=>`<div class="chap-item${i===0?' active':''}" onclick="goToChap(${i},this)">${c.title}</div>`).join('');
+  showChap(0);
 }
 
-// ===== READER =====
-let readerFontSize=18;
-let readerChapters=[];
-let readerChapterIdx=0;
-let currentReaderKey='';
-
-async function openReaderForBook(key,title,cover){
-  closeModal();
-  document.getElementById('readerTitle').textContent=title;
-  document.getElementById('readerPage').innerHTML=`<div class="reader-loading"><div class="reader-spinner"></div><p>Loading "${title}"…</p></div>`;
-  document.getElementById('chapterList').innerHTML='';
-  document.getElementById('readerProgress').style.width='0%';
-  document.getElementById('readerOverlay').classList.add('open');
-
-  // Try to get Open Library works page with readable edition
-  const olKey = key.replace('/works/','').replace('/books/','');
-  // Load an iframe with Open Library reader
-  openEmbedReader(key,title,cover);
+function getStorySummaries(title){
+  const t=title.toLowerCase();
+  if(t.includes("philosopher's stone")||t.includes("sorcerer's stone"))return[
+    {title:"Chapter 1 — The Boy Who Lived",content:"On a quiet street in Little Whinging, Vernon Dursley notices peculiar things happening — people in cloaks, owls flying in daylight. That night, Albus Dumbledore and Professor McGonagall meet on Privet Drive. Rubeus Hagrid arrives on a flying motorcycle, carrying a baby boy: Harry Potter.\n\nVoldemort — the most powerful Dark wizard in a century — has killed Harry's parents, James and Lily Potter. But when he turned his wand on the infant Harry, something went wrong. The Killing Curse rebounded, destroying Voldemort's body and leaving Harry with nothing but a lightning-bolt scar on his forehead.\n\nHarry is left on the doorstep of his aunt and uncle, the Dursleys, with a letter from Dumbledore. The wizarding world erupts in celebration. Voldemort is gone. Harry Potter — barely a year old — is already famous."},
+    {title:"Chapter 2 — The Vanishing Glass",content:"Harry Potter is ten years old, sleeping in a cupboard under the stairs at Number Four, Privet Drive. His cousin Dudley is spoiled and cruel, his aunt and uncle cold and dismissive. Strange things always seem to happen around Harry — his hair grows back overnight, a teacher's wig turns blue, he finds himself on the school roof without knowing how he got there.\n\nOn a trip to the zoo for Dudley's birthday, Harry has a conversation with a boa constrictor — and accidentally vanishes the glass of its enclosure, letting the snake escape. When the family returns home furious, Harry is locked in his cupboard for a week. He doesn't know why strange things happen around him. He doesn't know what he is."},
+    {title:"Chapter 3 — The Letters from No One",content:"A letter arrives addressed to Harry — 'Mr H. Potter, The Cupboard under the Stairs.' Uncle Vernon snatches it before Harry can read it. More letters come. Dozens. Hundreds. The Dursleys flee to a rock in the middle of the sea to escape the letters.\n\nOn the stroke of midnight on Harry's eleventh birthday, the door is blasted open. A giant man with a wild beard and kind black eyes fills the doorframe. Rubeus Hagrid, Keeper of Keys and Grounds at Hogwarts, has come to deliver Harry's acceptance letter personally.\n\n'You're a wizard, Harry.'"},
+    {title:"Chapter 4 — Diagon Alley & Platform 9¾",content:"Hagrid takes Harry to Diagon Alley — a hidden magical shopping street behind the Leaky Cauldron in London. Harry withdraws gold from his vault at Gringotts bank (he's wealthy — his parents left him a fortune). He buys robes, a wand — eleven inches, holly and phoenix feather — from Ollivanders, and a snowy owl he names Hedwig.\n\nOn September 1st, Harry pushes his trolley toward the solid barrier between platforms nine and ten at King's Cross Station. He runs at it — and passes straight through to Platform Nine and Three-Quarters, where the Hogwarts Express waits, gleaming scarlet, billowing steam. He meets Ron Weasley on the train. By the time they arrive at Hogwarts, they are already friends."},
+    {title:"Chapter 5 — Hogwarts & The Sorting Hat",content:"Hogwarts School of Witchcraft and Wizardry rises from a black lake, its turrets lit against the night sky. First-year students cross the lake in small boats and enter the castle, where Professor McGonagall leads them to the Great Hall.\n\nA battered old hat is placed on each student's head and sorts them into one of four houses — Gryffindor, Hufflepuff, Ravenclaw, or Slytherin. Harry, terrified the hat will put him in Slytherin (where dark wizards come from), hears the hat whisper in his ear: 'Plenty of courage, I see. Not a bad mind, either... difficult. Very difficult. Better be — GRYFFINDOR!'\n\nThe table in red and gold erupts with cheering. Harry is home."},
+    {title:"Chapter 6 — The Mirror of Erised",content:"Christmas at Hogwarts. Harry receives an Invisibility Cloak from an anonymous sender — it belonged to his father, James. That night, wandering the castle under the cloak, Harry discovers a large mirror in an unused classroom. The Mirror of Erised — 'desire' spelled backwards — shows the viewer their deepest heart's desire.\n\nHarry sees his family: his mother and father, grandparents, aunts and uncles — all smiling at him. He returns night after night to watch them. Dumbledore finds him there and gently explains: 'It does not do to dwell on dreams and forget to live.' The mirror is moved.\n\nFor Harry, what he sees is the thing he wants most and has never had: a family."},
+    {title:"Chapter 7 — The Forbidden Corridor & The Final Confrontation",content:"Harry, Ron, and Hermione discover that a three-headed dog named Fluffy guards a trapdoor in the third-floor corridor. Beneath it lies the Philosopher's Stone — an object that grants immortality and can bring the dead back to life.\n\nConvinced that Professor Snape is trying to steal it, the three friends descend through the trapdoor themselves: surviving a plant that strangles them, a room full of winged keys, a giant chess game, and a logic puzzle with potions. Harry goes on alone — and finds not Snape, but Professor Quirrell.\n\nQuirrell removes his turban to reveal Voldemort's face growing from the back of his head. Harry, protected by his mother's sacrificial love, touches Quirrell and the professor crumbles to ash. The stone is safe. Voldemort flees — weakened but not defeated. Harry wakes in the hospital wing. Dumbledore smiles. The year at Hogwarts is complete."},
+  ];
+  if(t.includes("fellowship"))return[
+    {title:"Prologue — Concerning Hobbits",content:"In a hole in the ground there lived a hobbit. Hobbits are small, peaceful creatures who love good food, comfortable homes, and a quiet life. They have no use for adventures.\n\nThe history of the One Ring begins long ago, in the Second Age of Middle-earth. The Dark Lord Sauron forged it in the fires of Mount Doom, pouring into it his will and his power, so that he might dominate all other ring-bearers. The One Ring was lost for thousands of years — found by chance in a cold river by a creature named Sméagol, who called it 'my precious' and fled with it under the Misty Mountains, becoming the wretched Gollum.\n\nCenturies later, Bilbo Baggins found it. And now it has passed to his nephew, Frodo."},
+    {title:"Chapter 1 — The Shadow of the Past",content:"Gandalf the Grey returns to the Shire with dark news. The Ring that Frodo inherited from Bilbo Baggins is no ordinary ring. It is the One Ring — the master ring forged by the Dark Lord Sauron in the fires of Mount Doom.\n\nSauron is not truly dead. He is rebuilding his power in Mordor. His servants, the nine Nazgûl — the Ringwraiths — are already searching for the Ring. Frodo must leave the Shire immediately and get the Ring to safety.\n\n'I wish it need not have happened in my time,' said Frodo. 'So do I,' said Gandalf, 'and so do all who live to see such times. But that is not for them to decide. All we have to decide is what to do with the time that is given us.'"},
+    {title:"Chapter 2 — The Fellowship Is Formed",content:"At the Council of Elrond in Rivendell, representatives of all free peoples of Middle-earth gather: Elves, Dwarves, Men, and Hobbits. The fate of the Ring is debated. It cannot be used — its power would corrupt even the greatest among them. It cannot be hidden — Sauron will find it. It cannot be unmade by any power in Middle-earth except the fires of Mount Doom, where it was forged.\n\nFrodo volunteers to carry the Ring to Mordor. 'I will take the Ring,' he said, 'though I do not know the way.'\n\nThe Fellowship of the Ring is formed: Frodo, Sam, Merry, Pippin, Gandalf, Aragorn, Legolas, Gimli, and Boromir. Nine companions to counter the nine Ringwraiths. They leave Rivendell in the dead of winter."},
+    {title:"Chapter 3 — The Mines of Moria",content:"The mountain pass is blocked by snow. The Fellowship must go through the mines of Moria — the great underground realm of the Dwarves, now dark and silent. Gandalf leads them through caverns carved by ancient craftsmen, past a black lake that stirs at their approach.\n\nDeep in the mines, they find Balin's tomb. The Dwarves who came to reclaim Moria are all dead. And something in the darkness has awakened.\n\nThey flee through the Bridge of Khazad-dûm. A Balrog — a demon of the ancient world, shadow and flame — pursues them. Gandalf turns on the bridge: 'You shall not pass!' The bridge breaks. The Balrog falls — and Gandalf falls with it, dragged into the chasm. 'Fly, you fools!' The Fellowship escapes, but Gandalf is gone."},
+    {title:"Chapter 4 — The Breaking of the Fellowship",content:"Grief-stricken, the Fellowship reaches the golden forest of Lothlórien, ruled by the Lady Galadriel. She shows Frodo her mirror — a basin of water that reveals possible futures. She is offered the Ring and refuses it: 'I pass the test. I will diminish, and go into the West, and remain Galadriel.'\n\nAt the edge of the forest, Boromir — driven mad by the Ring's power — tries to take it from Frodo. Frodo escapes by putting on the Ring and running. He crosses the river alone, though Sam jumps in after him and refuses to be left behind.\n\nThe Fellowship is broken. Merry and Pippin are taken by Uruk-hai. Boromir dies defending them, shot by three arrows, redeemed in his last breath. Aragorn, Legolas, and Gimli run north to rescue the hobbits. Frodo and Sam turn east toward Mordor."},
+  ];
+  if(t.includes("hobbit"))return[
+    {title:"Chapter 1 — An Unexpected Party",content:"Bilbo Baggins is a respectable hobbit of Bag End, Hobbiton — very fond of his comfortable routine, his pipe, and his pantry. He has no desire for adventures. Adventures make one late for dinner.\n\nOne spring morning, Gandalf the Grey appears at his gate. 'I am looking for someone to share in an adventure.' Bilbo politely declines and retreats inside. But the next evening, thirteen dwarves arrive at his hobbit-hole — one by one and then all at once — eating his food, drinking his tea, and discussing their plan.\n\nThorin Oakenshield, heir to the Kingdom under the Mountain, wants to reclaim his ancestral home from the dragon Smaug. Gandalf has named Bilbo as their burglar. Bilbo faints. But in the morning — surprising even himself — he runs out the door without a handkerchief and joins the company."},
+    {title:"Chapter 2 — Riddles in the Dark",content:"Deep under the Misty Mountains, Bilbo wakes alone on the cold stone floor. He finds a small golden ring lying on the ground in the dark and pockets it without thinking. He stumbles on until he reaches an underground lake.\n\nA thin, pale creature paddles across on a raft. Gollum. His eyes are like pale lamps. He has lived under the mountain for centuries, sustained by the fish he catches and by 'the precious' — the ring he has lost.\n\nThey play a game of riddles. If Bilbo wins, Gollum shows him the way out. If Gollum wins — he eats Bilbo. The riddles grow harder. Finally, in desperation, Bilbo asks: 'What have I got in my pocket?' Gollum cannot answer. Slipping the ring on his finger and turning invisible, Bilbo leaps over the enraged creature and escapes into daylight."},
+    {title:"Chapter 3 — Inside the Mountain — Smaug",content:"The company reaches the Lonely Mountain — the Dwarves' ancient home. Bilbo finds the secret door on Durin's Day and descends alone into the dragon's lair.\n\nSmaug is vast, red-gold, and terrible — lying on a bed of treasure, one eye half-open. Bilbo, invisible and trembling, speaks in riddles. He spots a bare patch on the dragon's underbelly — a gap in the armour of scales. He escapes, barely.\n\nA thrush overhears and carries the message to Bard the Bowman of Lake-town. When Smaug attacks the town, Bard draws his last Black Arrow and fires it at the bare patch on the dragon's chest. Smaug falls dead into the Long Lake, and the treasure of the Lonely Mountain is free."},
+    {title:"Chapter 4 — The Battle of Five Armies",content:"Five armies converge on the Lonely Mountain: Dwarves, Men, Elves on one side; Goblins and Wargs on the other. The battle looks desperate — until the Eagles arrive, and Beorn in bear-form crashes through the enemy lines.\n\nThorin, who has been consumed by dragon-sickness and obsession with the treasure, dies in battle. He is carried to Bilbo and forgives the hobbit with his last breath: 'If more of us valued food and cheer and song above hoarded gold, it would be a merrier world.'\n\nBilbo returns to the Shire — quite changed, and to find that he has been declared legally dead and his belongings auctioned off. He spends years reclaiming his possessions and writing about his adventure in a book he calls 'There and Back Again: A Hobbit's Holiday.'"},
+  ];
+  return[{title:'Story Summary',content:`${title} is a beloved classic available to explore through Sofia Library. For the complete text, visit Open Library where it may be available to borrow for free.`}];
 }
-
-function openEmbedReader(key,title,cover){
-  closeModal();
-  document.getElementById('readerTitle').textContent=title;
-  document.getElementById('readerOverlay').classList.add('open');
-
-  const content=document.getElementById('readerContent');
-  const chapterList=document.getElementById('chapterList');
-
-  // Build a rich in-app reading experience using Open Library borrow/embed
-  // For works: show synopsis + chapter navigation with embedded read link
-  const olUrl=`https://openlibrary.org${key}`;
-  const embedUrl=`https://openlibrary.org${key}?mode=read`;
-
-  // Fetch work details from OL API
-  content.innerHTML=`<div class="reader-loading"><div class="reader-spinner"></div><p>Preparing your reading experience…</p></div>`;
-  chapterList.innerHTML='';
-
-  const apiKey=key.startsWith('/works/')?key:'/works/'+key.split('/').pop();
-
-  fetch(`https://openlibrary.org${apiKey}.json`)
-    .then(r=>r.json())
-    .then(data=>{
-      const desc=typeof data.description==='object'?data.description.value:(data.description||'');
-      const subjects=(data.subjects||[]).slice(0,4).join(' · ');
-
-      // Build reading chapter nav
-      const chaps=[
-        'Introduction','Chapter 1','Chapter 2','Chapter 3','Chapter 4','Chapter 5',
-        'Chapter 6','Chapter 7','Chapter 8','Chapter 9','Chapter 10','Epilogue'
-      ];
-      chapterList.innerHTML=`<div class="chapter-item active" onclick="activateChapter(this,0)">📖 About This Book</div>`+
-        chaps.map((c,i)=>`<div class="chapter-item" onclick="activateChapter(this,${i+1})">${c}</div>`).join('');
-
-      readerChapters=[{title:'About This Book',content:`
-        <h2>${title}</h2>
-        <div style="display:flex;gap:24px;margin-bottom:28px;align-items:flex-start">
-          <img src="${cover}" style="width:120px;border-radius:10px;box-shadow:var(--sh2);flex-shrink:0" onerror="this.style.display='none'"/>
-          <div>
-            ${subjects?`<p style="font-size:13px;color:var(--text3);margin-bottom:12px">📂 ${subjects}</p>`:''}
-            <p>${desc||'A fascinating work available on Open Library. Begin reading below.'}</p>
-          </div>
-        </div>
-        <div style="background:var(--primary3);border-radius:14px;padding:24px;text-align:center">
-          <p style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--primary);margin-bottom:12px">📖 Read Full Book</p>
-          <p style="font-size:14px;color:var(--text2);margin-bottom:18px">This book is available to read for free on Open Library. Click below to open the full reading experience.</p>
-          <a href="${olUrl}" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--primary);color:white;border-radius:11px;text-decoration:none;font-weight:600;font-size:14px"><i class="fas fa-book-open"></i> Open Full Book</a>
-        </div>
-      `}];
-
-      // Add sample chapter content
-      chaps.forEach((c,i)=>{
-        readerChapters.push({title:c,content:`
-          <h2>${c}</h2>
-          <p>You are reading <em>${title}</em>. This chapter is available in the full edition on Open Library.</p>
-          <div style="background:var(--primary3);border-radius:12px;padding:20px;text-align:center;margin-top:24px">
-            <p style="font-size:14px;color:var(--text2);margin-bottom:14px">Read the complete text of this chapter on Open Library — free and legal.</p>
-            <a href="${olUrl}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:var(--primary);color:white;border-radius:10px;text-decoration:none;font-weight:600;font-size:13px"><i class="fas fa-book-open"></i> Continue Reading</a>
-          </div>
-        `});
-      });
-
-      showChapter(0);
-    })
-    .catch(()=>{
-      content.innerHTML=`<div class="reader-page">
-        <h2>${title}</h2>
-        <p>We couldn't load the book details at this moment. You can read this book for free on Open Library.</p>
-        <div style="text-align:center;margin-top:28px">
-          <a href="${olUrl}" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--primary);color:white;border-radius:12px;text-decoration:none;font-weight:600"><i class="fas fa-external-link-alt"></i> Read on Open Library</a>
-        </div>
-      </div>`;
-    });
-}
-
-function activateChapter(el,idx){
-  document.querySelectorAll('.chapter-item').forEach(c=>c.classList.remove('active'));
-  el.classList.add('active');
-  showChapter(idx);
-}
-function showChapter(idx){
-  if(!readerChapters[idx])return;
-  readerChapterIdx=idx;
-  const pg=document.getElementById('readerPage');
-  pg.style.opacity='0';
-  setTimeout(()=>{
-    pg.innerHTML=readerChapters[idx].content;
-    pg.style.fontSize=readerFontSize+'px';
-    pg.style.opacity='1';
-    pg.style.transition='opacity .3s';
-    document.getElementById('readerContent').scrollTop=0;
-    document.getElementById('readerPageInfo').textContent=readerChapters[idx].title;
-    document.getElementById('readerProgress').style.width=((idx+1)/readerChapters.length*100)+'%';
-    document.querySelectorAll('.chapter-item')[idx]?.classList.add('active');
-    document.querySelectorAll('.chapter-item').forEach((c,i)=>{if(i!==idx)c.classList.remove('active')});
-  },200);
-}
-function prevChapter(){if(readerChapterIdx>0){showChapter(readerChapterIdx-1);document.querySelectorAll('.chapter-item')[readerChapterIdx]?.classList.remove('active');document.querySelectorAll('.chapter-item')[readerChapterIdx]?.classList.add('active')}}
-function nextChapter(){if(readerChapterIdx<readerChapters.length-1)showChapter(readerChapterIdx+1)}
-function closeReader(){document.getElementById('readerOverlay').classList.remove('open');readerChapters=[];readerChapterIdx=0}
-function changeFontSize(d){readerFontSize=Math.max(14,Math.min(26,readerFontSize+d));document.getElementById('readerPage').style.fontSize=readerFontSize+'px'}
-function updateReadProgress(){const el=document.getElementById('readerContent');const pct=el.scrollTop/(el.scrollHeight-el.clientHeight)*100;document.getElementById('readerProgress').style.width=Math.min(100,(((readerChapterIdx)/readerChapters.length)*100)+(pct/readerChapters.length))+'%'}
-document.getElementById('readerOverlay').addEventListener('click',e=>{if(e.target.id==='readerOverlay')closeReader()});
 
 // ===== WOD =====
 const WODS=[
-  {word:'Ephemeral',phon:'/ɪˈfɛm.ər.əl/',def:'Lasting for a very short time; transitory.',ex:'The ephemeral beauty of cherry blossoms makes them all the more precious.'},
+  {word:'Ephemeral',phon:'/ɪˈfɛm.ər.əl/',def:'Lasting for a very short time; transitory.',ex:'The ephemeral beauty of cherry blossoms makes them precious.'},
   {word:'Serendipity',phon:'/ˌsɛr.ənˈdɪp.ɪ.ti/',def:'The occurrence of events by chance in a happy or beneficial way.',ex:'Finding that rare book was pure serendipity.'},
   {word:'Mellifluous',phon:'/mɛˈlɪf.lu.əs/',def:'Sweet or musical; pleasant to hear.',ex:'Her mellifluous voice captivated the entire audience.'},
   {word:'Luminous',phon:'/ˈluː.mɪ.nəs/',def:'Full of or shedding light; bright or shining.',ex:'The luminous stars filled the night sky with wonder.'},
   {word:'Resilient',phon:'/rɪˈzɪl.i.ənt/',def:'Able to withstand or recover quickly from difficult conditions.',ex:'She remained resilient despite the many challenges she faced.'},
   {word:'Wanderlust',phon:'/ˈwɒn.də.lʌst/',def:'A strong desire to travel and explore the world.',ex:'His wanderlust led him to visit over fifty countries.'},
-  {word:'Ephemeral',phon:'/ɪˈfɛm.ər.əl/',def:'Lasting for a very short time; transitory.',ex:'The ephemeral beauty of the moment was captured in a single photograph.'},
   {word:'Eloquent',phon:'/ˈɛl.ə.kwənt/',def:'Fluent or persuasive in speaking or writing.',ex:'His eloquent speech moved the entire crowd to tears.'},
+  {word:'Tenacious',phon:'/tɪˈneɪ.ʃəs/',def:'Very determined; not giving up easily.',ex:'Her tenacious spirit carried her through every obstacle.'},
 ];
-let wodIdx=Math.floor(Math.random()*WODS.length);
-let currentWodWord='';
+let wodIdx=Math.floor(Math.random()*WODS.length);let cww='';
 function initWod(){showWod(wodIdx)}
 async function showWod(idx){
-  const w=WODS[idx];currentWodWord=w.word;
+  const w=WODS[idx];cww=w.word;
   try{
     const d=await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${w.word}`).then(r=>r.json());
-    const entry=d[0];
-    document.getElementById('wodWord').textContent=entry.word;
-    document.getElementById('wodPhon').textContent=entry.phonetics?.find(p=>p.text)?.text||w.phon;
-    const m=entry.meanings?.[0];
+    const e=d[0];
+    document.getElementById('wodWord').textContent=e.word;
+    document.getElementById('wodPhon').textContent=e.phonetics?.find(p=>p.text)?.text||w.phon;
+    const m=e.meanings?.[0];
     document.getElementById('wodDef').textContent=m?.definitions?.[0]?.definition||w.def;
     document.getElementById('wodEx').textContent='"'+(m?.definitions?.[0]?.example||w.ex)+'"';
-    window._wodAudio=entry.phonetics?.find(p=>p.audio)?.audio;
-    currentWodWord=entry.word;
+    window._wodAudio=e.phonetics?.find(p=>p.audio)?.audio;
+    cww=e.word;
   }catch{
     document.getElementById('wodWord').textContent=w.word;
     document.getElementById('wodPhon').textContent=w.phon;
@@ -1291,164 +1045,55 @@ async function showWod(idx){
 function newWod(){wodIdx=(wodIdx+1)%WODS.length;document.getElementById('wodWord').textContent='…';showWod(wodIdx)}
 function pronounceWord(){
   if(window._wodAudio){new Audio(window._wodAudio).play().catch(()=>{})}
-  else if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(currentWodWord);u.lang='en-US';u.rate=.8;speechSynthesis.speak(u)}
+  else if(speechSynthesis){const u=new SpeechSynthesisUtterance(cww);u.lang='en-US';u.rate=.8;speechSynthesis.speak(u)}
 }
 
-// ===== DICTIONARY =====
+// ===== DICT =====
 async function lookupWord(){
   const word=document.getElementById('dictInput').value.trim();if(!word)return;
-  const res=document.getElementById('dictResult');
-  res.className='dict-result show';
+  const res=document.getElementById('dictResult');res.className='dict-result show';
   res.innerHTML='<p style="color:var(--text3);padding:10px 0">Looking up…</p>';
   try{
     const d=await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`).then(r=>r.json());
-    if(!Array.isArray(d)){res.innerHTML='<p style="color:var(--accent);padding:10px 0">Word not found. Try another.</p>';return}
-    const e=d[0];
-    const audio=e.phonetics?.find(p=>p.audio)?.audio;
-    let h=`<div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px">
-      <span class="dict-word">${e.word}</span>
-      <span class="dict-phon">${e.phonetics?.find(p=>p.text)?.text||''}</span>
-      ${audio?`<button class="dict-play-btn" onclick="new Audio('${audio}').play()"><i class="fas fa-volume-up"></i> Listen</button>`:`<button class="dict-play-btn" onclick="speakWord('${e.word}')"><i class="fas fa-volume-up"></i> Listen</button>`}
-    </div>`;
-    e.meanings?.slice(0,3).forEach(m=>{
-      h+=`<div class="dict-part">${m.partOfSpeech}</div>`;
-      m.definitions?.slice(0,3).forEach(d=>{h+=`<div class="dict-def">${d.definition}${d.example?`<div class="dict-ex">"${d.example}"</div>`:''}</div>`});
-    });
+    if(!Array.isArray(d)){res.innerHTML='<p style="color:var(--accent);padding:10px 0">Word not found.</p>';return}
+    const e=d[0];const audio=e.phonetics?.find(p=>p.audio)?.audio;
+    let h=`<div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px"><span class="dict-word">${e.word}</span><span class="dict-phon">${e.phonetics?.find(p=>p.text)?.text||''}</span>${audio?`<button class="dict-play" onclick="new Audio('${audio}').play()"><i class="fas fa-volume-up"></i> Listen</button>`:`<button class="dict-play" onclick="(()=>{const u=new SpeechSynthesisUtterance('${e.word}');u.lang='en-US';speechSynthesis.speak(u)})()"><i class="fas fa-volume-up"></i> Listen</button>`}</div>`;
+    e.meanings?.slice(0,3).forEach(m=>{h+=`<div class="dict-part">${m.partOfSpeech}</div>`;m.definitions?.slice(0,3).forEach(d=>{h+=`<div class="dict-def">${d.definition}${d.example?`<div class="dict-ex">"${d.example}"</div>`:''}</div>`})});
     res.innerHTML=h;
   }catch{res.innerHTML='<p style="color:var(--accent);padding:10px 0">Error. Please try again.</p>'}
 }
-function speakWord(w){if(speechSynthesis){const u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.8;speechSynthesis.speak(u)}}
 
 // ===== FLASHCARDS =====
-const FCS=[
-  {w:'Abundant',m:'Present in large quantities; more than enough.'},
-  {w:'Benevolent',m:'Well-meaning and kindly; generous.'},
-  {w:'Candid',m:'Truthful and straightforward; frank.'},
-  {w:'Diligent',m:"Having or showing care in one's work; hardworking."},
-  {w:'Eloquent',m:'Fluent or persuasive in speaking or writing.'},
-  {w:'Fortitude',m:'Courage in pain or adversity.'},
-  {w:'Gratitude',m:'The quality of being thankful.'},
-  {w:'Harmony',m:'The quality of forming a pleasing whole.'},
-  {w:'Integrity',m:'The quality of being honest and having strong moral principles.'},
-  {w:'Jubilant',m:'Feeling or expressing great happiness.'},
-  {w:'Luminous',m:'Full of or shedding light; bright.'},
-  {w:'Meticulous',m:'Showing great attention to detail; very careful.'},
-  {w:'Noble',m:'Having or showing fine personal qualities.'},
-  {w:'Optimistic',m:'Hoping or expecting the best.'},
-  {w:'Persevere',m:'Continue in a course of action in spite of difficulty.'},
-  {w:'Radiant',m:'Sending out light; shining or glowing brightly.'},
-  {w:'Serene',m:'Calm, peaceful, and untroubled.'},
-  {w:'Tenacious',m:'Tending to keep a firm hold; persistent.'},
-  {w:'Virtuous',m:'Having or showing high moral standards.'},
-  {w:'Zealous',m:'Having or showing great energy for a cause.'},
-];
+const FCS=[{w:'Abundant',m:'Present in large quantities; more than enough.'},{w:'Benevolent',m:'Well-meaning and kindly; generous.'},{w:'Candid',m:'Truthful and straightforward; frank.'},{w:'Diligent',m:'Hardworking and careful.'},{w:'Eloquent',m:'Fluent or persuasive in speaking.'},{w:'Fortitude',m:'Courage in pain or adversity.'},{w:'Gratitude',m:'The quality of being thankful.'},{w:'Harmony',m:'The quality of forming a pleasing whole.'},{w:'Integrity',m:'Honesty and strong moral principles.'},{w:'Jubilant',m:'Feeling great happiness.'},{w:'Luminous',m:'Full of light; bright and glowing.'},{w:'Meticulous',m:'Showing great attention to detail.'},{w:'Noble',m:'Having fine personal qualities.'},{w:'Optimistic',m:'Hopeful and confident about the future.'},{w:'Persevere',m:'Continue despite difficulty.'},{w:'Radiant',m:'Sending out light; bright and glowing.'},{w:'Serene',m:'Calm, peaceful, and untroubled.'},{w:'Tenacious',m:'Persistent; not giving up easily.'},{w:'Virtuous',m:'Having high moral standards.'},{w:'Zealous',m:'Having great energy for a cause.'}];
 let fcIdx=0;
 function initFlashcards(){showFC()}
-function showFC(){
-  const c=FCS[fcIdx];
-  document.getElementById('fcWord').textContent=c.w;
-  document.getElementById('fcWordBack').textContent=c.w;
-  document.getElementById('fcMeaning').textContent=c.m;
-  document.getElementById('flashcard').classList.remove('flipped');
-  document.getElementById('fcProg').textContent=`${fcIdx+1} / ${FCS.length}`;
-  document.getElementById('fcFill').style.width=`${((fcIdx+1)/FCS.length)*100}%`;
-}
+function showFC(){const c=FCS[fcIdx];document.getElementById('fcWord').textContent=c.w;document.getElementById('fcWordBack').textContent=c.w;document.getElementById('fcMeaning').textContent=c.m;document.getElementById('flashcard').classList.remove('flipped');document.getElementById('fcProg').textContent=`${fcIdx+1} / ${FCS.length}`;document.getElementById('fcFill').style.width=`${((fcIdx+1)/FCS.length)*100}%`}
 function flipCard(){document.getElementById('flashcard').classList.toggle('flipped')}
 function nextCard(){fcIdx=(fcIdx+1)%FCS.length;showFC()}
 function prevCard(){fcIdx=(fcIdx-1+FCS.length)%FCS.length;showFC()}
 
 // ===== QUIZ =====
-const QS=[
-  {q:'What does "Ephemeral" mean?',opts:['Lasting a short time','Very large','Extremely loud','Deeply sad'],a:0},
-  {q:'Choose the correct meaning of "Diligent":',opts:['Lazy and careless','Hard-working and careful','Angry and rude','Silent and shy'],a:1},
-  {q:'"Mellifluous" describes a sound that is:',opts:['Harsh and grating','Sweet and pleasant','Very loud','Completely silent'],a:1},
-  {q:'What is the meaning of "Resilient"?',opts:['Easily broken','Unable to change','Able to recover quickly','Extremely fragile'],a:2},
-  {q:'"Wanderlust" refers to:',opts:['Fear of the dark','Love of reading','A strong desire to travel','Deep sadness'],a:2},
-  {q:'Which word means "truthful and frank"?',opts:['Candid','Timid','Ardent','Jovial'],a:0},
-  {q:'What does "Benevolent" mean?',opts:['Cruel and harsh','Kind and generous','Loud and boisterous','Silent and cold'],a:1},
-  {q:'"Luminous" means something that is:',opts:['Heavy','Dark','Bright and glowing','Soft'],a:2},
-  {q:'What does "Fortitude" mean?',opts:['Weakness','Courage in difficulty','Happiness','Intelligence'],a:1},
-  {q:'Which uses "Meticulous" correctly?',opts:['She was meticulous about every detail','He was meticulous and very lazy','The dog was meticulous in sleep','They meticulous ran fast'],a:0},
-];
-let qIdx=0,qScore=0,qAnswered=false;
+const QS=[{q:'What does "Ephemeral" mean?',opts:['Lasting a short time','Very large','Extremely loud','Deeply sad'],a:0},{q:'Choose the correct meaning of "Diligent":',opts:['Lazy and careless','Hard-working and careful','Angry and rude','Silent and shy'],a:1},{q:'"Mellifluous" describes a sound that is:',opts:['Harsh and grating','Sweet and pleasant','Very loud','Completely silent'],a:1},{q:'What is the meaning of "Resilient"?',opts:['Easily broken','Unable to change','Able to recover quickly','Extremely fragile'],a:2},{q:'"Wanderlust" refers to:',opts:['Fear of the dark','Love of reading','A strong desire to travel','Deep sadness'],a:2},{q:'Which word means "truthful and frank"?',opts:['Candid','Timid','Ardent','Jovial'],a:0},{q:'What does "Benevolent" mean?',opts:['Cruel and harsh','Kind and generous','Loud and boisterous','Silent and cold'],a:1},{q:'"Luminous" means something that is:',opts:['Heavy','Dark','Bright and glowing','Soft'],a:2},{q:'What does "Fortitude" mean?',opts:['Weakness','Courage in difficulty','Happiness','Intelligence'],a:1},{q:'Which uses "Meticulous" correctly?',opts:['She was meticulous about every detail','He was meticulous and very lazy','The dog was meticulous in sleep','They meticulous ran fast'],a:0}];
+let qIdx=0,qScore=0,qAns=false;
 function initQuiz(){showQ()}
-function showQ(){
-  const q=QS[qIdx];
-  document.getElementById('quizQ').textContent=`Q${qIdx+1}: ${q.q}`;
-  document.getElementById('quizOpts').innerHTML=q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQ(${i})">${o}</button>`).join('');
-  document.getElementById('quizFb').style.display='none';
-  document.getElementById('quizNext').style.display='none';
-  document.getElementById('quizScore').style.display='none';
-  qAnswered=false;
-}
-function answerQ(i){
-  if(qAnswered)return;qAnswered=true;
-  const q=QS[qIdx];
-  const opts=document.querySelectorAll('.quiz-opt');
-  opts.forEach(o=>o.disabled=true);
-  if(i===q.a){opts[i].classList.add('correct');qScore++;const fb=document.getElementById('quizFb');fb.textContent='✓ Correct! Great job!';fb.className='quiz-fb correct';fb.style.display='block'}
-  else{opts[i].classList.add('wrong');opts[q.a].classList.add('correct');const fb=document.getElementById('quizFb');fb.textContent=`✗ Incorrect. The answer is: "${q.opts[q.a]}"`;fb.className='quiz-fb wrong';fb.style.display='block'}
-  document.getElementById('quizNext').style.display='block';
-}
-function nextQuestion(){
-  qIdx++;
-  if(qIdx>=QS.length){
-    document.getElementById('quizQ').textContent='Quiz Complete! 🎉';
-    document.getElementById('quizOpts').innerHTML='';
-    document.getElementById('quizFb').style.display='none';
-    document.getElementById('quizNext').style.display='none';
-    const sc=document.getElementById('quizScore');
-    sc.textContent=`Score: ${qScore}/${QS.length} — ${Math.round(qScore/QS.length*100)}%`;
-    sc.style.display='block';
-    setTimeout(()=>{qIdx=0;qScore=0;showQ()},4000);
-  }else showQ();
-}
-
-// ===== ETABS =====
-function showETab(id,btn){
-  document.querySelectorAll('.epanel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.etab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('ep-'+id).classList.add('active');
-  btn.classList.add('active');
-}
+function showQ(){const q=QS[qIdx];document.getElementById('quizQ').textContent=`Q${qIdx+1}: ${q.q}`;document.getElementById('quizOpts').innerHTML=q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQ(${i})">${o}</button>`).join('');document.getElementById('quizFb').style.display='none';document.getElementById('quizNext').style.display='none';document.getElementById('quizScore').style.display='none';qAns=false}
+function answerQ(i){if(qAns)return;qAns=true;const q=QS[qIdx];const opts=document.querySelectorAll('.quiz-opt');opts.forEach(o=>o.disabled=true);if(i===q.a){opts[i].classList.add('correct');qScore++;const fb=document.getElementById('quizFb');fb.textContent='✓ Correct!';fb.className='quiz-fb correct';fb.style.display='block'}else{opts[i].classList.add('wrong');opts[q.a].classList.add('correct');const fb=document.getElementById('quizFb');fb.textContent=`✗ The answer is: "${q.opts[q.a]}"`;fb.className='quiz-fb wrong';fb.style.display='block'}document.getElementById('quizNext').style.display='block'}
+function nextQuestion(){qIdx++;if(qIdx>=QS.length){document.getElementById('quizQ').textContent='Quiz Complete! 🎉';document.getElementById('quizOpts').innerHTML='';document.getElementById('quizFb').style.display='none';document.getElementById('quizNext').style.display='none';const sc=document.getElementById('quizScore');sc.textContent=`Score: ${qScore}/${QS.length} — ${Math.round(qScore/QS.length*100)}%`;sc.style.display='block';setTimeout(()=>{qIdx=0;qScore=0;showQ()},4000)}else showQ()}
+function showETab(id,btn){document.querySelectorAll('.epanel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.etab').forEach(t=>t.classList.remove('active'));document.getElementById('ep-'+id).classList.add('active');btn.classList.add('active')}
 
 // ===== TIPS =====
-const TIPS=[
-  {num:'01',en:'Create a Reading Habit',id:'Bangun Kebiasaan Membaca',tent:'Set aside 20–30 minutes daily for reading. Consistency builds a lifelong love for books.',tenId:'Sisihkan 20–30 menit setiap hari untuk membaca. Konsistensi membangun kecintaan seumur hidup terhadap buku.'},
-  {num:'02',en:'Take Notes While Reading',id:'Catat Saat Membaca',tent:'Write down key ideas, quotes, and reflections. Active note-taking boosts comprehension significantly.',tenId:'Catat ide utama, kutipan, dan refleksi. Mencatat secara aktif meningkatkan pemahaman secara signifikan.'},
-  {num:'03',en:'Use the SQ3R Method',id:'Gunakan Metode SQ3R',tent:'Survey, Question, Read, Recite, Review. This proven technique transforms passive reading into active learning.',tenId:'Survei, Pertanyaan, Baca, Ucapkan, Tinjau. Teknik ini mengubah membaca pasif menjadi pembelajaran aktif.'},
-  {num:'04',en:'Read Diverse Genres',id:'Baca Berbagai Genre',tent:'Expand your mind by reading across genres: science, philosophy, fiction, and biography.',tenId:'Perluas pikiran Anda dengan membaca berbagai genre: sains, filsafat, fiksi, dan biografi.'},
-  {num:'05',en:'Build Your Vocabulary',id:'Kembangkan Kosakata',tent:'Look up unfamiliar words immediately. A rich vocabulary enhances reading and communication.',tenId:'Segera cari kata yang tidak familiar. Kosakata yang kaya meningkatkan kemampuan membaca dan komunikasi.'},
-  {num:'06',en:'Set Reading Goals',id:'Tetapkan Target Membaca',tent:'Challenge yourself with a reading goal: try 52 Books in 52 Weeks to expand your horizons.',tenId:'Tantang diri dengan target membaca: coba tantangan 52 Buku dalam 52 Minggu.'},
-];
-function initTips(){
-  document.getElementById('tipsGrid').innerHTML=TIPS.map(t=>`
-    <div class="tip-card reveal">
-      <div class="tip-num">${t.num}</div>
-      <div class="tip-title" data-en="${t.en}" data-id="${t.id}">${t.en}</div>
-      <div class="tip-text" data-en="${t.tent}" data-id="${t.tenId}">${t.tent}</div>
-    </div>`).join('');
-}
+const TIPS=[{num:'01',en:'Create a Reading Habit',id:'Bangun Kebiasaan Membaca',tent:'Set aside 20–30 minutes daily for reading. Consistency builds a lifelong love for books.',tenId:'Sisihkan 20–30 menit setiap hari. Konsistensi membangun kecintaan seumur hidup.'},{num:'02',en:'Take Notes While Reading',id:'Catat Saat Membaca',tent:"Write down key ideas and quotes. Active note-taking boosts comprehension significantly.",tenId:'Catat ide utama dan kutipan. Mencatat aktif meningkatkan pemahaman secara signifikan.'},{num:'03',en:'Use the SQ3R Method',id:'Gunakan Metode SQ3R',tent:'Survey, Question, Read, Recite, Review — transforms passive reading into active learning.',tenId:'Survei, Pertanyaan, Baca, Ucapkan, Tinjau — mengubah membaca pasif menjadi aktif.'},{num:'04',en:'Read Diverse Genres',id:'Baca Berbagai Genre',tent:'Expand your mind by reading science, philosophy, fiction, and biography.',tenId:'Perluas pikiran Anda dengan membaca berbagai genre.'},{num:'05',en:'Build Your Vocabulary',id:'Kembangkan Kosakata',tent:'Look up unfamiliar words immediately. A rich vocabulary enhances everything.',tenId:'Segera cari kata yang tidak familiar. Kosakata yang kaya meningkatkan segalanya.'},{num:'06',en:'Set Reading Goals',id:'Tetapkan Target Membaca',tent:'Challenge yourself with 52 Books in 52 Weeks to expand your horizons.',tenId:'Tantang diri dengan 52 Buku dalam 52 Minggu.'}];
+function initTips(){document.getElementById('tipsGrid').innerHTML=TIPS.map(t=>`<div class="tip-card reveal"><div class="tip-num">${t.num}</div><div class="tip-title" data-en="${t.en}" data-id="${t.id}">${t.en}</div><div class="tip-text" data-en="${t.tent}" data-id="${t.tenId}">${t.tent}</div></div>`).join('')}
 
 // ===== NEWSLETTER =====
-function subscribeNL(){
-  const email=document.getElementById('nlEmail').value.trim();
-  if(!email||!email.includes('@')){showToast('Please enter a valid email!');return}
-  showToast('🎉 Subscribed! Welcome to Sofia Library!');
-  document.getElementById('nlEmail').value='';
-}
+function subscribeNL(){const email=document.getElementById('nlEmail').value.trim();if(!email||!email.includes('@')){showToast('Please enter a valid email!');return}showToast('🎉 Subscribed! Welcome to Sofia Library!');document.getElementById('nlEmail').value=''}
 
 // ===== TOAST =====
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
 
 // ===== REVEAL =====
-function initReveal(){
-  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1});
-  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el));
-}
-window.addEventListener('scroll',initReveal);
+function initReveal(){const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08});document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el))}
 document.addEventListener('DOMContentLoaded',initReveal);
-setTimeout(initReveal,800);
 </script>
 </body>
 </html>
